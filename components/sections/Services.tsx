@@ -139,27 +139,22 @@ export default function Services() {
                       </div>
                     </motion.div>
 
-                    {/* Content Section */}
+                    {/* Content Section - フィルター削除 */}
                     <motion.div
                       whileHover={{ x: isEven ? 10 : -10 }}
                       transition={{ duration: 0.3 }}
                       className={`space-y-6 ${!isEven ? 'lg:col-start-1 lg:row-start-1' : ''}`}
                     >
-                      <Card className={`border-0 shadow-lg hover:shadow-xl transition-all duration-500 bg-gradient-to-br ${service.bgGradient} group/card relative overflow-hidden`}>
-                        {/* Subtle background pattern */}
-                        <div className="absolute inset-0 opacity-10 group-hover/card:opacity-15 transition-opacity duration-500">
-                          <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-current to-transparent rounded-full blur-3xl" />
-                        </div>
-                        
+                      <Card className="border-0 shadow-lg hover:shadow-xl transition-all duration-500 bg-white group/card relative overflow-hidden">
                         <CardContent className="p-8 lg:p-10 relative z-10">
                           <div className="space-y-6">
                             {/* Header */}
                             <div className="space-y-4">
                               <div className="flex items-center gap-4">
-                                <div className="text-4xl font-bold text-muted-foreground/30">
+                                <div className={`text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r ${service.gradient}`}>
                                   0{index + 1}
                                 </div>
-                                <div className="h-px flex-1 bg-gradient-to-r from-muted-foreground/20 to-transparent" />
+                                <div className={`h-px flex-1 bg-gradient-to-r ${service.gradient} opacity-30`} />
                               </div>
                               
                               <h3 className="text-3xl lg:text-4xl font-bold group-hover/card:text-primary transition-colors duration-300">

@@ -15,7 +15,7 @@ export default function Footer() {
               className="flex items-center"
             >
               <img 
-                src="/images/logo/logo.png" 
+                src="/images/logo/logo.svg" 
                 alt="リクステップ" 
                 className="h-8 w-auto"
               />

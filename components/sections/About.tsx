@@ -4,59 +4,7 @@ import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
 import { CheckCircle, Shield, Clock, Zap, Sparkles, Star } from "lucide-react";
 
-const values = [
-  {
-    title: "本質へのこだわり",
-    description: "見えている課題ではなく、その奥にある\"構造\"から捉えます。",
-    icon: <CheckCircle className="h-6 w-6" />,
-    gradient: "from-blue-500 to-cyan-500",
-    bgGradient: "from-blue-50 to-cyan-50 dark:from-blue-950/20 dark:to-cyan-950/20"
-  },
-  {
-    title: "現場からの実装",
-    description: "仮説と試行を繰り返しながら、現場で動く仕組みをともに創ります。",
-    icon: <Shield className="h-6 w-6" />,
-    gradient: "from-purple-500 to-pink-500",
-    bgGradient: "from-purple-50 to-pink-50 dark:from-purple-950/20 dark:to-pink-950/20"
-  },
-  {
-    title: "共に挑む姿勢",
-    description: "私たちは\"請負業者\"ではありません。クライアントと同じ視点で並走します。",
-    icon: <Clock className="h-6 w-6" />,
-    gradient: "from-green-500 to-emerald-500",
-    bgGradient: "from-green-50 to-emerald-50 dark:from-green-950/20 dark:to-emerald-950/20"
-  },
-  {
-    title: "持続する変化",
-    description: "その場しのぎの対応ではなく、事業や社会に根づく解決策を目指します。",
-    icon: <Zap className="h-6 w-6" />,
-    gradient: "from-orange-500 to-red-500",
-    bgGradient: "from-orange-50 to-red-50 dark:from-orange-950/20 dark:to-red-950/20"
-  },
-];
-
 export default function About() {
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { y: 20, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-      transition: {
-        duration: 0.5,
-      },
-    },
-  };
-
   return (
     <section id="about" className="relative py-24 overflow-hidden">
       {/* Simple light gray background */}
@@ -144,51 +92,6 @@ export default function About() {
               </div>
             </motion.div>
           </div>
-        </div>
-
-        {/* Values Section */}
-        <div>
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-12"
-          >
-            <h3 className="text-3xl sm:text-4xl font-bold mb-6">私たちの価値観</h3>
-            <p className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-              リクステップが大切にしているのは、表面的な成果だけでなく、構造の奥から本質に迫る姿勢です。
-              私たちは「共に考え、共に創る」パートナーとして、持続的で意味のある変化を支えていきます。
-            </p>
-          </motion.div>
-
-          <motion.div
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
-          >
-            {values.map((value, index) => (
-              <motion.div key={index} variants={itemVariants} whileHover={{ y: -8 }}>
-                <Card className={`h-full border-0 shadow-lg hover:shadow-xl transition-all duration-500 bg-gradient-to-br ${value.bgGradient} backdrop-blur-sm group`}>
-                  <CardContent className="p-6 text-center">
-                    <div className={`inline-flex p-4 rounded-2xl bg-gradient-to-br ${value.gradient} shadow-lg mb-4 group-hover:scale-110 transition-transform duration-500`}>
-                      <div className="text-white">
-                        {value.icon}
-                      </div>
-                    </div>
-                    <h4 className="text-lg font-bold mb-3 group-hover:text-primary transition-colors duration-300">
-                      {value.title}
-                    </h4>
-                    <p className="text-sm text-muted-foreground leading-relaxed">
-                      {value.description}
-                    </p>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            ))}
-          </motion.div>
         </div>
       </div>
     </section>

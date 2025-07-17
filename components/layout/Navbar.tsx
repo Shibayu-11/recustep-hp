@@ -25,34 +25,34 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-
   return (
     <motion.header
       className={`fixed top-0 w-full z-50 transition-all duration-300 ${
         isScrolled
-          ? "bg-background/80 backdrop-blur-md shadow-sm"
-          : "bg-transparent"
+          ? "bg-background/95 backdrop-blur-md shadow-lg border-b border-border/40"
+          : "bg-background/95 backdrop-blur-md shadow-lg border-b border-border/40"
       }`}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
     >
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex h-14 sm:h-16 items-center justify-between">
+      <div className="w-full px-2 sm:px-4 lg:px-6">
+        <div className="flex h-14 sm:h-16 items-center justify-between w-full">
+          {/* Logo - 左端に */}
           <Link 
             href="/" 
             className="flex items-center"
           >
             <img 
-              src="/images/logo/logo.png" 
+              src="/images/logo/logo.svg"
               alt="リクステップ" 
               className="h-8 sm:h-10 w-auto"
             />
           </Link>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-4 lg:gap-6">
-            {navItems.map((item) => (
+          {/* Desktop Navigation - 右端に */}
+          <div className="hidden md:flex items-center gap-4 lg:gap-6">
+            {navItems.slice(0, 3).map((item) => (
               <Link
                 key={item.name}
                 href={item.href}
@@ -61,9 +61,8 @@ export default function Navbar() {
                 {item.name}
               </Link>
             ))}
-          </nav>
-
-          <div className="hidden md:flex items-center gap-2 lg:gap-4">
+            
+            {/* お問い合わせボタン */}
             <Link href="/contact">
               <Button className="font-medium text-sm lg:text-base px-3 lg:px-4 py-2">
                 お問い合わせ
@@ -73,7 +72,6 @@ export default function Navbar() {
 
           {/* Mobile Navigation */}
           <div className="flex md:hidden items-center gap-2">
-
             <Sheet>
               <SheetTrigger asChild>
                 <Button variant="ghost" size="icon" aria-label="Menu" className="h-8 w-8">
@@ -82,7 +80,7 @@ export default function Navbar() {
               </SheetTrigger>
               <SheetContent side="right" className="w-[280px] sm:w-[300px]">
                 <div className="flex flex-col gap-6 mt-8">
-                  {navItems.map((item) => (
+                  {navItems.slice(0, 3).map((item) => (
                     <Link
                       key={item.name}
                       href={item.href}
