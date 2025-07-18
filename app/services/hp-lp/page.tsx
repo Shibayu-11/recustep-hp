@@ -502,66 +502,6 @@ export default function HPLPPage() {
           </div>
         </div>
 
-        {/* 導入による効果 Section */}
-        <div className="relative bg-gradient-to-br from-background to-muted/50 rounded-3xl p-8 lg:p-12 shadow-lg border border-border/50">
-          <div className="absolute inset-0 bg-grid-white/10 [mask-image:radial-gradient(white,transparent_70%)] -z-10" />
-          <h2 className="text-3xl font-bold mb-8 text-center bg-clip-text text-transparent bg-gradient-to-r from-black via-gray-700 to-black">
-            導入による効果
-          </h2>
-          <p className="text-lg text-muted-foreground text-center mb-12 leading-relaxed max-w-3xl mx-auto">
-            リクステップのHP・LP制作により、お客様のビジネスに以下のような効果をもたらします。
-          </p>
-          
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
-            {[
-              {
-                title: "エンゲージメント",
-                description: "アクセス数やエンゲージメントを集計し、顧客数の増加に貢献いたします。",
-                icon: <Users className="h-12 w-12 text-primary" />
-              },
-              {
-                title: "リード獲得",
-                description: "SEOやAEO対策に加えて興味を引くタイトルや内容で検索順位を上昇させます。",
-                icon: <Target className="h-12 w-12 text-primary" />
-              },
-              {
-                title: "ブランディング",
-                description: "HPデザインを構築・強化し、顧客様に好印象を与えます。",
-                icon: <Sparkles className="h-12 w-12 text-primary" />
-              },
-              {
-                title: "売上向上",
-                description: "サービスの販売促進につなげ、業績を向上させる。",
-                icon: <ArrowRight className="h-12 w-12 text-primary" />
-              }
-            ].map((effect, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.1 + index * 0.1, duration: 0.5 }}
-                className="group"
-              >
-                <Card className="bg-white/40 backdrop-blur-sm border border-gray-200/50 shadow-lg hover:shadow-xl hover:bg-white/50 transition-all duration-300 transform hover:scale-[1.02] h-full">
-                  <CardContent className="p-8 text-center">
-                    <div className="mb-6 flex justify-center">
-                      <div className="p-4 bg-primary/10 rounded-2xl group-hover:scale-110 transition-transform duration-300">
-                        {effect.icon}
-                      </div>
-                    </div>
-                    <h3 className="text-xl font-bold mb-4 group-hover:text-primary transition-colors duration-300">
-                      {effect.title}
-                    </h3>
-                    <p className="text-muted-foreground text-sm leading-relaxed">
-                      {effect.description}
-                    </p>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-
         {/* Contact Section */}
         <div className="relative bg-white/30 backdrop-blur-sm rounded-3xl p-8 lg:p-12 shadow-lg border border-gray-200/50">
           <div className="absolute inset-0 bg-grid-white/10 [mask-image:radial-gradient(white,transparent_70%)] -z-10" />
