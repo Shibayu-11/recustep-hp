@@ -70,7 +70,7 @@ export default function About() {
 
               <div className="grid grid-cols-2 gap-6">
                 {[
-                  { value: "2019", label: "設立年", gradient: "from-blue-500 to-cyan-500" },
+                  { value: "2017", label: "設立年", gradient: "from-blue-500 to-cyan-500" },
                   { value: "10+", label: "スタッフ", gradient: "from-purple-500 to-pink-500" },
                   { value: "2", label: "拠点数", gradient: "from-green-500 to-emerald-500" },
                   { value: "24h", label: "サポート", gradient: "from-orange-500 to-red-500" }

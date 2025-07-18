@@ -82,69 +82,11 @@ export default function CompanyPage() {
           </div>
         </motion.div>
 
-        {/* Vision & Mission */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.4, duration: 0.6 }}
-          className="mb-16"
-        >
-          <div className="text-center mb-12">
-            <h2 className="text-3xl sm:text-4xl font-bold mb-4">ビジョン & ミッション</h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              私たちが目指す未来と、その実現に向けた取り組み
-            </p>
-          </div>
-          
-          <div className="grid md:grid-cols-2 gap-8">
-            {[
-              {
-                icon: <Target className="h-8 w-8" />,
-                title: "ビジョン",
-                content: "テクノロジーを通じて、すべての企業がデジタル時代で輝けるビジネスを創造する",
-                gradient: "from-blue-500 to-cyan-500",
-                bgGradient: "from-blue-50 to-cyan-50 dark:from-blue-950/20 dark:to-cyan-950/20"
-              },
-              {
-                icon: <Award className="h-8 w-8" />,
-                title: "ミッション",
-                content: "最新のテクノロジーと創造力で、お客様のビジネスの可能性を最大限に引き出し、持続的な成長をサポートする",
-                gradient: "from-purple-500 to-pink-500",
-                bgGradient: "from-purple-50 to-pink-50 dark:from-purple-950/20 dark:to-pink-950/20"
-              }
-            ].map((item, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.5 + index * 0.1, duration: 0.5 }}
-                whileHover={{ y: -8 }}
-              >
-                <Card className={`border-0 shadow-lg hover:shadow-xl transition-all duration-500 bg-gradient-to-br ${item.bgGradient} backdrop-blur-sm group h-full`}>
-                  <CardContent className="p-8">
-                    <div className={`inline-flex p-4 rounded-2xl bg-gradient-to-br ${item.gradient} shadow-lg mb-4 group-hover:scale-110 transition-transform duration-500`}>
-                      <div className="text-white">
-                        {item.icon}
-                      </div>
-                    </div>
-                    <h3 className="text-2xl font-bold mb-4 group-hover:text-primary transition-colors duration-300">
-                      {item.title}
-                    </h3>
-                    <p className="text-lg text-muted-foreground leading-relaxed">
-                      {item.content}
-                    </p>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
-
         {/* CTA Section */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.6, duration: 0.6 }}
+          transition={{ delay: 0.4, duration: 0.6 }}
           className="text-center"
         >
           <div className="relative inline-block">

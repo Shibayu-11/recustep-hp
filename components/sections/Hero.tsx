@@ -17,11 +17,22 @@ export default function Hero() {
             src="/images/hero-image.png"
             alt="Hero Background"
             fill
-            className="object-cover object-center"
+            className="object-cover object-center pointer-events-none select-none"
             priority
-            quality={90}
+            quality={100}
+            draggable={false}
+            // unoptimized を削除して Next.js の最適化を有効にする
+            style={{
+              userSelect: 'none',
+              WebkitUserSelect: 'none',
+              MozUserSelect: 'none',
+              msUserSelect: 'none',
+            }}
           />
         </div>
+
+        {/* Bottom blur overlay */}
+        <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-white via-white/80 to-transparent pointer-events-none" />
 
         {/* Buttons positioned at 80% from top */}
         <div className="absolute" style={{ top: '75%', right: '5%' }}>
