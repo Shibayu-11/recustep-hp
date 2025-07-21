@@ -84,13 +84,13 @@ export default function Services() {
             transition={{ duration: 0.6 }}
             className="relative"
           >
-            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-6">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight mb-6 text-black">
               ビジネスの成長を加速する
-              <span className="block mt-2 bg-clip-text text-transparent bg-gradient-to-r from-primary via-blue-500 to-purple-500">
+              <span className="block mt-2 text-primary">
                 6つのサービス
               </span>
             </h2>
-            <p className="text-lg sm:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+            <p className="text-base sm:text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
               リクステップは、多様なサービスを通じて、お客様のビジネスの成長をトータルでサポートします。
               各サービスは単体でも、組み合わせても活用いただけます。
             </p>
@@ -139,7 +139,7 @@ export default function Services() {
                       </div>
                     </motion.div>
 
-                    {/* Content Section - フィルター削除 */}
+                    {/* Content Section */}
                     <motion.div
                       whileHover={{ x: isEven ? 10 : -10 }}
                       transition={{ duration: 0.3 }}
@@ -151,19 +151,19 @@ export default function Services() {
                             {/* Header */}
                             <div className="space-y-4">
                               <div className="flex items-center gap-4">
-                                <div className={`text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r ${service.gradient}`}>
+                                <div className={`text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r ${service.gradient}`}>
                                   0{index + 1}
                                 </div>
                                 <div className={`h-px flex-1 bg-gradient-to-r ${service.gradient} opacity-30`} />
                               </div>
                               
-                              <h3 className="text-3xl lg:text-4xl font-bold group-hover/card:text-primary transition-colors duration-300">
+                              <h3 className="text-xl lg:text-2xl font-bold group-hover/card:text-primary transition-colors duration-300 text-black">
                                 {service.title}
                               </h3>
                             </div>
                             
                             {/* Description */}
-                            <p className="text-lg text-muted-foreground leading-relaxed">
+                            <p className="text-sm lg:text-base text-muted-foreground leading-relaxed">
                               {service.description}
                             </p>
                             
@@ -179,7 +179,7 @@ export default function Services() {
                                   className="flex items-center gap-3"
                                 >
                                   <div className={`w-2 h-2 rounded-full bg-gradient-to-r ${service.gradient}`} />
-                                  <span className="text-sm font-medium">{feature}</span>
+                                  <span className="text-xs lg:text-sm font-medium">{feature}</span>
                                 </motion.div>
                               ))}
                             </div>
@@ -188,13 +188,13 @@ export default function Services() {
                             <div className="flex items-center justify-between pt-4">
                               <Button 
                                 variant="ghost" 
-                                className="group/btn p-0 h-auto text-primary hover:bg-transparent font-semibold text-lg"
+                                className="group/btn p-0 h-auto text-primary hover:bg-transparent font-semibold text-base"
                               >
                                 <span>詳しく見る</span>
-                                <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover/btn:translate-x-2" />
+                                <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover/btn:translate-x-2" />
                               </Button>
                               
-                              <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                              <div className="flex items-center gap-2 text-xs text-muted-foreground">
                                 <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
                                 <span>利用可能</span>
                               </div>
@@ -234,29 +234,29 @@ export default function Services() {
             <Card className="relative bg-gradient-to-r from-primary/5 to-blue-500/5 border-primary/20 backdrop-blur-sm shadow-2xl">
               <CardContent className="p-12 lg:p-16">
                 <div className="max-w-4xl mx-auto">
-                  <h3 className="text-4xl sm:text-5xl font-bold mb-8">
+                  <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-8 text-black">
                     どのサービスが最適かわからない？
                   </h3>
-                  <p className="text-xl text-muted-foreground mb-10 leading-relaxed">
+                  <p className="text-base lg:text-lg text-muted-foreground mb-10 leading-relaxed">
                     お客様の課題やご要望をお聞かせください。<br className="hidden sm:block" />
                     最適なサービスの組み合わせを無料でご提案いたします。
                   </p>
                   
                   <div className="flex flex-col sm:flex-row gap-6 justify-center mb-10">
                     <Link href="#contact">
-                      <Button size="lg" className="group bg-gradient-to-r from-primary to-blue-500 hover:from-primary/90 hover:to-blue-500/90 text-white shadow-xl px-10 py-6 text-xl">
+                      <Button size="lg" className="group bg-gradient-to-r from-primary to-blue-500 hover:from-primary/90 hover:to-blue-500/90 text-white shadow-xl px-8 py-4 text-base">
                         <span>無料相談を予約する</span>
-                        <ArrowRight className="ml-3 h-6 w-6 transition-transform group-hover:translate-x-1" />
+                        <ArrowRight className="ml-3 h-5 w-5 transition-transform group-hover:translate-x-1" />
                       </Button>
                     </Link>
                     <Link href="/services">
-                      <Button size="lg" variant="outline" className="px-10 py-6 text-xl border-2">
+                      <Button size="lg" variant="outline" className="px-8 py-4 text-base border-2">
                         サービス一覧を見る
                       </Button>
                     </Link>
                   </div>
                   
-                  <div className="flex flex-wrap items-center justify-center gap-8 text-sm text-muted-foreground">
+                  <div className="flex flex-wrap items-center justify-center gap-8 text-xs text-muted-foreground">
                     <div className="flex items-center gap-2">
                       <div className="w-2 h-2 rounded-full bg-green-500" />
                       <span>初回相談無料</span>
