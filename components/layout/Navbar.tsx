@@ -1,105 +1,46 @@
-"use client";
-
-import { useState, useEffect } from "react";
 import Link from "next/link";
-import { Menu, X, Languages } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { motion, AnimatePresence } from "framer-motion";
-
-const navItems = [
-  { name: "サービス", href: "/services" },
-  { name: "会社概要", href: "/company" },
-  { name: "実績", href: "#works" },
-  { name: "お問い合わせ", href: "/contact" },
-];
+import Image from "next/image";
 
 export default function Navbar() {
-  const [isScrolled, setIsScrolled] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
   return (
-    <motion.header
-      className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-        isScrolled
-          ? "bg-background/95 backdrop-blur-md shadow-lg border-b border-border/40"
-          : "bg-background/95 backdrop-blur-md shadow-lg border-b border-border/40"
-      }`}
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.5 }}
-    >
-      <div className="w-full px-2 sm:px-4 lg:px-6">
-        <div className="flex h-14 sm:h-16 items-center justify-between w-full">
-          {/* Logo - 左端に */}
-          <Link 
-            href="/" 
-            className="flex items-center"
-          >
+    <nav className="fixed top-0 left-0 right-0 bg-white shadow-sm z-50">
+      <div className="w-full px-0">
+        <div className="flex items-center justify-between h-16">
+          {/* Logo */}
+          <Link href="/" className="flex items-center pl-4 md:pl-0">
             <img 
-              src="/images/logo/logo.svg"
+              src="/images/logo/logo.png" 
               alt="リクステップ" 
-              className="h-8 sm:h-10 w-auto"
+              className="h-12 w-auto"
             />
           </Link>
 
-          {/* Desktop Navigation - 右端に */}
-          <div className="hidden md:flex items-center gap-4 lg:gap-6">
-            {navItems.slice(0, 3).map((item) => (
-              <Link
-                key={item.name}
-                href={item.href}
-                className="text-sm lg:text-base text-foreground/80 hover:text-foreground transition-colors font-medium"
-              >
-                {item.name}
-              </Link>
-            ))}
-            
-            {/* お問い合わせボタン */}
-            <Link href="/contact">
-              <Button className="font-medium text-sm lg:text-base px-3 lg:px-4 py-2">
-                お問い合わせ
-              </Button>
+          {/* Navigation Menu */}
+          <div className="hidden md:flex items-center space-x-8 pr-4">
+            <Link href="/services" className="text-gray-700 hover:text-primary transition-colors">
+              サービス
+            </Link>
+            <Link href="/company" className="text-gray-700 hover:text-primary transition-colors">
+              会社概要
+            </Link>
+            <Link href="/results" className="text-gray-700 hover:text-primary transition-colors">
+              実績
+            </Link>
+            <Link href="/contact" className="bg-primary text-white px-6 py-2 rounded-lg hover:bg-primary/90 transition-colors">
+              お問い合わせ
             </Link>
           </div>
 
-          {/* Mobile Navigation */}
-          <div className="flex md:hidden items-center gap-2">
-            <Sheet>
-              <SheetTrigger asChild>
-                <Button variant="ghost" size="icon" aria-label="Menu" className="h-8 w-8">
-                  <Menu className="h-4 w-4" />
-                </Button>
-              </SheetTrigger>
-              <SheetContent side="right" className="w-[280px] sm:w-[300px]">
-                <div className="flex flex-col gap-6 mt-8">
-                  {navItems.slice(0, 3).map((item) => (
-                    <Link
-                      key={item.name}
-                      href={item.href}
-                      className="text-foreground/80 hover:text-foreground text-lg font-medium"
-                    >
-                      {item.name}
-                    </Link>
-                  ))}
-                  <Link href="/contact">
-                    <Button className="mt-4 w-full">
-                      お問い合わせ
-                    </Button>
-                  </Link>
-                </div>
-              </SheetContent>
-            </Sheet>
+          {/* Mobile Menu Button */}
+          <div className="md:hidden">
+            <button className="text-gray-700 hover:text-primary">
+              <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            </button>
           </div>
         </div>
       </div>
-    </motion.header>
+    </nav>
   );
 }
