@@ -1,240 +1,191 @@
 "use client";
-import { motion } from "framer-motion";
+
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
+import { motion } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 
-export default function HeroSection() {
+export default function Hero() {
   return (
-    <section className="relative py-24 bg-white overflow-hidden">
-      {/* 背景要素 */}
-      <div className="absolute inset-0 bg-gradient-to-br from-blue-50/30 to-purple-50/30" />
-      <div className="absolute inset-0 bg-grid-white/10 [mask-image:radial-gradient(white,transparent_70%)]" />
-      
-      <div className="container mx-auto px-4 relative z-10">
-        {/* パンくずリスト（SEO強化） */}
-        <nav aria-label="パンくずリスト" className="mb-8">
-          <ol className="flex items-center space-x-2 text-sm text-muted-foreground">
-            <li>
-              <Link href="/" className="hover:text-foreground transition-colors">
-                大阪のホームページ制作
-              </Link>
-            </li>
-            <li>/</li>
-            <li className="text-foreground">トップページ</li>
-          </ol>
-        </nav>
+    <>
+      {/* Hero Image Section */}
+      <section className="relative overflow-hidden min-h-screen pt-20">
+        {/* Background Image */}
+        <div className="absolute inset-0">
+          <Image
+            src="/images/hero-image.png"
+            alt="Hero Background"
+            fill
+            className="object-cover object-center"
+            priority
+            quality={90}
+          />
+        </div>
 
-        <div className="text-center max-w-4xl mx-auto space-y-6">
-          {/* メインh1（既存文章維持） */}
-          <motion.h1
-            className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight tracking-tight text-gray-900"
+        {/* Buttons positioned at 80% from top */}
+        <div className="absolute" style={{ top: '75%', right: '5%' }}>
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            aria-label="大阪・南大阪のホームページ制作会社リクステップ：多様なサービスでビジネス成長をサポート"
+            className="flex flex-col sm:flex-row gap-4 sm:gap-6"
           >
-            多様なサービスを通じて、<br />
-            お客様のビジネスの成長を<br />
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary to-blue-500">
-              トータルでサポート
-            </span>
-          </motion.h1>
+            <Link href="/services">
+              <Button size="lg" className="group bg-gradient-to-r from-primary to-blue-500 hover:from-primary/90 hover:to-blue-500/90 text-white shadow-xl px-12 py-12 text-xl w-64 min-w-64">
+                <span>サービスを見る</span>
+                <ArrowRight className="ml-3 h-6 w-6 transition-transform group-hover:translate-x-1" />
+              </Button>
+            </Link>
+            <Link href="/contact">
+              <Button size="lg" variant="outline" className="px-12 py-12 text-xl border-2 w-64 min-w-64 border-gray-800 text-black bg-white/90 hover:bg-white hover:text-black shadow-xl backdrop-blur-sm">
+                お問い合わせ
+              </Button>
+            </Link>
+          </motion.div>
+        </div>
+      </section>
 
-          {/* h2でSEO強化（新規追加） */}
-          <motion.h2
-            className="text-2xl sm:text-3xl lg:text-4xl font-semibold text-muted-foreground"
+      {/* Process Steps Section */}
+      <section className="bg-white py-20">
+        <div className="container mx-auto px-4">
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.6 }}
+            className="text-center mb-16"
           >
-            大阪・南大阪のホームページ制作会社リクステップ
-          </motion.h2>
-
-          {/* 説明文（地域性を含めて最適化） */}
-          <motion.p
-            className="mt-6 text-lg sm:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4, duration: 0.6 }}
-          >
-            大阪・南大阪を中心に、HP・LP制作、システム開発、採用支援を一貫提供。
-            各サービスは単体でも、組み合わせても活用いただけます。
-            地域企業の成長をデジタルの力で支援いたします。
-          </motion.p>
-
-          {/* サービス概要（新規追加） */}
-          <motion.div
-            className="flex flex-wrap justify-center gap-3 mt-6"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.6, duration: 0.6 }}
-          >
-            {[
-              "大阪のHP制作",
-              "南大阪のシステム開発", 
-              "採用支援",
-              "面接代行",
-              "アート事業"
-            ].map((service, index) => (
-              <span
-                key={index}
-                className="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm font-medium"
-              >
-                {service}
-              </span>
-            ))}
-          </motion.div>
-
-          {/* CTA ボタン */}
-          <motion.div
-            className="flex flex-col sm:flex-row gap-4 justify-center items-center mt-8"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.8, duration: 0.6 }}
-          >
-            <Link href="/contact">
-              <Button size="lg" className="text-lg px-8 py-4">
-                無料相談してみる
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
-            </Link>
-            <Link href="/services">
-              <Button variant="outline" size="lg" className="text-lg px-8 py-4">
-                サービス一覧を見る
-              </Button>
-            </Link>
-          </motion.div>
-
-          {/* 実績数値（信頼性向上） */}
-          <motion.div
-            className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-12 pt-12 border-t border-gray-200"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 1.0, duration: 0.6 }}
-          >
-            {[
-              { number: "300+", label: "制作実績" },
-              { number: "3倍", label: "問い合わせ増加" },
-              { number: "98%", label: "お客様満足度" },
-              { number: "24時間", label: "サポート対応" }
-            ].map((stat, index) => (
-              <div key={index} className="text-center">
-                <div className="text-3xl font-bold text-primary mb-2">
-                  {stat.number}
-                </div>
-                <div className="text-sm text-muted-foreground">
-                  {stat.label}
-                </div>
-              </div>
-            ))}
-          </motion.div>
-
-          {/* 地域情報（MEO強化） */}
-          <motion.div
-            className="mt-8 text-sm text-muted-foreground"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 1.2, duration: 0.6 }}
-          >
-            <p>
-              対応エリア：大阪市・堺市・和泉市・松原市・羽曳野市・藤井寺市・富田林市・河内長野市・大阪狭山市
+            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+              私たちの進め方
+            </h2>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              お客様との対話を大切にし、段階的にプロジェクトを進めます
             </p>
           </motion.div>
+
+          {/* Mobile: Horizontal scroll */}
+          <div className="block lg:hidden">
+            <div className="flex gap-4 overflow-x-auto pb-4 snap-x snap-mandatory scrollbar-hide">
+              {[
+                { 
+                  step: "1", 
+                  title: "ヒアリング", 
+                  desc: "課題や目的、ターゲット層、既存業務などを確認し、目的と方向性を整理します。"
+                },
+                { 
+                  step: "2", 
+                  title: "要件・構成の整理", 
+                  desc: "必要な構成（ページ数・機能・設計方針など）を明確化し、提案します。"
+                },
+                { 
+                  step: "3", 
+                  title: "プロトタイプの提示", 
+                  desc: "ワイヤーフレーム、デザイン案、動作試作などを共有。現場の声を取り入れて調整します。"
+                },
+                { 
+                  step: "4", 
+                  title: "制作・実装", 
+                  desc: "サイト構築またはシステム開発を行い、動作・表示を確認しながら進行します。"
+                },
+                { 
+                  step: "5", 
+                  title: "公開・運用サポート", 
+                  desc: "公開設定・納品・引き渡し後の運用支援、追加対応も行います。継続的な改善提案も可能です。"
+                },
+              ].map((item, index) => (
+                <motion.div
+                  key={index}
+                  className="flex-shrink-0 w-72 snap-center"
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.4 + index * 0.1, duration: 0.6 }}
+                >
+                  <div className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl p-6 shadow-lg border border-gray-200 h-full">
+                    <div className="flex flex-col items-center text-center">
+                      <div className="w-12 h-12 rounded-xl bg-primary/10 shadow-lg flex items-center justify-center mb-4">
+                        <div className="text-xl font-bold text-primary">
+                          {item.step}
+                        </div>
+                      </div>
+                      
+                      <h3 className="text-base font-bold mb-3 text-gray-900">
+                        {item.title}
+                      </h3>
+                      
+                      <p className="text-sm text-gray-600 leading-relaxed">
+                        {item.desc}
+                      </p>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+
+          {/* Desktop: Grid layout */}
+          <div className="hidden lg:grid lg:grid-cols-5 gap-8">
+            {[
+              { 
+                step: "1", 
+                title: "ヒアリング", 
+                desc: "課題や目的、ターゲット層、既存業務などを確認し、目的と方向性を整理します。"
+              },
+              { 
+                step: "2", 
+                title: "要件・構成の整理", 
+                desc: "必要な構成（ページ数・機能・設計方針など）を明確化し、提案します。"
+              },
+              { 
+                step: "3", 
+                title: "プロトタイプの提示", 
+                desc: "ワイヤーフレーム、デザイン案、動作試作などを共有。現場の声を取り入れて調整します。"
+              },
+              { 
+                step: "4", 
+                title: "制作・実装", 
+                desc: "サイト構築またはシステム開発を行い、動作・表示を確認しながら進行します。"
+              },
+              { 
+                step: "5", 
+                title: "公開・運用サポート", 
+                desc: "公開設定・納品・引き渡し後の運用支援、追加対応も行います。継続的な改善提案も可能です。"
+              },
+            ].map((item, index) => (
+              <motion.div
+                key={index}
+                className="relative group"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.4 + index * 0.1, duration: 0.6 }}
+                whileHover={{ y: -8 }}
+              >
+                <div className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-500 border border-gray-200 h-full">
+                  <div className="flex flex-col items-center text-center">
+                    <div className="w-16 h-16 rounded-2xl bg-primary/10 shadow-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-500">
+                      <div className="text-2xl font-bold text-primary">
+                        {item.step}
+                      </div>
+                    </div>
+                    
+                    <h3 className="text-lg font-bold mb-3 text-gray-900 group-hover:text-primary transition-colors duration-300">
+                      {item.title}
+                    </h3>
+                    
+                    <p className="text-sm text-gray-600 leading-relaxed">
+                      {item.desc}
+                    </p>
+                  </div>
+                  
+                  {/* Connection line for desktop */}
+                  {index < 4 && (
+                    <div className="hidden lg:block absolute left-full top-1/2 w-8 h-[2px] bg-gray-300 transform -translate-y-1/2 group-hover:bg-primary/50 transition-colors duration-300" />
+                  )}
+                </div>
+              </motion.div>
+            ))}
+          </div>
         </div>
-      </div>
-
-      {/* 構造化データ（SEO強化） */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "WebPage",
-            "name": "大阪・南大阪のホームページ制作会社リクステップ",
-            "description": "大阪・南大阪でHP・LP制作、システム開発、採用支援を一貫提供。多様なサービスでお客様のビジネス成長をトータルサポート。",
-            "url": "https://recustep.com",
-            "provider": {
-              "@type": "LocalBusiness",
-              "name": "株式会社リクステップ",
-              "areaServed": ["大阪府", "大阪市", "堺市", "南大阪地域"],
-              "serviceType": ["ホームページ制作", "システム開発", "採用支援"]
-            }
-          })
-        }}
-      />
-    </section>
-  );
-}
-
-// ==========================================
-// サービスページ用 Hero Section テンプレート
-// ==========================================
-
-// HP・LP制作ページ用
-export function HPLPHeroSection() {
-  return (
-    <section className="relative py-24 bg-white">
-      <div className="container mx-auto px-4 relative z-10">
-        {/* パンくずリスト */}
-        <nav aria-label="パンくずリスト" className="mb-8">
-          <ol className="flex items-center space-x-2 text-sm text-muted-foreground">
-            <li><Link href="/">ホーム</Link></li>
-            <li>/</li>
-            <li><Link href="/services">大阪のサービス</Link></li>
-            <li>/</li>
-            <li className="text-foreground">HP・LP制作</li>
-          </ol>
-        </nav>
-
-        <div className="text-center max-w-3xl mx-auto space-y-4">
-          {/* メインh1（既存維持） */}
-          <motion.h1
-            className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight tracking-tight"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-          >
-            Webサイトの課題を、<br />
-            一気通貫で解決します
-          </motion.h1>
-
-          {/* SEO強化h2 */}
-          <motion.h2
-            className="text-2xl sm:text-3xl font-semibold text-muted-foreground"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2, duration: 0.5 }}
-          >
-            大阪・南大阪のホームページ制作専門
-          </motion.h2>
-
-          {/* 説明文 */}
-          <motion.p
-            className="mt-6 text-lg text-muted-foreground text-center max-w-2xl mx-auto"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4, duration: 0.5 }}
-          >
-            企業紹介、サービス紹介、採用特化など、目的に応じた高品質なサイトを企画・制作。
-            デザインとテクノロジーで企業の魅力を最大限に引き出します。
-          </motion.p>
-
-          {/* CTA */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.6, duration: 0.5 }}
-          >
-            <Link href="/contact">
-              <Button size="lg" className="mt-8">
-                無料相談してみる
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
-            </Link>
-          </motion.div>
-        </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 }

@@ -1,4 +1,5 @@
 import { Suspense } from 'react';
+import Navbar from '@/components/layout/Navbar';
 import Hero from '@/components/sections/Hero';
 import Services from '@/components/sections/Services';
 import About from '@/components/sections/About';
@@ -8,14 +9,17 @@ import LoadingSpinner from '@/components/ui/loading-spinner';
 
 export default function Home() {
   return (
-    <main className="min-h-screen">
-      <Suspense fallback={<LoadingSpinner />}>
-        <Hero />
-        <Services />
-        <About />
-        <Works />
-        <Contact />
-      </Suspense>
-    </main>
+    <>
+      <Navbar />
+      <main className="min-h-screen">
+        <Suspense fallback={<LoadingSpinner />}>
+          <Hero />
+          <Services />
+          <About />
+          <Works />
+          <Contact />
+        </Suspense>
+      </main>
+    </>
   );
 }
