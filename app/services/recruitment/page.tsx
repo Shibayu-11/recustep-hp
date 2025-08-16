@@ -1,298 +1,480 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, ArrowLeft, Check, Users, Brain, RefreshCcw, Target, Sparkles } from "lucide-react";
-import { Waves } from "@/components/ui/wave-background";
+import { motion } from "framer-motion";
 import Link from "next/link";
+import {
+  Users,
+  Target,
+  Clock,
+  FileText,
+  Phone,
+  Calendar,
+  BarChart3,
+  Shield,
+  Sparkles,
+  ArrowRight,
+  CheckCircle2,
+} from "lucide-react";
 
+/* =========================
+   ページ本体
+   ========================= */
 export default function RecruitmentPage() {
   return (
-    <main className="min-h-screen">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 pt-24">
-        <Link href="/" className="text-sm text-muted-foreground flex items-center gap-1 mb-4">
-          <ArrowLeft className="h-4 w-4" />
-          <span>トップページに戻る</span>
-        </Link>
+    <main className="bg-[#f7f9fb]">
+      {/* ====== HERO（固定） ====== */}
+<section className="relative w-full overflow-hidden pt-[88px] lg:pt-[104px]">
+  <div
+    className="
+      max-w-7xl mx-auto
+      min-h-[560px] md:min-h-[720px]
+      flex flex-col md:flex-row
+      items-stretch
+      justify-start md:justify-between   /* ← SPは上寄せ、PCは従来どおり */
+    "
+  >
+    {/* 左：テキスト（SPだけ上に約2行ぶん持ち上げ） */}
+    <motion.div
+      className="
+        order-2 md:order-1
+        w-full md:w-[52%]
+        px-6 md:px-10 lg:px-16
+        py-8 md:py-14
+        relative z-10
+        mt-12 sm:mt-16 md:mt-0 
+      "
+      initial={{ opacity: 0, x: -24 }}
+      animate={{ opacity: 1, x: 0 }}
+      transition={{ duration: 0.6 }}
+    >
+      <div className="w-full md:max-w-[640px]">
+        <h1 className="text-[24px] sm:text-[32px] md:text-[48px] lg:text-[56px] font-bold leading-tight tracking-[-0.01em] text-gray-900">
+          <span className="block whitespace-nowrap">採用の常識を変える。</span>
+          <span className="block whitespace-nowrap">人事部を持たない選択。</span>
+        </h1>
+
+        <p className="mt-6 text-[14px] sm:text-[15px] md:text-lg leading-relaxed text-gray-700">
+          <span className="md:inline-block md:whitespace-nowrap">
+            人材採用は、もはや <strong className="text-gray-800">“専任の人事部”</strong> を持たなくても実現できる時代。
+          </span>
+          <br className="hidden md:block" />
+          <span className="md:inline-block">
+            リクステップは貴社の「採用部門そのもの」として機能し、
+          </span>
+          <br className="hidden md:block" />
+          <span className="md:inline-block">
+            コストと手間を最小限に、<strong className="font-semibold">最大の採用成果</strong>をお届けします。
+          </span>
+        </p>
+
+        <div className="mt-7 md:mt-8">
+          <Link href="#contact">
+            <Button className="text-sm md:text-lg px-6 md:px-8 py-4 md:py-6 rounded-xl">
+              無料相談を申し込む
+            </Button>
+          </Link>
+        </div>
       </div>
+    </motion.div>
 
-      {/* Hero Section */}
-      <section className="relative py-24 bg-white">
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="text-center max-w-3xl mx-auto space-y-4">
-            <motion.h1
-              className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight tracking-tight"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-            >
-              採用の悩みを、<br />
-              一気通貫で解決します
-            </motion.h1>
-            <motion.p
-              className="mt-6 text-lg text-muted-foreground text-center max-w-2xl mx-auto"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2, duration: 0.5 }}
-            >
-              求人サイト制作から戦略設計、面接代行、内定フォローまで
-              専門チームがワンストップで支援します。
-            </motion.p>
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4, duration: 0.5 }}
-            >
-              <Button size="lg" className="mt-8">
-                無料相談してみる
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
-            </motion.div>
-          </div>
-        </div>
-      </section>
+    {/* 右：画像（ナビ直下まで引き上げ＋斜めクリップ） */}
+    <motion.div
+      className="order-1 md:order-2 w-full md:w-[48%] h-[42vh] md:min-h-[720px] relative -mt-[88px] lg:-mt-[104px]"
+      initial={{ opacity: 0, x: 24 }}
+      animate={{ opacity: 1, x: 0 }}
+      transition={{ duration: 0.6 }}
+    >
+      <div
+        className="absolute inset-0"
+        style={{ clipPath: "polygon(12% 0, 100% 0, 100% 100%, 0 100%)" }}
+      >
+        <img
+          src="/images/pages/humanpage.png"
+          alt="採用代行サービス"
+          className="w-full h-full object-cover select-none pointer-events-none object-[82%_center]"
+          draggable={false}
+        />
+      </div>
+    </motion.div>
+  </div>
+</section>
 
-      {/* Service Flow Section */}
-      <section className="py-24">
-        <div className="container mx-auto px-4">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-3xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-primary to-blue-500 dark:from-blue-400 dark:to-purple-500">
-              サービスの流れ
-            </h2>
-            <p className="text-2xl font-bold mb-4 text-foreground">
-              採用成功に向けた5つのステップ
-            </p>
-            <p className="text-lg text-muted-foreground leading-relaxed">
-              リクステップでは、採用活動の成功に向けて体系的なアプローチを採用。
-              各フェーズで専門チームが連携し、最適な人材採用を実現します。
-            </p>
-          </div>
-          <div className="relative max-w-4xl mx-auto">
-            <div className="absolute left-1/2 top-0 bottom-0 w-px bg-border -translate-x-1/2 hidden md:block" />
-            
-            {[
-              {
-                step: "01",
-                title: "現状分析・ヒアリング",
-                description: "採用課題や目標、企業文化について詳しくお伺いします",
-                items: [
-                  "現在の採用状況の確認",
-                  "課題の洗い出し",
-                  "採用目標の設定",
-                  "企業文化・価値観の理解"
-                ]
-              },
-              {
-                step: "02",
-                title: "採用戦略の設計",
-                description: "データに基づいた効果的な採用戦略を立案します",
-                items: [
-                  "採用チャネルの選定",
-                  "採用基準の設計",
-                  "選考フローの最適化",
-                  "スケジュール策定"
-                ]
-              },
-              {
-                step: "03",
-                title: "求人サイト・コンテンツ制作",
-                description: "魅力が伝わる求人コンテンツを制作します",
-                items: [
-                  "求人原稿の作成",
-                  "採用サイトの制作",
-                  "PR動画の制作",
-                  "SNS運用支援"
-                ]
-              },
-              {
-                step: "04",
-                title: "選考支援・面接代行",
-                description: "効率的な選考プロセスをサポートします",
-                items: [
-                  "応募者対応",
-                  "書類選考代行",
-                  "面接代行",
-                  "適性検査の実施"
-                ]
-              },
-              {
-                step: "05",
-                title: "内定者フォロー",
-                description: "入社までのフォローを徹底的に行います",
-                items: [
-                  "内定通知の作成",
-                  "入社前研修の設計",
-                  "情報提供・コミュニケーション",
-                  "入社後のフォローアップ"
-                ]
-              }
-            ].map((phase, index) => (
-              <div key={index} className="relative mb-16 last:mb-0">
-                <div className="flex flex-col md:flex-row items-start gap-8">
-                  <div className="w-full md:w-1/2 md:text-right md:pr-12">
-                    {index % 2 === 0 && (
-                      <Card className="bg-background/50 backdrop-blur-sm border-0 shadow-md">
-                        <CardContent className="p-6">
-                          <div className="text-4xl font-bold text-primary mb-4">{phase.step}</div>
-                          <h3 className="text-xl font-bold mb-2">{phase.title}</h3>
-                          <p className="text-muted-foreground mb-4">{phase.description}</p>
-                          <ul className="space-y-2">
-                            {phase.items.map((item, itemIndex) => (
-                              <li key={itemIndex} className="flex items-center justify-end gap-2">
-                                <span>{item}</span>
-                                <Check className="h-4 w-4 text-primary flex-shrink-0" />
-                              </li>
-                            ))}
-                          </ul>
-                        </CardContent>
-                      </Card>
-                    )}
-                  </div>
-                  <div className="w-full md:w-1/2 md:pl-12">
-                    {index % 2 === 1 && (
-                      <Card className="bg-background/50 backdrop-blur-sm border-0 shadow-md">
-                        <CardContent className="p-6">
-                          <div className="text-4xl font-bold text-primary mb-4">{phase.step}</div>
-                          <h3 className="text-xl font-bold mb-2">{phase.title}</h3>
-                          <p className="text-muted-foreground mb-4">{phase.description}</p>
-                          <ul className="space-y-2">
-                            {phase.items.map((item, itemIndex) => (
-                              <li key={itemIndex} className="flex items-center gap-2">
-                                <Check className="h-4 w-4 text-primary flex-shrink-0" />
-                                <span>{item}</span>
-                              </li>
-                            ))}
-                          </ul>
-                        </CardContent>
-                      </Card>
-                    )}
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* ====== 3つの「ない」 ====== */}
+      <Problems />
 
-      {/* Common Issues Section */}
-      <section className="py-24 bg-muted/30">
-        <div className="container mx-auto px-4">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-3xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-primary to-blue-500 dark:from-blue-400 dark:to-purple-500">
-              よくある採用の悩み
-            </h2>
-            <p className="text-2xl font-bold mb-4 text-foreground">
-              採用における3つの課題を解決します
-            </p>
-            <p className="text-lg text-muted-foreground leading-relaxed">
-              多くの企業が抱える採用の課題に対して、
-              リクステップは豊富な経験とノウハウで最適な解決策を提供します。
-            </p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[
-              {
-                title: "応募が集まらない",
-                problem: "求人を出しても良い応募が来ない、採用媒体の選定が難しい",
-                solution: "業界・職種に最適な採用媒体の選定と、魅力が伝わる求人コンテンツの作成で、質の高い応募を実現します。",
-                icon: <Target className="h-8 w-8 text-primary" />
-              },
-              {
-                title: "選考の工数が多い",
-                problem: "応募者対応や面接調整に時間がかかり、本来の業務に支障が出ている",
-                solution: "応募者対応から面接代行まで、採用業務を一括して代行。貴社の業務効率化を実現します。",
-                icon: <RefreshCcw className="h-8 w-8 text-primary" />
-              },
-              {
-                title: "ミスマッチが多い",
-                problem: "入社後のギャップで早期退職が続く、選考基準があいまい",
-                solution: "科学的な適性検査と、貴社の文化に合わせた選考基準の設計で、長期的な活躍が期待できる人材を採用できます。",
-                icon: <Brain className="h-8 w-8 text-primary" />
-              }
-            ].map((issue, index) => (
-              <Card key={index} className="bg-background/50 backdrop-blur-sm border-0 shadow-md">
-                <CardContent className="p-6">
-                  <div className="mb-4">{issue.icon}</div>
-                  <h3 className="text-xl font-bold mb-4">{issue.title}</h3>
-                  <div className="space-y-4">
-                    <div>
-                      <h4 className="font-semibold text-muted-foreground mb-2">課題</h4>
-                      <p>{issue.problem}</p>
-                    </div>
-                    <div>
-                      <h4 className="font-semibold text-muted-foreground mb-2">解決方法</h4>
-                      <p>{issue.solution}</p>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* ====== 特徴（ATS×低コスト×即応×プロ支援） ====== */}
+      <Features />
 
-      {/* Results Section */}
-      <section className="py-24">
-        <div className="container mx-auto px-4">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-3xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-primary to-blue-500 dark:from-blue-400 dark:to-purple-500">
-              導入効果
-            </h2>
-            <p className="text-2xl font-bold mb-4 text-foreground">
-              数字で見る採用改善の実績
-            </p>
-            <p className="text-lg text-muted-foreground leading-relaxed">
-              リクステップの採用支援サービスを導入いただいた企業様の
-              具体的な改善効果をご紹介します。
-            </p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[
-              {
-                title: "応募数の増加",
-                number: "250%",
-                description: "適切な採用戦略と魅力的な求人コンテンツにより、質の高い応募数が大幅に増加",
-                icon: <Users className="h-8 w-8 text-primary" />
-              },
-              {
-                title: "採用工数の削減",
-                number: "70%",
-                description: "面接代行と応募者対応の効率化により、社内の採用関連業務を大幅に削減",
-                icon: <RefreshCcw className="h-8 w-8 text-primary" />
-              },
-              {
-                title: "定着率の向上",
-                number: "90%",
-                description: "科学的な適性検査と丁寧な内定者フォローにより、入社後1年の定着率が向上",
-                icon: <Sparkles className="h-8 w-8 text-primary" />
-              }
-            ].map((result, index) => (
-              <Card key={index} className="bg-background/50 backdrop-blur-sm border-0 shadow-md">
-                <CardContent className="p-6 text-center">
-                  <div className="mb-4">{result.icon}</div>
-                  <h3 className="text-xl font-bold mb-2">{result.title}</h3>
-                  <div className="text-4xl font-bold text-primary my-4">{result.number}</div>
-                  <p className="text-muted-foreground">{result.description}</p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* ====== 提供範囲（やること一覧） ====== */}
+      <Scope />
 
-      {/* CTA Section */}
-      <section className="py-24 bg-muted/30">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-8">
-            貴社の課題に合った採用支援をご提案します
-          </h2>
-          <Button size="lg" className="group">
-            無料相談してみる
-            <ArrowRight className="ml-2 h-5 w-4 transition-transform group-hover:translate-x-1" />
-          </Button>
-        </div>
-      </section>
+      {/* ====== 進め方（フロー） ====== */}
+      <Process />
+
+      {/* ====== 事例 / お客様の声 ====== */}
+      <Voices />
+
+      {/* ====== FAQ ====== */}
+      <FAQ />
+
+      {/* ====== 最後のCTA ====== */}
+      <FinalCTA />
     </main>
+  );
+}
+
+/* =========================
+   3つの「ない」
+   ========================= */
+function Problems() {
+  const items = [
+    {
+      title: "募集しても応募が来ない / 採用できない",
+      body:
+        "母集団の量と質を同時に最大化。媒体選定・求人票・打ち出しを再設計し、短期での応募増と採用決定を狙います。",
+      icon: <Target className="w-6 h-6" />,
+    },
+    {
+      title: "採用しても人が育たない・定着しない",
+      body:
+        "オンボーディングの整備や目標設定の仕組みづくりまで伴走。一次面接までを代行し、カルチャーとのミスマッチも低減。",
+      icon: <Users className="w-6 h-6" />,
+    },
+    {
+      title: "人事リソースが足りない・時間がない",
+      body:
+        "媒体運用・スカウト・スクリーニング・一次面接までを丸ごと代行。担当者は意思決定に集中できます。",
+      icon: <Clock className="w-6 h-6" />,
+    },
+  ];
+
+  return (
+    <section className="bg-white py-16 md:py-24">
+      <div className="max-w-7xl mx-auto px-6 md:px-10 lg:px-16">
+        <h2 className="text-xl sm:text-2xl md:text-4xl font-bold text-gray-900">
+          中小企業が抱える採用の悩み<br className="md:hidden" />
+          <span className="md:inline"> 3つの「ない」</span> を解決に導きます
+        </h2>
+
+        <div className="mt-8 md:mt-10 grid md:grid-cols-3 gap-6 md:gap-8">
+          {items.map((it, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-10% 0px" }}
+              transition={{ duration: 0.4, delay: i * 0.06 }}
+              className="rounded-2xl border border-gray-100 bg-white shadow-sm p-5 md:p-7"
+            >
+              <div className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-gray-900 text-white">
+                {it.icon}
+              </div>
+              <h3 className="mt-3 md:mt-4 font-bold text-base md:text-lg text-gray-900 leading-snug">
+                {it.title}
+              </h3>
+              <p className="mt-2 md:mt-3 text-[13.5px] md:text-[15px] leading-7 text-gray-600">
+                {it.body}
+              </p>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* =========================
+   特徴（丸サークル：SP 2×2 / PC 4カラム）
+   ========================= */
+function Features() {
+  const circles = [
+    {
+      title: "自社開発ATSの活用",
+      desc: "応募〜選考の状況をリアルタイム共有。採用フェーズの透明化を実現。",
+      icon: <Shield className="w-5 h-5 md:w-6 md:h-6" />,
+    },
+    {
+      title: "低コストで始めやすい",
+      desc: "月額は抑えめ。採用決定時のみの成果報酬モデルにも対応。",
+      icon: <Sparkles className="w-5 h-5 md:w-6 md:h-6" />,
+    },
+    {
+      title: "プロによる運用・改善",
+      desc: "媒体運用〜スカウト〜一次面接まで徹底代行。毎週レポートで改善。",
+      icon: <BarChart3 className="w-5 h-5 md:w-6 md:h-6" />,
+    },
+    {
+      title: "即応体制",
+      desc: "応募来たら即対応。連絡・日程調整・合否通知まで機動的に実行。",
+      icon: <Phone className="w-5 h-5 md:w-6 md:h-6" />,
+    },
+  ];
+
+  return (
+    <section className="bg-[#fbfcfe] py-16 md:py-24">
+      <div className="max-w-7xl mx-auto px-6 md:px-10 lg:px-16">
+        <h2 className="text-xl sm:text-2xl md:text-4xl font-bold text-gray-900">リクステップの特徴</h2>
+
+        <div className="mt-8 md:mt-10 grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
+          {circles.map((c, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, scale: 0.92 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true, margin: "-10% 0px" }}
+              transition={{ duration: 0.35, delay: i * 0.06 }}
+              className="
+                relative aspect-square rounded-full bg-white
+                shadow-[0_18px_40px_-18px_rgba(0,0,0,0.15)]
+                border border-gray-100
+                flex flex-col items-center justify-center text-center
+                p-5 md:p-6
+              "
+            >
+              <div className="w-10 h-10 md:w-11 md:h-11 rounded-full bg-gray-900 text-white flex items-center justify-center">
+                {c.icon}
+              </div>
+              <h3 className="mt-3 md:mt-4 font-bold text-[13.5px] md:text-base text-gray-900">
+                {c.title}
+              </h3>
+              <p className="mt-2 text-[12.5px] md:text-sm text-gray-600 leading-7">{c.desc}</p>
+            </motion.div>
+          ))}
+        </div>
+
+        <p className="mt-6 md:mt-8 text-xs md:text-sm text-gray-500">
+          ※ 料金はご要望により設計（小さく始める固定費 + 採用決定時のみ成果報酬 のハイブリッドも可）
+        </p>
+      </div>
+    </section>
+  );
+}
+
+/* =========================
+   提供範囲（やること一覧）
+   ========================= */
+function Scope() {
+  const items = [
+    { icon: <FileText className="w-5 h-5" />, text: "求人要件定義／求人票作成（打ち出しの設計）" },
+    { icon: <Target className="w-5 h-5" />, text: "媒体選定・出稿、スカウト運用（原稿作成・配信設計）" },
+    { icon: <Shield className="w-5 h-5" />, text: "ATS初期設定・ダッシュボード整備（見える化）" },
+    { icon: <Users className="w-5 h-5" />, text: "応募者対応／スクリーニング／一次面接代行" },
+    { icon: <Calendar className="w-5 h-5" />, text: "候補者連絡・日程調整・合否通知" },
+    { icon: <BarChart3 className="w-5 h-5" />, text: "週次レポート（KPI可視化）／改善提案" },
+  ];
+
+  return (
+    <section className="bg-white py-16 md:py-24">
+      <div className="max-w-7xl mx-auto px-6 md:px-10 lg:px-16">
+        <div className="grid lg:grid-cols-2 gap-10 lg:gap-16">
+          <div>
+            {/* 2行固定 */}
+            <h2 className="text-xl sm:text-2xl md:text-4xl font-bold text-gray-900">
+              <span className="block">採用で「手を動かすところ」</span>
+              <span className="block">全部やります</span>
+            </h2>
+            <p className="mt-4 text-gray-700 leading-8 text-[14px] md:text-base">
+              担当者さまは要件の決定と最終判断に集中。私たちがオペレーションを一気通貫で担い、毎週の改善で成果に直行します。
+            </p>
+
+            <ul className="mt-6 space-y-4">
+              {items.map((it, i) => (
+                <li key={i} className="flex items-start gap-3">
+                  <div className="mt-1 text-gray-900">{it.icon}</div>
+                  <span className="text-gray-800 text-[14px] md:text-base">{it.text}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* 右側：背景透過PNG。枠は完全にナシ */}
+          <div className="relative">
+            <img
+              src="/images/recruitment/consulting-process.png"
+              alt="提供範囲"
+              className="w-full h-auto pointer-events-none select-none"
+              draggable={false}
+            />
+            <div className="mt-4 space-y-2">
+              <div className="flex items-center gap-2 text-gray-700 text-[14px] md:text-base">
+                <CheckCircle2 className="w-5 h-5 text-gray-900" />
+                <span>一次面接までを代行、意思決定だけに集中できる体制</span>
+              </div>
+              <div className="flex items-center gap-2 text-gray-700 text-[14px] md:text-base">
+                <CheckCircle2 className="w-5 h-5 text-gray-900" />
+                <span>自社ATSでフェーズ可視化。ボトルネックがすぐ分かる</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* =========================
+   進め方（フロー）
+   ========================= */
+function Process() {
+  const steps = [
+    { title: "1. キックオフ", body: "採用要件・ペルソナ・KGI/KPIを確定。ATS初期設定。" },
+    { title: "2. 求人票/媒体設計", body: "打ち出しと媒体配分を設計。スカウト文章も作成。" },
+    { title: "3. 運用開始", body: "出稿・スカウト・応募対応を同時に開始。" },
+    { title: "4. 書類選考／一次面接", body: "スクリーニング〜一次面接まで徹底代行。" },
+    { title: "5. 週次レポート", body: "数値レビュー、課題→打ち手を毎週更新。" },
+    { title: "6. 内定〜入社", body: "条件調整・クロージング支援。入社後フォローも可。" },
+  ];
+
+  return (
+    <section className="bg-[#fbfcfe] py-16 md:py-24">
+      <div className="max-w-7xl mx-auto px-6 md:px-10 lg:px-16">
+        <h2 className="text-xl sm:text-2xl md:text-4xl font-bold text-gray-900">ご契約から採用までの流れ</h2>
+
+        <div className="mt-8 md:mt-10 grid md:grid-cols-3 gap-6">
+          {steps.map((s, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-10% 0px" }}
+              transition={{ duration: 0.35, delay: i * 0.05 }}
+              className="rounded-xl border border-gray-100 bg-white p-5 md:p-6 shadow-sm"
+            >
+              <div className="flex items-center gap-2 text-gray-900 font-semibold">
+                <span className="inline-flex items-center justify-center w-7 h-7 rounded-full bg-gray-900 text-white text-sm">
+                  {i + 1}
+                </span>
+                {s.title}
+              </div>
+              <p className="mt-3 text-[13.5px] md:text-sm text-gray-600 leading-7">{s.body}</p>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* =========================
+   事例 / お客様の声
+   ========================= */
+function Voices() {
+  const cards = [
+    {
+      tag: "IT・システム",
+      title: "応募ゼロ→3ヶ月で2名採用。採用費も半減",
+      body:
+        "求人票の打ち出しを刷新、スカウト設計と一次面接代行で歩留まりが改善。現場の負担も大幅に減りました。",
+      img: "/images/recruitment/client-it.png",
+    },
+    {
+      tag: "製造業",
+      title: "人事業務をまるっと代行。採用と定着が同時に前進",
+      body:
+        "ATSで見える化し、毎週レポートで改善を回す体制に。採用の手応えが数字で分かるようになりました。",
+      img: "/images/recruitment/client-manufacturing.png",
+    },
+    {
+      tag: "サービス",
+      title: "採用決定が続き、事業拡大・新規事業もスタート",
+      body:
+        "媒体の選定から日程調整までお任せ。即日対応が効いて、面接数と内定率が着実に伸びました。",
+      img: "/images/recruitment/client-service.png",
+    },
+  ];
+
+  return (
+    <section className="bg-white py-16 md:py-24">
+      <div className="max-w-7xl mx-auto px-6 md:px-10 lg:px-16">
+        <h2 className="text-xl sm:text-2xl md:text-4xl font-bold text-gray-900">クライアントの声</h2>
+
+        <div className="mt-8 md:mt-10 grid md:grid-cols-3 gap-6 md:gap-8">
+          {cards.map((c, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 14 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-10% 0px" }}
+              transition={{ duration: 0.4, delay: i * 0.06 }}
+              className="rounded-2xl overflow-hidden border border-gray-100 bg-white shadow-[0_18px_40px_-18px_rgba(0,0,0,0.16)]"
+            >
+              <img src={c.img} alt={c.tag} className="w-full h-40 object-cover" />
+              <div className="p-6">
+                <span className="text-xs font-semibold text-blue-600">{c.tag}</span>
+                <h3 className="mt-2 font-bold text-gray-900">{c.title}</h3>
+                <p className="mt-2 text-sm text-gray-600 leading-7">{c.body}</p>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* =========================
+   FAQ
+   ========================= */
+function FAQ() {
+  const qa = [
+    {
+      q: "料金はどのくらい？",
+      a: "小さく始める月額固定費 + 採用決定時のみ成果報酬 を基本に、お客様の状況に合わせて設計します。",
+    },
+    {
+      q: "媒体やスカウトの運用だけお願いできますか？",
+      a: "はい。運用のみ、一次面接のみ、レポート/改善のみなど、パーツ単位のご依頼も可能です。",
+    },
+    {
+      q: "ATSの利用は必須ですか？",
+      a: "原則ご利用いただきます。選考状況の可視化・高速な意思決定に直結し、成果が出やすくなります。",
+    },
+  ];
+
+  return (
+    <section className="bg-[#fbfcfe] py-16 md:py-24">
+      <div className="max-w-5xl mx-auto px-6 md:px-8">
+        <h2 className="text-xl sm:text-2xl md:text-4xl font-bold text-gray-900 text-center">よくある質問</h2>
+
+        <div className="mt-8 md:mt-10 space-y-4">
+          {qa.map((item, i) => (
+            <details key={i} className="group rounded-xl border border-gray-200 bg-white p-5 md:p-6">
+              <summary className="flex cursor-pointer list-none items-center justify-between gap-3">
+                <span className="font-semibold text-gray-900">{item.q}</span>
+                <ArrowRight className="h-5 w-5 text-gray-400 transition-transform group-open:rotate-90" />
+              </summary>
+              <p className="mt-3 text-gray-700 leading-8">{item.a}</p>
+            </details>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* =========================
+   最後のCTA（「詳しく見る」ボタンは削除）
+   ========================= */
+function FinalCTA() {
+  return (
+    <section id="contact" className="bg-white py-16 md:py-24">
+      <div className="max-w-5xl mx-auto px-6 md:px-8 text-center">
+        <h2 className="text-xl sm:text-2xl md:text-4xl font-bold text-gray-900">
+          人事部を置かずに、採用を前に進めよう。
+        </h2>
+        <p className="mt-4 text-gray-700">
+          まずは課題の棚卸しから。オンラインで現状を伺い、適切な開始プランをご提案します。
+        </p>
+
+        <div className="mt-8 flex items-center justify-center">
+          <Link href="/contact">
+            <Button size="lg" className="px-8 py-6 rounded-xl">
+              無料相談を予約する
+            </Button>
+          </Link>
+        </div>
+      </div>
+    </section>
   );
 }

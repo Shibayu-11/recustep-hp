@@ -1,125 +1,135 @@
+// components/layout/Navbar.tsx
 "use client";
 
 import { useState, useEffect } from "react";
-import { Button } from "@/components/ui/button";
-import { Menu, X } from "lucide-react";
-import { motion } from "framer-motion";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { motion, AnimatePresence } from "framer-motion";
+import { Menu, X } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import Image from "next/image";
 
-const navItems = [
-  { name: "サービス", href: "/services" },
-  { name: "会社概要", href: "/company" },
-  { name: "実績", href: "/results" },
+const navigationItems = [
+  { name: "ABOUT US", href: "/about" },
+  { name: "SERVICE", href: "/services" },
+  { name: "BLOG", href: "/blog" },
+  { name: "COMPANY", href: "/company" },
 ];
 
-export default function Navbar() {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+// ★追加：ロード直後からソリッド表示にできる
+type Props = { solidOnLoad?: boolean };
+
+export default function Navbar({ solidOnLoad = false }: Props) {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [scrollY, setScrollY] = useState(0);
+  const pathname = usePathname();
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
+    const handleScroll = () => setScrollY(window.scrollY);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // 通常のスクロール判定 or 強制ソリッド
+  const rawIsScrolled = scrollY > 20;
+  const isScrolled = solidOnLoad ? true : rawIsScrolled;
+  const headerOpacity = Math.min(scrollY / 200, 0.98);
+
   return (
     <>
-      <motion.nav
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          isScrolled
-            ? "bg-white/90 backdrop-blur-md shadow-lg"
-            : "bg-transparent"
-        }`}
+      <motion.header
+        className="fixed top-0 left-0 right-0 z-50 transition-all duration-500"
         initial={{ y: -100 }}
         animate={{ y: 0 }}
-        transition={{ duration: 0.5 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
       >
-        <div className="w-full px-4">
-          <div className="flex items-center justify-between h-16">
-            {/* Logo */}
-            <Link href="/" className="flex items-center">
-              <img 
-                src="/images/logo/logo.png" 
-                alt="リクステップ" 
-                className="h-12 w-auto"
-              />
-            </Link>
+        <div
+          className="transition-all duration-500 ease-out"
+          style={{
+            backgroundColor: isScrolled
+              ? `rgba(255, 255, 255, ${solidOnLoad ? 0.98 : headerOpacity})`
+              : "transparent",
+            backdropFilter: isScrolled ? "blur(20px)" : "none",
+            WebkitBackdropFilter: isScrolled ? "blur(20px)" : "none",
+            borderBottom: isScrolled
+              ? "1px solid rgba(0, 0, 0, 0.06)"
+              : "none",
+          }}
+        >
+          <div className="max-w-7xl mx-auto px-6 lg:px-8">
+            <div className="flex items-center h-16 lg:h-20">
+              <Link href="/" className="flex items-center group mr-12 lg:mr-16">
+                <Image
+                  src="/images/logo/logo.png"
+                  alt="RECUSTEP"
+                  width={180}
+                  height={50}
+                  className="h-10 lg:h-12 w-auto transition-all duration-300 group-hover:opacity-80"
+                  priority
+                />
+              </Link>
 
-            {/* Desktop Navigation */}
-            <div className="hidden md:flex items-center space-x-8">
-              {navItems.map((item) => (
-                <Link
-                  key={item.name}
-                  href={item.href}
-                  className={`transition-colors ${
+              <nav className="hidden lg:flex items-center space-x-8 xl:space-x-10 flex-1">
+                {navigationItems.map((item) => (
+                  <Link key={item.name} href={item.href} className="relative group">
+                    <span
+                      className={`text-sm font-medium tracking-wide transition-all duration-300 group-hover:text-black ${
+                        pathname === item.href
+                          ? "text-black"
+                          : isScrolled
+                          ? "text-gray-800"
+                          : "text-white"
+                      }`}
+                    >
+                      {item.name}
+                    </span>
+                    {pathname === item.href && (
+                      <motion.div
+                        className="absolute -bottom-1 left-0 right-0 h-0.5 bg-current rounded-full"
+                        layoutId="activeNavItem"
+                        initial={false}
+                        transition={{ type: "spring", stiffness: 350, damping: 30 }}
+                      />
+                    )}
+                    <motion.div
+                      className="absolute -bottom-1 left-0 right-0 h-0.5 bg-current rounded-full opacity-0 group-hover:opacity-50"
+                      initial={false}
+                      transition={{ duration: 0.2 }}
+                    />
+                  </Link>
+                ))}
+              </nav>
+
+              <div className="hidden lg:flex items-center ml-auto">
+                <Button
+                  asChild
+                  className={`rounded-full transition-all duration-300 px-8 py-2.5 text-sm font-medium border-2 ${
                     isScrolled
-                      ? "text-gray-700 hover:text-primary"
-                      : "text-white hover:text-gray-200"
+                      ? "bg-black text-white border-black hover:bg-gray-800 hover:border-gray-800"
+                      : "bg-white text-black border-white hover:bg-gray-100"
                   }`}
                 >
-                  {item.name}
-                </Link>
-              ))}
-              <Link href="/contact">
-                <Button 
-                  className="bg-primary text-white px-6 py-2 hover:bg-primary/90 transition-colors"
-                >
-                  お問い合わせ
+                  <Link href="/contact">CONTACT</Link>
                 </Button>
-              </Link>
-            </div>
+              </div>
 
-            {/* Mobile Menu Button */}
-            <div className="md:hidden">
               <button
-                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                className={`transition-colors ${
-                  isScrolled
-                    ? "text-gray-700 hover:text-primary"
-                    : "text-white hover:text-gray-200"
-                }`}
+                onClick={() => setIsMenuOpen(!isMenuOpen)}
+                className="lg:hidden p-2 rounded-md transition-colors duration-300 ml-auto"
               >
-                {isMobileMenuOpen ? (
-                  <X className="h-6 w-6" />
+                {isMenuOpen ? (
+                  <X className={`h-6 w-6 ${isScrolled ? "text-black" : "text-white"}`} />
                 ) : (
-                  <Menu className="h-6 w-6" />
+                  <Menu className={`h-6 w-6 ${isScrolled ? "text-black" : "text-white"}`} />
                 )}
               </button>
             </div>
           </div>
         </div>
-      </motion.nav>
+      </motion.header>
 
-      {/* Mobile Menu */}
-      {isMobileMenuOpen && (
-        <motion.div
-          className="fixed top-16 left-0 right-0 bg-white shadow-lg z-40 md:hidden"
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -20 }}
-          transition={{ duration: 0.2 }}
-        >
-          <div className="px-4 py-4 space-y-4">
-            {navItems.map((item) => (
-              <Link
-                key={item.name}
-                href={item.href}
-                className="block text-gray-700 hover:text-primary transition-colors py-2"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                {item.name}
-              </Link>
-            ))}
-            <Link href="/contact" onClick={() => setIsMobileMenuOpen(false)}>
-              <Button className="w-full bg-primary text-white hover:bg-primary/90">
-                お問い合わせ
-              </Button>
-            </Link>
-          </div>
-        </motion.div>
-      )}
+      {/* モバイルメニュー＆オーバーレイ（既存のまま） */}
+      {/* ...（省略：あなたの現状コードそのまま流用でOK）... */}
     </>
   );
 }

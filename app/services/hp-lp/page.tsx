@@ -2,7 +2,11 @@
 
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { ArrowLeft, ArrowRight, Check, Code, Layout, Search, Smartphone, Database, Download, FileText, Palette, Users, Target, Gauge, Shield, Sparkles, Calendar, ShoppingCart, CreditCard, Calculator, MessageCircle, MapPin, Star, Clock, Award, TrendingUp } from "lucide-react";
+import {
+  ArrowLeft, ArrowRight, Check, Code, Layout, Search, Smartphone, Database, Download,
+  FileText, Palette, Users, Target, Gauge, Shield, Sparkles, Calendar, ShoppingCart,
+  CreditCard, Calculator, MessageCircle, MapPin, Star, Clock, Award, TrendingUp
+} from "lucide-react";
 import Link from "next/link";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -18,41 +22,9 @@ export default function HPLPPage() {
         </Link>
       </div>
 
-      {/* Hero Section with Background Image */}
-      <section className="relative py-12 bg-white">
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="text-center max-w-7xl mx-auto">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              className="w-full"
-            >
-              <Image
-                src="/images/hp-hero-bg.png"
-                alt="ホームページ制作 大阪・南大阪のリクステップ - Webサイトの課題を一気通貫で解決"
-                width={2400}
-                height={800}
-                className="w-full h-auto select-none pointer-events-none"
-                priority
-                quality={100}
-                unoptimized={true}
-                draggable={false}
-                style={{
-                  maxWidth: '100%',
-                  height: 'auto',
-                  userSelect: 'none',
-                  WebkitUserSelect: 'none',
-                  MozUserSelect: 'none',
-                  msUserSelect: 'none',
-                }}
-              />
-            </motion.div>
-          </div>
-        </div>
-      </section>
+      {/* ←★ Top画像セクションは削除済み */}
 
-      {/* 大阪・南大阪特化SEO・MEO対策セクション */}
+      {/* 大阪・南大阪特化SEO・MEO対策セクション（ここが実質のHero） */}
       <section className="bg-gradient-to-br from-blue-50 via-white to-cyan-50 py-20">
         <div className="container mx-auto px-4">
           <motion.div
@@ -72,14 +44,14 @@ export default function HPLPPage() {
                 <span className="text-sm font-semibold text-yellow-700">地域No.1実績</span>
               </div>
             </div>
-            
+
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-8 leading-tight">
               <span className="text-primary">ホームページ制作</span> 大阪で
               <span className="bg-gradient-to-r from-primary to-blue-600 bg-clip-text text-transparent block sm:inline">
                 売上を最大化する
               </span>
             </h1>
-            
+
             <div className="text-xl sm:text-2xl text-gray-700 mb-10 max-w-5xl mx-auto leading-relaxed">
               <p className="mb-4">
                 <strong>大阪・南大阪</strong>を中心に、<strong className="text-primary">検索上位表示</strong>と<strong className="text-primary">地域集客力</strong>を重視した
@@ -89,8 +61,8 @@ export default function HPLPPage() {
                 南大阪エリア（堺市・和泉市・松原市・羽曳野市・藤井寺市・富田林市など）の地域特性を活かした戦略的なホームページを制作
               </p>
             </div>
-            
-            {/* 大阪・南大阪特化の実績数値 */}
+
+            {/* 実績数値 */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12 max-w-4xl mx-auto">
               <motion.div
                 className="bg-white/90 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-gray-100"
@@ -102,7 +74,7 @@ export default function HPLPPage() {
                 <h3 className="font-bold text-gray-900 mb-1">制作実績</h3>
                 <p className="text-sm text-gray-600">大阪企業様の成功事例</p>
               </motion.div>
-              
+
               <motion.div
                 className="bg-white/90 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-gray-100"
                 initial={{ opacity: 0, y: 20 }}
@@ -113,7 +85,7 @@ export default function HPLPPage() {
                 <h3 className="font-bold text-gray-900 mb-1">満足度</h3>
                 <p className="text-sm text-gray-600">リピート率業界最高水準</p>
               </motion.div>
-              
+
               <motion.div
                 className="bg-white/90 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-gray-100"
                 initial={{ opacity: 0, y: 20 }}
@@ -124,7 +96,7 @@ export default function HPLPPage() {
                 <h3 className="font-bold text-gray-900 mb-1">サポート</h3>
                 <p className="text-sm text-gray-600">迅速な対応体制</p>
               </motion.div>
-              
+
               <motion.div
                 className="bg-white/90 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-gray-100"
                 initial={{ opacity: 0, y: 20 }}
@@ -136,8 +108,8 @@ export default function HPLPPage() {
                 <p className="text-sm text-gray-600">平均的な向上率</p>
               </motion.div>
             </div>
-            
-            {/* 大阪・南大阪の強みポイント */}
+
+            {/* 強み */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12 max-w-5xl mx-auto">
               <motion.div
                 className="bg-white/90 backdrop-blur-sm rounded-2xl p-8 shadow-lg border border-gray-100"
@@ -151,7 +123,7 @@ export default function HPLPPage() {
                   「ホームページ制作 大阪」「ホームページ制作 南大阪」などの地域キーワードで検索上位表示を実現。Googleアルゴリズムに最適化した構造設計
                 </p>
               </motion.div>
-              
+
               <motion.div
                 className="bg-white/90 backdrop-blur-sm rounded-2xl p-8 shadow-lg border border-gray-100"
                 initial={{ opacity: 0, y: 20 }}
@@ -164,7 +136,7 @@ export default function HPLPPage() {
                   Googleマップ検索での上位表示で南大阪エリアからの集客を強化。地域密着型ビジネスの売上向上をサポート
                 </p>
               </motion.div>
-              
+
               <motion.div
                 className="bg-white/90 backdrop-blur-sm rounded-2xl p-8 shadow-lg border border-gray-100"
                 initial={{ opacity: 0, y: 20 }}
@@ -178,8 +150,8 @@ export default function HPLPPage() {
                 </p>
               </motion.div>
             </div>
-            
-            {/* 対応エリア詳細 */}
+
+            {/* 対応エリア */}
             <motion.div
               className="bg-primary/5 rounded-2xl p-8 mb-10 max-w-5xl mx-auto"
               initial={{ opacity: 0, y: 20 }}
@@ -219,7 +191,7 @@ export default function HPLPPage() {
                 ※その他の関西エリア（京都・兵庫・奈良・和歌山）もご相談ください
               </p>
             </motion.div>
-            
+
             <motion.div
               className="flex flex-col sm:flex-row gap-6 justify-center"
               initial={{ opacity: 0, y: 20 }}
@@ -242,7 +214,7 @@ export default function HPLPPage() {
       </section>
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
-        {/* リクステップの強み Section */}
+        {/* リクステップの強み */}
         <div className="relative bg-gradient-to-br from-background to-muted/50 rounded-3xl p-8 lg:p-12 shadow-lg border border-border/50">
           <div className="absolute inset-0 bg-grid-white/10 [mask-image:radial-gradient(white,transparent_70%)] -z-10" />
           <div className="text-center max-w-4xl mx-auto mb-12">
@@ -312,7 +284,7 @@ export default function HPLPPage() {
           </div>
         </div>
 
-        {/* 導入による効果 Section */}
+        {/* 導入による効果 */}
         <div className="relative bg-gradient-to-br from-background to-muted/50 rounded-3xl p-8 lg:p-12 shadow-lg border border-border/50">
           <div className="absolute inset-0 bg-grid-white/10 [mask-image:radial-gradient(white,transparent_70%)] -z-10" />
           <h2 className="text-3xl font-bold mb-8 text-center bg-clip-text text-transparent bg-gradient-to-r from-black via-gray-700 to-black">
@@ -321,7 +293,7 @@ export default function HPLPPage() {
           <p className="text-lg text-muted-foreground text-center mb-12 leading-relaxed max-w-3xl mx-auto">
             大阪・南大阪でのリクステップのホームページ制作により、お客様のビジネスに以下のような効果をもたらします。
           </p>
-          
+
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
             {[
               {
@@ -372,7 +344,7 @@ export default function HPLPPage() {
           </div>
         </div>
 
-        {/* 制作フロー Section */}
+        {/* ★ホームページ制作の流れ（要求どおり「変更なし」） */}
         <div className="relative bg-gradient-to-br from-background to-muted/50 rounded-3xl p-8 lg:p-12 shadow-lg border border-border/50">
           <div className="absolute inset-0 bg-grid-white/10 [mask-image:radial-gradient(white,transparent_70%)] -z-10" />
           <div className="text-center max-w-4xl mx-auto mb-12">
@@ -386,7 +358,7 @@ export default function HPLPPage() {
               大阪での豊富な制作実績を基に、地域特性を活かした体系的なアプローチでプロジェクトを進行。各フェーズで専門チームが連携し、確実な成果を実現します。
             </p>
           </div>
-          
+
           {/* カード式縦並びフロー */}
           <div className="max-w-6xl mx-auto space-y-8">
             {[
@@ -404,12 +376,12 @@ export default function HPLPPage() {
                 imageSrc: "/images/step/step01.png"
               },
               {
-                step: "02", 
+                step: "02",
                 title: "要件定義・設計",
                 description: "大阪でのビジネス成功を見据えた、戦略的なサイト設計を行います。",
                 details: [
                   "大阪・南大阪向けUX/UI設計",
-                  "地域SEO構造の最適化", 
+                  "地域SEO構造の最適化",
                   "モバイルファースト設計",
                   "アクセシビリティ対応",
                   "セキュリティ要件定義"
@@ -418,7 +390,7 @@ export default function HPLPPage() {
               },
               {
                 step: "03",
-                title: "デザイン・開発", 
+                title: "デザイン・開発",
                 description: "大阪企業様のブランディングを意識した、高品質なデザイン・開発を実施。",
                 details: [
                   "大阪らしさを活かしたデザイン",
@@ -460,24 +432,15 @@ export default function HPLPPage() {
                 <Card className="bg-white/30 backdrop-blur-sm border border-gray-200/50 shadow-lg hover:shadow-xl hover:bg-white/40 transition-all duration-300">
                   <CardContent className="p-6 lg:p-8">
                     <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center">
-                      {/* 左側：テキストコンテンツ */}
+                      {/* 左：テキスト */}
                       <div className="lg:col-span-2">
                         <div className="flex items-start gap-6">
-                          {/* ステップ番号 */}
                           <div className="flex-shrink-0">
-                            <div className="text-6xl font-bold text-gray-200">
-                              {phase.step}
-                            </div>
+                            <div className="text-6xl font-bold text-gray-200">{phase.step}</div>
                           </div>
-                          
-                          {/* コンテンツ */}
                           <div className="flex-1">
                             <h3 className="text-2xl font-bold text-black mb-3">{phase.title}</h3>
-                            <p className="text-gray-600 mb-6 leading-relaxed">
-                              {phase.description}
-                            </p>
-                            
-                            {/* 詳細リスト */}
+                            <p className="text-gray-600 mb-6 leading-relaxed">{phase.description}</p>
                             <div className="space-y-2">
                               {phase.details.map((detail, detailIndex) => (
                                 <div key={detailIndex} className="flex items-center gap-3">
@@ -489,8 +452,7 @@ export default function HPLPPage() {
                           </div>
                         </div>
                       </div>
-                      
-                      {/* 右側：画像 */}
+                      {/* 右：画像 */}
                       <div className="lg:col-span-1">
                         <div className="w-full h-48 lg:h-64 flex items-center justify-center">
                           <Image
@@ -509,8 +471,8 @@ export default function HPLPPage() {
                     </div>
                   </CardContent>
                 </Card>
-                
-                {/* 矢印（最後以外） */}
+
+                {/* 縦の区切り矢印 */}
                 {index < 4 && (
                   <div className="flex justify-center my-6">
                     <div className="w-0.5 h-8 bg-gray-300"></div>
@@ -523,184 +485,185 @@ export default function HPLPPage() {
             ))}
           </div>
         </div>
-        {/* Pricing Section */}
-<div className="relative bg-gradient-to-br from-background to-muted/50 rounded-3xl p-8 lg:p-12 shadow-lg border border-border/50">
-  <h2 className="text-3xl font-bold mb-8 text-center">料金プラン</h2>
-  <p className="text-lg text-muted-foreground text-center mb-8">
-    貴社のニーズに合わせたプランをご用意させていただきます。
-    右記以外にも柔軟にアレンジできますのでご相談ください。
-  </p>
-  <p className="text-sm text-muted-foreground text-center mb-12">
-    ※総額の一括払いも可能です。※契約は2年単位、更新は1年単位
-  </p>
-  
-  <div className="grid md:grid-cols-3 gap-6 max-w-7xl mx-auto">
-    <Card className="relative bg-background/50 backdrop-blur-sm shadow-md overflow-hidden flex flex-col">
-      <div className="bg-gray-600 text-white p-6">
-        <div className="flex flex-col items-center text-center">
-          <div className="w-20 h-20 rounded-full bg-white/20 flex items-center justify-center mb-4">
-            <FileText className="h-12 w-12 text-white" />
-          </div>
-          <h3 className="text-xl font-bold">LP制作プラン</h3>
-        </div>
-      </div>
-      <CardContent className="p-6 flex-1 flex flex-col">
-        <p className="text-muted-foreground mb-6 text-sm text-center">
-          ランディングページ制作に最適なプラン
-        </p>
-        <div className="mb-6 text-center">
-          <div className="mb-3">
-            <span className="text-sm text-muted-foreground">初期費用：</span>
-            <span className="text-2xl font-bold ml-2">50,000</span>
-            <span className="text-lg">円</span>
-          </div>
-          <div className="flex items-center justify-center gap-2">
-            <span className="text-sm text-muted-foreground">+ 管理費（24ヶ月）</span>
-            <span className="text-sm">月々</span>
-            <span className="text-2xl font-bold text-primary">3,000</span>
-            <span className="text-lg">円</span>
-          </div>
-        </div>
-        <ul className="space-y-3 flex-1">
-          <li className="flex items-start gap-2">
-            <Check className="h-4 w-4 text-primary flex-shrink-0 mt-0.5" />
-            <span className="text-sm">ランディングページ（1ページ）制作</span>
-          </li>
-          <li className="flex items-start gap-2">
-            <Check className="h-4 w-4 text-primary flex-shrink-0 mt-0.5" />
-            <span className="text-sm">スマホ最適化（レスポンシブ対応）</span>
-          </li>
-          <li className="flex items-start gap-2">
-            <Check className="h-4 w-4 text-primary flex-shrink-0 mt-0.5" />
-            <span className="text-sm">月1回までのテキスト・画像差し替え</span>
-          </li>
-          <li className="flex items-start gap-2">
-            <Check className="h-4 w-4 text-primary flex-shrink-0 mt-0.5" />
-            <span className="text-sm">基本SEO構造</span>
-          </li>
-        </ul>
-      </CardContent>
-    </Card>
 
-    <Card className="relative bg-background/50 backdrop-blur-sm shadow-md overflow-hidden flex flex-col">
-      <div className="bg-gray-500 text-white p-6">
-        <div className="flex flex-col items-center text-center">
-          <div className="w-20 h-20 rounded-full bg-white/20 flex items-center justify-center mb-4">
-            <Layout className="h-12 w-12 text-white" />
-          </div>
-          <h3 className="text-xl font-bold">基本HPプラン</h3>
-        </div>
-      </div>
-      <CardContent className="p-6 flex-1 flex flex-col">
-        <p className="text-muted-foreground mb-6 text-sm text-center">
-          一般的な企業サイト制作に最適なプラン
-        </p>
-        <div className="mb-6 text-center">
-          <div className="mb-3">
-            <span className="text-sm text-muted-foreground">初期費用：</span>
-            <span className="text-2xl font-bold ml-2">100,000</span>
-            <span className="text-lg">円</span>
-          </div>
-          <div className="flex items-center justify-center gap-2">
-            <span className="text-sm text-muted-foreground">+ 管理費（24ヶ月）</span>
-            <span className="text-sm">月々</span>
-            <span className="text-2xl font-bold text-primary">5,000</span>
-            <span className="text-lg">円</span>
-          </div>
-        </div>
-        <ul className="space-y-3 flex-1">
-          <li className="flex items-start gap-2">
-            <Check className="h-4 w-4 text-primary flex-shrink-0 mt-0.5" />
-            <span className="text-sm">基本的なHPの制作（6ページまで）</span>
-          </li>
-          <li className="flex items-start gap-2">
-            <Check className="h-4 w-4 text-primary flex-shrink-0 mt-0.5" />
-            <span className="text-sm">基本的なSEO対策</span>
-          </li>
-          <li className="flex items-start gap-2">
-            <Check className="h-4 w-4 text-primary flex-shrink-0 mt-0.5" />
-            <span className="text-sm">AEO対応構造の設計</span>
-          </li>
-          <li className="flex items-start gap-2">
-            <Check className="h-4 w-4 text-primary flex-shrink-0 mt-0.5" />
-            <span className="text-sm">月3回までの更新対応</span>
-          </li>
-          <li className="flex items-start gap-2">
-            <Check className="h-4 w-4 text-primary flex-shrink-0 mt-0.5" />
-            <span className="text-sm">Google Search/GA4の設定・運用サポート</span>
-          </li>
-        </ul>
-      </CardContent>
-    </Card>
+        {/* 料金プラン */}
+        <div className="relative bg-gradient-to-br from-background to-muted/50 rounded-3xl p-8 lg:p-12 shadow-lg border border-border/50">
+          <h2 className="text-3xl font-bold mb-8 text-center">料金プラン</h2>
+          <p className="text-lg text-muted-foreground text-center mb-8">
+            貴社のニーズに合わせたプランをご用意させていただきます。
+            右記以外にも柔軟にアレンジできますのでご相談ください。
+          </p>
+          <p className="text-sm text-muted-foreground text-center mb-12">
+            ※総額の一括払いも可能です。※契約は2年単位、更新は1年単位
+          </p>
 
-    <Card className="relative bg-background/50 backdrop-blur-sm shadow-md overflow-hidden flex flex-col">
-      <div className="bg-gray-700 text-white p-6">
-        <div className="flex flex-col items-center text-center">
-          <div className="w-20 h-20 rounded-full bg-white/20 flex items-center justify-center mb-4">
-            <Search className="h-12 w-12 text-white" />
-          </div>
-          <h3 className="text-xl font-bold">SEO・AEO対策HPプラン</h3>
-        </div>
-      </div>
-      <CardContent className="p-6 flex-1 flex flex-col">
-        <p className="text-muted-foreground mb-6 text-sm text-center">
-          本格的なSEO対策で上位表示を目指すプラン
-        </p>
-        <div className="mb-6 text-center">
-          <div className="mb-3">
-            <span className="text-sm text-muted-foreground">初期費用：</span>
-            <span className="text-2xl font-bold ml-2">150,000</span>
-            <span className="text-lg">円</span>
-          </div>
-          <div className="flex items-center justify-center gap-2">
-            <span className="text-sm text-muted-foreground">+ 管理費（24ヶ月）</span>
-            <span className="text-sm">月々</span>
-            <span className="text-2xl font-bold text-primary">10,000</span>
-            <span className="text-lg">円</span>
-          </div>
-        </div>
-        <ul className="space-y-3 flex-1">
-          <li className="flex items-start gap-2">
-            <Check className="h-4 w-4 text-primary flex-shrink-0 mt-0.5" />
-            <span className="text-sm">基本的なHPの制作（8ページまで）</span>
-          </li>
-          <li className="flex items-start gap-2">
-            <Check className="h-4 w-4 text-primary flex-shrink-0 mt-0.5" />
-            <span className="text-sm">本格的なSEO対策運用</span>
-          </li>
-          <li className="flex items-start gap-2">
-            <Check className="h-4 w-4 text-primary flex-shrink-0 mt-0.5" />
-            <span className="text-sm">AEO対応構造の設計運用</span>
-          </li>
-          <li className="flex items-start gap-2">
-            <Check className="h-4 w-4 text-primary flex-shrink-0 mt-0.5" />
-            <span className="text-sm">月3回までの更新対応</span>
-          </li>
-          <li className="flex items-start gap-2">
-            <Check className="h-4 w-4 text-primary flex-shrink-0 mt-0.5" />
-            <span className="text-sm">継続的なサポート</span>
-          </li>
-          <li className="flex items-start gap-2">
-            <Check className="h-4 w-4 text-primary flex-shrink-0 mt-0.5" />
-            <span className="text-sm">Google Search/GA4の設定・運用サポート</span>
-          </li>
-        </ul>
-      </CardContent>
-    </Card>
-  </div>
-  
-  {/* 共通のお問い合わせセクション */}
-  <div className="mt-12 text-center">
-    <Link href="/contact">
-      <Button size="lg" className="bg-primary hover:bg-primary/90 text-white px-12 py-4 text-lg shadow-xl">
-        プランについてお問い合わせ
-        <ArrowRight className="ml-2 h-6 w-6" />
-      </Button>
-    </Link>
-  </div>
-</div>
+          <div className="grid md:grid-cols-3 gap-6 max-w-7xl mx-auto">
+            <Card className="relative bg-background/50 backdrop-blur-sm shadow-md overflow-hidden flex flex-col">
+              <div className="bg-gray-600 text-white p-6">
+                <div className="flex flex-col items-center text-center">
+                  <div className="w-20 h-20 rounded-full bg-white/20 flex items-center justify-center mb-4">
+                    <FileText className="h-12 w-12 text-white" />
+                  </div>
+                  <h3 className="text-xl font-bold">LP制作プラン</h3>
+                </div>
+              </div>
+              <CardContent className="p-6 flex-1 flex flex-col">
+                <p className="text-muted-foreground mb-6 text-sm text-center">
+                  ランディングページ制作に最適なプラン
+                </p>
+                <div className="mb-6 text-center">
+                  <div className="mb-3">
+                    <span className="text-sm text-muted-foreground">初期費用：</span>
+                    <span className="text-2xl font-bold ml-2">50,000</span>
+                    <span className="text-lg">円</span>
+                  </div>
+                  <div className="flex items-center justify-center gap-2">
+                    <span className="text-sm text-muted-foreground">+ 管理費（24ヶ月）</span>
+                    <span className="text-sm">月々</span>
+                    <span className="text-2xl font-bold text-primary">3,000</span>
+                    <span className="text-lg">円</span>
+                  </div>
+                </div>
+                <ul className="space-y-3 flex-1">
+                  <li className="flex items-start gap-2">
+                    <Check className="h-4 w-4 text-primary flex-shrink-0 mt-0.5" />
+                    <span className="text-sm">ランディングページ（1ページ）制作</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <Check className="h-4 w-4 text-primary flex-shrink-0 mt-0.5" />
+                    <span className="text-sm">スマホ最適化（レスポンシブ対応）</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <Check className="h-4 w-4 text-primary flex-shrink-0 mt-0.5" />
+                    <span className="text-sm">月1回までのテキスト・画像差し替え</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <Check className="h-4 w-4 text-primary flex-shrink-0 mt-0.5" />
+                    <span className="text-sm">基本SEO構造</span>
+                  </li>
+                </ul>
+              </CardContent>
+            </Card>
 
-        {/* Contact Section */}
+            <Card className="relative bg-background/50 backdrop-blur-sm shadow-md overflow-hidden flex flex-col">
+              <div className="bg-gray-500 text-white p-6">
+                <div className="flex flex-col items-center text-center">
+                  <div className="w-20 h-20 rounded-full bg-white/20 flex items-center justify-center mb-4">
+                    <Layout className="h-12 w-12 text-white" />
+                  </div>
+                  <h3 className="text-xl font-bold">基本HPプラン</h3>
+                </div>
+              </div>
+              <CardContent className="p-6 flex-1 flex flex-col">
+                <p className="text-muted-foreground mb-6 text-sm text-center">
+                  一般的な企業サイト制作に最適なプラン
+                </p>
+                <div className="mb-6 text-center">
+                  <div className="mb-3">
+                    <span className="text-sm text-muted-foreground">初期費用：</span>
+                    <span className="text-2xl font-bold ml-2">100,000</span>
+                    <span className="text-lg">円</span>
+                  </div>
+                  <div className="flex items-center justify-center gap-2">
+                    <span className="text-sm text-muted-foreground">+ 管理費（24ヶ月）</span>
+                    <span className="text-sm">月々</span>
+                    <span className="text-2xl font-bold text-primary">5,000</span>
+                    <span className="text-lg">円</span>
+                  </div>
+                </div>
+                <ul className="space-y-3 flex-1">
+                  <li className="flex items-start gap-2">
+                    <Check className="h-4 w-4 text-primary flex-shrink-0 mt-0.5" />
+                    <span className="text-sm">基本的なHPの制作（6ページまで）</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <Check className="h-4 w-4 text-primary flex-shrink-0 mt-0.5" />
+                    <span className="text-sm">基本的なSEO対策</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <Check className="h-4 w-4 text-primary flex-shrink-0 mt-0.5" />
+                    <span className="text-sm">AEO対応構造の設計</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <Check className="h-4 w-4 text-primary flex-shrink-0 mt-0.5" />
+                    <span className="text-sm">月3回までの更新対応</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <Check className="h-4 w-4 text-primary flex-shrink-0 mt-0.5" />
+                    <span className="text-sm">Google Search/GA4の設定・運用サポート</span>
+                  </li>
+                </ul>
+              </CardContent>
+            </Card>
+
+            <Card className="relative bg-background/50 backdrop-blur-sm shadow-md overflow-hidden flex flex-col">
+              <div className="bg-gray-700 text-white p-6">
+                <div className="flex flex-col items-center text-center">
+                  <div className="w-20 h-20 rounded-full bg-white/20 flex items-center justify-center mb-4">
+                    <Search className="h-12 w-12 text-white" />
+                  </div>
+                  <h3 className="text-xl font-bold">SEO・AEO対策HPプラン</h3>
+                </div>
+              </div>
+              <CardContent className="p-6 flex-1 flex flex-col">
+                <p className="text-muted-foreground mb-6 text-sm text-center">
+                  本格的なSEO対策で上位表示を目指すプラン
+                </p>
+                <div className="mb-6 text-center">
+                  <div className="mb-3">
+                    <span className="text-sm text-muted-foreground">初期費用：</span>
+                    <span className="text-2xl font-bold ml-2">150,000</span>
+                    <span className="text-lg">円</span>
+                  </div>
+                  <div className="flex items-center justify-center gap-2">
+                    <span className="text-sm text-muted-foreground">+ 管理費（24ヶ月）</span>
+                    <span className="text-sm">月々</span>
+                    <span className="text-2xl font-bold text-primary">10,000</span>
+                    <span className="text-lg">円</span>
+                  </div>
+                </div>
+                <ul className="space-y-3 flex-1">
+                  <li className="flex items-start gap-2">
+                    <Check className="h-4 w-4 text-primary flex-shrink-0 mt-0.5" />
+                    <span className="text-sm">基本的なHPの制作（8ページまで）</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <Check className="h-4 w-4 text-primary flex-shrink-0 mt-0.5" />
+                    <span className="text-sm">本格的なSEO対策運用</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <Check className="h-4 w-4 text-primary flex-shrink-0 mt-0.5" />
+                    <span className="text-sm">AEO対応構造の設計運用</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <Check className="h-4 w-4 text-primary flex-shrink-0 mt-0.5" />
+                    <span className="text-sm">月3回までの更新対応</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <Check className="h-4 w-4 text-primary flex-shrink-0 mt-0.5" />
+                    <span className="text-sm">継続的なサポート</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <Check className="h-4 w-4 text-primary flex-shrink-0 mt-0.5" />
+                    <span className="text-sm">Google Search/GA4の設定・運用サポート</span>
+                  </li>
+                </ul>
+              </CardContent>
+            </Card>
+          </div>
+
+          {/* 共通お問い合わせ */}
+          <div className="mt-12 text-center">
+            <Link href="/contact">
+              <Button size="lg" className="bg-primary hover:bg-primary/90 text-white px-12 py-4 text-lg shadow-xl">
+                プランについてお問い合わせ
+                <ArrowRight className="ml-2 h-6 w-6" />
+              </Button>
+            </Link>
+          </div>
+        </div>
+
+        {/* Contact */}
         <div className="relative bg-white/30 backdrop-blur-sm rounded-3xl p-8 lg:p-12 shadow-lg border border-gray-200/50">
           <div className="absolute inset-0 bg-grid-white/10 [mask-image:radial-gradient(white,transparent_70%)] -z-10" />
           <h2 className="text-3xl font-bold mb-8 text-center bg-clip-text text-transparent bg-gradient-to-r from-black via-gray-700 to-black">
@@ -721,7 +684,7 @@ export default function HPLPPage() {
         </div>
       </div>
 
-      {/* Fixed CTA */}
+      {/* 固定CTA */}
       <div className="fixed bottom-8 left-1/2 transform -translate-x-1/2 z-50 flex gap-4">
         <Button size="lg" className="shadow-lg">
           <Download className="mr-2 h-5 w-5" />
