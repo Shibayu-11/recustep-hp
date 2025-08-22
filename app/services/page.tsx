@@ -1,3 +1,4 @@
+// app/services/page.tsx
 "use client";
 
 import Link from "next/link";
@@ -54,7 +55,7 @@ const services = [
     href: "/services/syokulab",
     features: ["店舗マッチング", "コラボイベント支援", "集客支援", "実績分析"],
   },
-];
+]; // ← as const を使わない
 
 /* Hero画像の割り当て */
 const heroSrc: Record<string, string> = {
@@ -70,25 +71,21 @@ export default function ServicesPage() {
   return (
     <main className="relative min-h-screen overflow-hidden">
       <div className="absolute inset-0 bg-gray-50" />
-      <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8 py-20">
-        {/* ====== SERVICE ヘッダー（左寄せ・1段落に集約） ====== */}
-        <header className="mt-2 md:mt-4 mb-8">
-          <h1 className="text-left text-4xl sm:text-5xl font-extrabold tracking-tight">
-            SERVICE
-          </h1>
+      {/* 上だけ詰める */}
+      <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8 pt-10 md:pt-12 lg:pt-14 pb-20">
+        <header className="mt-1 md:mt-2 mb-8">
+          <h1 className="text-left text-4xl sm:text-5xl font-extrabold tracking-tight">SERVICE</h1>
           <p className="mt-4 max-w-4xl text-left text-muted-foreground text-[15px] md:text-[17px] leading-8 md:leading-9">
             リクステップは、デザインとテクノロジーを横断する少数精鋭のチームです。見た目の美しさだけでなく、情報設計と実装品質、公開後の運用までを一貫して担います。企画・要件定義からデザイン、Next.js を用いた開発、CMS 導入、解析設定、表示速度・SEO の最適化までワンストップで提供し、スピードと品質の両立を図ります。企業サイト、LP、採用サイト、業務システムや Web アプリまで、目的に合わせて最適な構成をご提案し、公開後の運用・改善まで伴走します。採用支援も他サービスと同様に、戦略設計から実務運用まで一貫対応します。
           </p>
         </header>
 
-        {/* ====== サービスカード：Hero画像×2カラム ====== */}
         <section className="mt-6 md:mt-10">
           <div className="grid gap-y-14 md:gap-y-16">
             {chunk2(services).map((row, rIdx) => (
               <div key={rIdx} className="grid md:grid-cols-2 gap-8 md:gap-10 items-start">
                 {row.map((svc) => (
                   <article key={svc.id} className="group">
-                    {/* 画像（クリックで詳細） */}
                     <Link href={svc.href} className="block rounded-2xl overflow-hidden">
                       <div className="relative w-full aspect-[16/9]">
                         <Image
@@ -97,21 +94,18 @@ export default function ServicesPage() {
                           fill
                           className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
                           sizes="(max-width: 1024px) 100vw, 50vw"
+                          priority={rIdx === 0}
                         />
                       </div>
                     </Link>
 
-                    {/* タイトル／本文 */}
                     <h3 className="mt-5 text-2xl md:text-[28px] font-bold tracking-tight">
                       <Link href={svc.href} className="hover:text-primary transition-colors">
                         {svc.title}
                       </Link>
                     </h3>
-                    <p className="mt-3 text-muted-foreground leading-relaxed">
-                      {svc.description}
-                    </p>
+                    <p className="mt-3 text-muted-foreground leading-relaxed">{svc.description}</p>
 
-                    {/* 箇条書き */}
                     <ul className="mt-4 grid grid-cols-1 gap-2">
                       {svc.features.map((f) => (
                         <li key={f} className="flex items-start gap-2">
@@ -121,7 +115,6 @@ export default function ServicesPage() {
                       ))}
                     </ul>
 
-                    {/* CTA */}
                     <div className="mt-4">
                       <Link href={svc.href} className="inline-flex items-center text-primary hover:opacity-90">
                         <span>詳しく見る</span>
@@ -130,7 +123,6 @@ export default function ServicesPage() {
                     </div>
                   </article>
                 ))}
-                {/* 奇数件の時のスペーサー */}
                 {row.length === 1 && <div className="hidden md:block" />}
               </div>
             ))}

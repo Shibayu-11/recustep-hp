@@ -1,28 +1,22 @@
+// app/company/page.tsx
 "use client";
 
 import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
-import {
-  Building2,
-  MapPin,
-  Phone,
-  Mail,
-  Clock,
-  ArrowRight,
-  User,
-} from "lucide-react";
+import { Building2, MapPin, Phone, Mail, Clock, ArrowRight, User } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 
 export default function CompanyPage() {
   return (
-    <main className="relative py-24 overflow-hidden">
-      {/* 背景（薄いグレー） */}
+    // 上だけ詰める（スマホはさらに近く）
+    <main className="relative pt-8 md:pt-12 lg:pt-14 pb-20 md:pb-24 overflow-hidden">
+      {/* 背景 */}
       <div className="absolute inset-0 bg-gray-50" />
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* ===== タイトル ===== */}
-        <div className="mb-12 text-left">
+        <div className="mb-8 md:mb-10 lg:mb-12 text-left -mt-2 md:-mt-3">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -42,22 +36,25 @@ export default function CompanyPage() {
           transition={{ delay: 0.1, duration: 0.6 }}
           className="grid md:grid-cols-2 gap-12 mb-16"
         >
-          {/* 画像ブロック：原寸のまま上下2枚。装飾なし */}
+          {/* 画像ブロック：スマホは1枚、md以上は2枚 */}
           <div className="relative">
-            {/* 横幅を超える場合に備えて横スクロール許可（原寸を維持） */}
             <div className="overflow-x-auto">
               <div className="flex flex-col items-start gap-8">
+                {/* 1枚目：常時表示（原寸／はみ出す時は横スクロール） */}
                 <img
                   src="/images/company/visual-1.png"
                   alt="Company visual 1"
-                  className="block w-auto h-auto select-none pointer-events-none"
+                  className="block w-auto max-w-full h-auto select-none pointer-events-none"
                   draggable={false}
+                  loading="eager"
                 />
+                {/* 2枚目：md以上で表示（スマホは非表示） */}
                 <img
                   src="/images/company/visual-2.png"
                   alt="Company visual 2"
-                  className="block w-auto h-auto select-none pointer-events-none"
+                  className="hidden md:block w-auto max-w-full h-auto select-none pointer-events-none"
                   draggable={false}
+                  loading="lazy"
                 />
               </div>
             </div>
