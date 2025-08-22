@@ -2,11 +2,9 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowLeft, ArrowRight } from "lucide-react";
-import { Card, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
+import { ArrowRight } from "lucide-react";
 
-/* ====== 元データ（アイコンは使わない） ====== */
+/* ====== サービス定義 ====== */
 const services = [
   {
     id: "hp-lp",
@@ -28,9 +26,9 @@ const services = [
     id: "recruitment",
     title: "採用支援",
     description:
-      "採用戦略の立案から求人サイト制作、面接設計、内定フォローまで。成長に必要な人材確保を支援します。",
+      "採用戦略の立案から求人サイト制作、媒体運用、スカウト、面接設計、内定フォロー、オンボーディングまで。データドリブンで継続改善し、必要な人材の獲得を加速します。",
     href: "/services/recruitment",
-    features: ["採用戦略立案", "求人サイト制作", "採用フロー設計", "内定者フォロー"],
+    features: ["採用戦略立案", "求人票/採用サイト最適化", "媒体運用・スカウト", "ATS運用・一次面接代行"],
   },
   {
     id: "system",
@@ -73,60 +71,17 @@ export default function ServicesPage() {
     <main className="relative min-h-screen overflow-hidden">
       <div className="absolute inset-0 bg-gray-50" />
       <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8 py-20">
-
-        {/* 戻る */}
-        <Link href="/" className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors">
-          <ArrowLeft className="h-4 w-4" />
-          <span>トップページに戻る</span>
-        </Link>
-
-        {/* ====== SERVICE ヘッダー ====== */}
-        <header className="mt-6 md:mt-10 mb-10 md:mb-14 text-center">
-          <p className="tracking-[0.3em] text-xs md:text-sm text-primary/80">SERVICE</p>
-          <h1 className="mt-2 text-3xl sm:text-5xl font-extrabold">リクステップのサービス</h1>
+        {/* ====== SERVICE ヘッダー（左寄せ・1段落に集約） ====== */}
+        <header className="mt-2 md:mt-4 mb-8">
+          <h1 className="text-left text-4xl sm:text-5xl font-extrabold tracking-tight">
+            SERVICE
+          </h1>
+          <p className="mt-4 max-w-4xl text-left text-muted-foreground text-[15px] md:text-[17px] leading-8 md:leading-9">
+            リクステップは、デザインとテクノロジーを横断する少数精鋭のチームです。見た目の美しさだけでなく、情報設計と実装品質、公開後の運用までを一貫して担います。企画・要件定義からデザイン、Next.js を用いた開発、CMS 導入、解析設定、表示速度・SEO の最適化までワンストップで提供し、スピードと品質の両立を図ります。企業サイト、LP、採用サイト、業務システムや Web アプリまで、目的に合わせて最適な構成をご提案し、公開後の運用・改善まで伴走します。採用支援も他サービスと同様に、戦略設計から実務運用まで一貫対応します。
+          </p>
         </header>
 
-        {/* ====== 長文イントロ ====== */}
-        <section className="mx-auto max-w-4xl text-[15px] md:text-[17px] leading-8 md:leading-9 text-muted-foreground mb-14 md:mb-20">
-          <p className="mb-5">
-            リクステップは、デザインとテクノロジーを横断する少数精鋭のチームです。見た目の美しさだけでなく、
-            情報設計と実装品質、公開後の運用までを一貫して担います。企画・要件定義からデザイン、Next.js を
-            用いた開発、CMS 導入、解析設定、速度・SEOの最適化までをワンストップで提供し、スピードと品質の両立を図ります。
-          </p>
-          <p>
-            企業サイト、LP、採用サイト、業務システムやWebアプリなど、目的に合わせて最適な構成をご提案。
-            GA4やSearch Consoleを用いた継続的な改善で、作って終わりではなく成果につながる運用を実現します。
-          </p>
-        </section>
-
-        {/* ====== 私たちの進め方（そのまま） ====== */}
-        <section aria-labelledby="process-title" className="mb-16 md:mb-24">
-          <h2 id="process-title" className="text-center text-3xl md:text-4xl font-extrabold mb-3">私たちの進め方</h2>
-          <p className="text-center text-muted-foreground mb-10">お客様との対話を大切にし、段階的にプロジェクトを進めます</p>
-
-          <ol className="mx-auto grid gap-6 sm:grid-cols-2 lg:grid-cols-5 max-w-6xl">
-            {[
-              { n: 1, title: "ヒアリング", body: "課題や目的、ターゲット層、既存業務を確認し、目的と方向性を整理します。" },
-              { n: 2, title: "要件・構成の整理", body: "必要な構成（ページ数・機能・設計方針など）を明確化し、提案します。" },
-              { n: 3, title: "プロトタイプの提示", body: "ワイヤー・デザイン案・試作を共有し、現場の声を取り入れて調整します。" },
-              { n: 4, title: "制作・実装", body: "サイト／システムを構築。動作・表示を確認しながら進行します。" },
-              { n: 5, title: "公開・運用サポート", body: "公開設定・納品後も運用支援や改善提案まで継続的に対応します。" },
-            ].map((s) => (
-              <li key={s.n} className="relative">
-                <div className="hidden lg:block absolute top-1/2 left-0 right-0 translate-y-[-50%] h-px bg-neutral-200 z-0" />
-                <div className="relative z-10 h-full rounded-3xl bg-white shadow-[0_6px_30px_-10px_rgba(0,0,0,0.15)] border border-black/5 p-6 text-center">
-                  <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-2xl bg-neutral-100 text-2xl font-bold text-neutral-800 shadow-inner">
-                    {s.n}
-                  </div>
-                  <h3 className="text-lg md:text-xl font-bold mb-2">{s.title}</h3>
-                  <p className="text-sm md:text-[15px] leading-7 text-muted-foreground">{s.body}</p>
-                </div>
-              </li>
-            ))}
-          </ol>
-        </section>
-
-        {/* ====== サービスカード：Hero画像×2カラム（参考デザインに寄せる） ====== */}
+        {/* ====== サービスカード：Hero画像×2カラム ====== */}
         <section className="mt-6 md:mt-10">
           <div className="grid gap-y-14 md:gap-y-16">
             {chunk2(services).map((row, rIdx) => (
@@ -148,11 +103,15 @@ export default function ServicesPage() {
 
                     {/* タイトル／本文 */}
                     <h3 className="mt-5 text-2xl md:text-[28px] font-bold tracking-tight">
-                      <Link href={svc.href} className="hover:text-primary transition-colors">{svc.title}</Link>
+                      <Link href={svc.href} className="hover:text-primary transition-colors">
+                        {svc.title}
+                      </Link>
                     </h3>
-                    <p className="mt-3 text-muted-foreground leading-relaxed">{svc.description}</p>
+                    <p className="mt-3 text-muted-foreground leading-relaxed">
+                      {svc.description}
+                    </p>
 
-                    {/* 箇条書き（必要なければ削除OK） */}
+                    {/* 箇条書き */}
                     <ul className="mt-4 grid grid-cols-1 gap-2">
                       {svc.features.map((f) => (
                         <li key={f} className="flex items-start gap-2">
@@ -177,8 +136,6 @@ export default function ServicesPage() {
             ))}
           </div>
         </section>
-
-        {/* ====== 以降（既存の"サービスについて"など）は修正なし ====== */}
 
         <div className="h-16" />
       </div>

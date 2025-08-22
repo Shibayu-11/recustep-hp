@@ -4,7 +4,6 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import { TextScramble } from "@/components/ui/text-scramble";
 
-/** ====== Hero ====== */
 export default function Hero() {
   const items = [
     { src: "/images/hero/hp.png",       title: "Web Creative" },     // 0
@@ -18,17 +17,16 @@ export default function Hero() {
   ];
 
   return (
-    <section className="relative w-full bg-white py-10 md:py-20 overflow-hidden">
+    <section
+      id="hero"
+      className="relative w-full bg-white py-10 md:py-20 overflow-hidden scroll-mt-[92px] md:scroll-mt-[108px]"
+    >
       <MobileHero items={items} />
       <DesktopHero items={items} />
     </section>
   );
 }
 
-/* =========================
- * Mobile (md未満)
- * 44vw / 3:2 に統一、4列すべて同じ高さ
- * ========================= */
 function MobileHero({ items }: { items: { src: string; title?: string }[] }) {
   const W = "w-[44vw]";          // 1列目基準の1.3倍
   const ASPECT = "aspect-[3/2]"; // 比率固定
@@ -195,7 +193,7 @@ function DesktopHero({ items }: { items: { src: string; title?: string }[] }) {
             <Card {...bottomMid} delay={0.2} />
           </div>
 
-          <div className="flex flex-col items-center justify-center w-[280px] h-[220px]">
+          <div className="flex flex-col items中心 justify-center w-[280px] h-[220px]">
             <LoopingScramble text="SHAPE"    className="font-extrabold text-[28px] leading-[1.2]" delayOffsetMs={0} />
             <LoopingScramble text="OUR"      className="font-extrabold text-[28px] leading-[1.2]" delayOffsetMs={400} />
             <LoopingScramble text="TOMORROW" className="font-extrabold text-[28px] leading-[1.2]" delayOffsetMs={800} />

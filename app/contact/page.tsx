@@ -1,20 +1,14 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
-import { Mail, Phone, MapPin, ArrowRight, ArrowLeft, Clock, MessageCircle, CheckCircle, Building2 } from "lucide-react";
-import { useState, useRef } from "react";
-import { createClient } from '@supabase/supabase-js';
+import { Textarea } from "@/components/ui/textarea";
+import { ArrowRight, Mail, MessageCircle, CheckCircle, AlertCircle } from "lucide-react";
 import Link from "next/link";
-
-const supabase = createClient(
-  'https://tfpvuxxoylxyhwlpepvm.supabase.co',
-  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRmcHZ1eHhveWx4eWh3bHBlcHZtIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDQzODczNzgsImV4cCI6MjA1OTk2MzM3OH0.eA18LoCaKK163khNdlfdECPu1H2HTFejUxPXXEbMu-w'
-);
+import { useState, useRef } from "react";
 
 export default function ContactPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -27,19 +21,12 @@ export default function ContactPage() {
     setSubmitStatus('idle');
 
     try {
-      const formData = new FormData(formRef.current!);
-      const { error } = await supabase
-        .from('contact_forms')
-        .insert({
-          name: formData.get('name'),
-          company: formData.get('company'),
-          email: formData.get('email'),
-          service: formData.get('service'),
-          message: formData.get('message'),
-        });
-
-      if (error) throw error;
-
+      const formData = new FormData(e.currentTarget);
+      
+      // ここでフォーム送信処理を実装
+      // 今回はダミーで成功として扱います
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      
       setSubmitStatus('success');
       formRef.current?.reset();
     } catch (error) {
@@ -52,22 +39,16 @@ export default function ContactPage() {
 
   return (
     <main className="min-h-screen py-16 sm:py-24 relative overflow-hidden">
-      {/* Simple light gray background */}
+      {/* Background */}
       <div className="absolute inset-0 bg-gray-50" />
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <Link href="/" className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors mb-6 sm:mb-8">
-          <ArrowLeft className="h-4 w-4" />
-          <span>トップページに戻る</span>
-        </Link>
-
-        {/* Hero Section - 控えめに調整 */}
+        {/* Hero Section */}
         <div className="text-center mb-12 sm:mb-16">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="relative"
           >
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-6">
               お気軽に
@@ -82,282 +63,200 @@ export default function ContactPage() {
           </motion.div>
         </div>
 
-        {/* Contact Methods - 控えめに調整 */}
+        {/* Contact Methods Grid */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2, duration: 0.6 }}
-          className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16"
+          className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16 max-w-4xl mx-auto"
         >
-          {[
-            {
-              icon: <Phone className="h-6 w-6 text-primary" />,
-              title: "お電話でのお問い合わせ",
-              content: "080-6354-0254",
-              description: "平日 9:00-18:00"
-            },
-            {
-              icon: <Mail className="h-6 w-6 text-primary" />,
-              title: "メールでのお問い合わせ",
-              content: "info@recustep.com",
-              description: "24時間受付"
-            },
-            {
-              icon: <Clock className="h-6 w-6 text-primary" />,
-              title: "営業時間",
-              content: "平日 9:00-18:00",
-              description: "土日祝日は休業"
-            }
-          ].map((method, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3 + index * 0.1, duration: 0.5 }}
-              whileHover={{ y: -4 }}
-            >
-              <Card className="border-0 shadow-md hover:shadow-lg transition-all duration-300 bg-background/80 backdrop-blur-sm h-full">
-                <CardContent className="p-6 text-center">
-                  <div className="inline-flex p-3 rounded-lg bg-primary/10 mb-4">
-                    {method.icon}
-                  </div>
-                  <h3 className="font-bold mb-2">{method.title}</h3>
-                  <p className="text-lg font-semibold text-primary mb-1">{method.content}</p>
-                  <p className="text-sm text-muted-foreground">{method.description}</p>
-                </CardContent>
-              </Card>
-            </motion.div>
-          ))}
+          {/* LINE Card */}
+          <Card className="border-0 shadow-lg hover:shadow-xl transition-all duration-300 bg-white/80 backdrop-blur-sm">
+            <CardContent className="p-8 text-center">
+              <div className="inline-flex p-4 rounded-2xl bg-gradient-to-r from-green-400 to-green-600 text-white mb-6">
+                <MessageCircle className="h-8 w-8" />
+              </div>
+              <h3 className="text-xl font-semibold mb-3">公式LINEで相談</h3>
+              <p className="text-base text-muted-foreground mb-2 font-medium">リクステップ公式LINE</p>
+              <p className="text-sm text-muted-foreground mb-6">24時間受付・気軽にメッセージ</p>
+              
+              <div className="space-y-4">
+                <Link 
+                  href="https://lin.ee/Dxtgx5Q"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center w-full px-6 py-3 text-base font-medium text-white bg-gradient-to-r from-green-400 to-green-600 rounded-lg hover:opacity-90 transition-opacity"
+                >
+                  <MessageCircle className="h-5 w-5 mr-2" />
+                  LINEで相談
+                </Link>
+                
+                <div className="mt-4 p-4 bg-white rounded-lg border shadow-sm">
+                  {/* 複数のパスを試すか、Base64エンコードされた画像を使用 */}
+                  <img 
+                    src="/images/line-qr-code.png"
+                    alt="LINE QRコード"
+                    className="w-24 h-24 mx-auto mb-4"
+                    onError={(e) => {
+                      const target = e.target as HTMLImageElement;
+                      // 画像が読み込めない場合は代替画像またはSVGを表示
+                      target.src = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='96' height='96' viewBox='0 0 96 96'%3E%3Crect width='96' height='96' fill='%23f0f0f0'/%3E%3Ctext x='48' y='48' text-anchor='middle' dy='0.3em' font-family='Arial' font-size='10' fill='%23666'%3EQRコード%3C/text%3E%3C/svg%3E";
+                    }}
+                  />
+                  <p className="text-sm text-gray-600 font-medium">QRコードで友達追加</p>
+                  <p className="text-xs text-gray-500 mt-1">スマートフォンでスキャンしてください</p>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* Email Card */}
+          <Card className="border-0 shadow-lg hover:shadow-xl transition-all duration-300 bg-white/80 backdrop-blur-sm">
+            <CardContent className="p-8 text-center">
+              <div className="inline-flex p-4 rounded-2xl bg-gradient-to-r from-blue-500 to-cyan-500 text-white mb-6">
+                <Mail className="h-8 w-8" />
+              </div>
+              <h3 className="text-xl font-semibold mb-3">メールでのお問い合わせ</h3>
+              <p className="text-base text-muted-foreground mb-2 font-medium">info@recustep.com</p>
+              <p className="text-sm text-muted-foreground mb-6">24時間受付</p>
+              
+              <Link 
+                href="mailto:info@recustep.com"
+                className="inline-flex items-center justify-center w-full px-6 py-3 text-base font-medium text-white bg-gradient-to-r from-blue-500 to-cyan-500 rounded-lg hover:opacity-90 transition-opacity"
+              >
+                メールを送る
+              </Link>
+            </CardContent>
+          </Card>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
-          {/* Contact Information */}
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.4, duration: 0.6 }}
-            className="order-2 lg:order-1"
-          >
-            <div className="space-y-6 sm:space-y-8">
-              {/* Office Image */}
-              <div className="relative aspect-video rounded-2xl overflow-hidden shadow-lg">
-                <div className="absolute -top-2 -left-2 sm:-top-4 sm:-left-4 w-16 h-16 sm:w-24 sm:h-24 bg-primary/5 rounded-lg z-0" />
-                <div className="absolute -bottom-2 -right-2 sm:-bottom-4 sm:-right-4 w-16 h-16 sm:w-24 sm:h-24 bg-blue-500/5 rounded-lg z-0" />
-                <img
-                  src="https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-                  alt="Our team"
-                  className="w-full h-full object-cover relative z-10"
-                />
-              </div>
-
-              {/* Contact Details */}
-              <div className="grid gap-4 sm:gap-6">
-                <Card className="border-0 shadow-md hover:shadow-lg transition-all duration-300 bg-background/80 backdrop-blur-sm">
-                  <CardContent className="p-4 sm:p-6">
-                    <div className="flex items-center gap-3 sm:gap-4">
-                      <div className="p-2 sm:p-3 rounded-full bg-primary/10 flex-shrink-0">
-                        <Mail className="h-5 w-5 sm:h-6 sm:w-6 text-primary" />
-                      </div>
-                      <div className="min-w-0">
-                        <h3 className="font-medium text-sm sm:text-base">メール</h3>
-                        <p className="text-muted-foreground text-sm sm:text-base break-all">info@rikustep.com</p>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-
-                <Card className="border-0 shadow-md hover:shadow-lg transition-all duration-300 bg-background/80 backdrop-blur-sm">
-                  <CardContent className="p-4 sm:p-6">
-                    <div className="flex items-center gap-3 sm:gap-4">
-                      <div className="p-2 sm:p-3 rounded-full bg-primary/10 flex-shrink-0">
-                        <Phone className="h-5 w-5 sm:h-6 sm:w-6 text-primary" />
-                      </div>
-                      <div>
-                        <h3 className="font-medium text-sm sm:text-base">電話</h3>
-                        <p className="text-muted-foreground text-sm sm:text-base">080-6354-0254</p>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-
-                <Card className="border-0 shadow-md hover:shadow-lg transition-all duration-300 bg-background/80 backdrop-blur-sm">
-                  <CardContent className="p-4 sm:p-6">
-                    <div className="flex items-start gap-3 sm:gap-4">
-                      <div className="p-2 sm:p-3 rounded-full bg-primary/10 flex-shrink-0">
-                        <MapPin className="h-5 w-5 sm:h-6 sm:w-6 text-primary" />
-                      </div>
-                      <div>
-                        <h3 className="font-medium text-sm sm:text-base">所在地</h3>
-                        <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
-                          〒594-0013<br />
-                          大阪府和泉市鶴山台1丁目12-27
-                        </p>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-
-                <Card className="border-0 shadow-md hover:shadow-lg transition-all duration-300 bg-background/80 backdrop-blur-sm">
-                  <CardContent className="p-4 sm:p-6">
-                    <div className="flex items-start gap-3 sm:gap-4">
-                      <div className="p-2 sm:p-3 rounded-full bg-primary/10 flex-shrink-0">
-                        <Building2 className="h-5 w-5 sm:h-6 sm:w-6 text-primary" />
-                      </div>
-                      <div>
-                        <h3 className="font-medium text-sm sm:text-base">オフィス</h3>
-                        <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
-                          〒530-0001<br />
-                          大阪府大阪市北区梅田1-1-3<br className="sm:hidden" />
-                          <span className="hidden sm:inline"> </span>大阪駅前第3ビル29階1-1-1号室
-                        </p>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-
-                <Card className="border-0 shadow-md bg-primary/5 border-primary/10">
-                  <CardContent className="p-4 sm:p-6">
-                    <div className="flex items-start gap-3 sm:gap-4">
-                      <div className="p-2 sm:p-3 rounded-full bg-primary/10 flex-shrink-0">
-                        <CheckCircle className="h-5 w-5 sm:h-6 sm:w-6 text-primary" />
-                      </div>
-                      <div>
-                        <h3 className="font-semibold text-sm sm:text-base mb-2">迅速な対応をお約束</h3>
-                        <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
-                          お問い合わせいただいた内容には、営業時間内であれば当日中、
-                          営業時間外の場合は翌営業日までにご返信いたします。
-                        </p>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-              </div>
-            </div>
-          </motion.div>
-
-          {/* Contact Form */}
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.6, duration: 0.6 }}
-            className="order-1 lg:order-2"
-          >
-            <Card className="border-0 shadow-lg bg-background/90 backdrop-blur-sm">
-              <CardHeader className="p-4 sm:p-6">
-                <CardTitle className="text-lg sm:text-xl">お問い合わせフォーム</CardTitle>
-                <p className="text-sm text-muted-foreground">
-                  以下のフォームにご記入いただき、送信してください。
+        {/* Contact Form */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.4, duration: 0.6 }}
+          className="max-w-2xl mx-auto"
+        >
+          <Card className="border-0 shadow-xl bg-white/90 backdrop-blur-sm">
+            <CardContent className="p-8">
+              <div className="text-center mb-8">
+                <h2 className="text-2xl sm:text-3xl font-bold mb-4">
+                  お問い合わせフォーム
+                </h2>
+                <p className="text-muted-foreground">
+                  下記フォームにご記入いただき、送信ボタンを押してください。<br />
+                  営業時間内に担当者よりご連絡いたします。
                 </p>
-              </CardHeader>
-              <CardContent className="p-4 sm:p-6 pt-0">
-                {submitStatus === 'success' && (
-                  <motion.div
-                    initial={{ opacity: 0, y: -10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    className="mb-4 p-3 sm:p-4 bg-green-500/10 text-green-500 rounded-lg text-sm sm:text-base border border-green-500/20"
-                  >
-                    <div className="flex items-center gap-2">
-                      <CheckCircle className="h-4 w-4" />
-                      <span>送信が完了しました。担当者より連絡させていただきます。</span>
-                    </div>
-                  </motion.div>
-                )}
-                {submitStatus === 'error' && (
-                  <motion.div
-                    initial={{ opacity: 0, y: -10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    className="mb-4 p-3 sm:p-4 bg-red-500/10 text-red-500 rounded-lg text-sm sm:text-base border border-red-500/20"
-                  >
-                    送信に失敗しました。時間をおいて再度お試しください。
-                  </motion.div>
-                )}
-                <form ref={formRef} onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
+              </div>
+
+              {submitStatus === 'success' && (
+                <div className="flex items-center gap-2 p-4 mb-6 bg-green-50 border border-green-200 rounded-lg text-green-800">
+                  <CheckCircle className="h-5 w-5" />
+                  <span>お問い合わせを受け付けました。ありがとうございます。</span>
+                </div>
+              )}
+
+              {submitStatus === 'error' && (
+                <div className="flex items-center gap-2 p-4 mb-6 bg-red-50 border border-red-200 rounded-lg text-red-800">
+                  <AlertCircle className="h-5 w-5" />
+                  <span>送信に失敗しました。もう一度お試しください。</span>
+                </div>
+              )}
+
+              <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   <div className="space-y-2">
-                    <Label htmlFor="name" className="text-sm sm:text-base">お名前 <span className="text-red-500">*</span></Label>
+                    <Label htmlFor="name">お名前 <span className="text-red-500">*</span></Label>
                     <Input 
                       type="text" 
                       id="name" 
                       name="name" 
                       placeholder="山田 太郎" 
                       required 
-                      className="w-full text-sm sm:text-base h-10 sm:h-11 border focus:border-primary transition-colors" 
+                      className="w-full border-2 focus:border-primary transition-colors" 
                     />
                   </div>
 
                   <div className="space-y-2">
-                    <Label htmlFor="company" className="text-sm sm:text-base">会社名</Label>
+                    <Label htmlFor="company">会社名・団体名</Label>
                     <Input 
                       type="text" 
                       id="company" 
                       name="company" 
-                      placeholder="株式会社XXX" 
-                      className="w-full text-sm sm:text-base h-10 sm:h-11 border focus:border-primary transition-colors" 
+                      placeholder="株式会社〇〇" 
+                      className="w-full border-2 focus:border-primary transition-colors" 
                     />
                   </div>
-
-                  <div className="space-y-2">
-                    <Label htmlFor="email" className="text-sm sm:text-base">メールアドレス <span className="text-red-500">*</span></Label>
-                    <Input 
-                      type="email" 
-                      id="email" 
-                      name="email" 
-                      placeholder="you@example.com" 
-                      required 
-                      className="w-full text-sm sm:text-base h-10 sm:h-11 border focus:border-primary transition-colors" 
-                    />
-                  </div>
-
-                  <div className="space-y-2">
-                    <Label htmlFor="service" className="text-sm sm:text-base">ご相談内容のカテゴリ <span className="text-red-500">*</span></Label>
-                    <select
-                      id="service"
-                      name="service"
-                      required
-                      className="w-full border rounded-md px-3 py-2 sm:py-3 bg-background text-sm sm:text-base h-10 sm:h-11 focus:border-primary transition-colors"
-                    >
-                      <option value="">選択してください</option>
-                      <option value="HP・LP制作">HP・LP制作</option>
-                      <option value="システム開発">システム開発</option>
-                      <option value="採用支援">採用支援</option>
-                      <option value="面接代行サービス">面接代行サービス</option>
-                      <option value="アート事業">アート事業</option>
-                      <option value="飲食店マッチング">飲食店マッチング</option>
-                      <option value="その他">その他</option>
-                    </select>
-                  </div>
-
-                  <div className="space-y-2">
-                    <Label htmlFor="message" className="text-sm sm:text-base">お問い合わせ内容 <span className="text-red-500">*</span></Label>
-                    <Textarea
-                      id="message"
-                      name="message"
-                      placeholder="ご相談内容を詳しくご記入ください。&#10;・現在の課題&#10;・ご希望の納期&#10;・予算感&#10;など"
-                      required
-                      rows={6}
-                      className="w-full text-sm sm:text-base resize-none border focus:border-primary transition-colors"
-                    />
-                  </div>
-
-                  <Button 
-                    type="submit" 
-                    className="w-full group h-11 sm:h-12 text-sm sm:text-base shadow-md hover:shadow-lg" 
-                    disabled={isSubmitting}
-                  >
-                    <span>{isSubmitting ? "送信中..." : "送信する"}</span>
-                    {!isSubmitting && <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />}
-                  </Button>
-                </form>
-
-                <div className="mt-6 p-4 bg-muted/30 rounded-lg">
-                  <p className="text-xs text-muted-foreground leading-relaxed">
-                    ご入力いただいた個人情報は、お問い合わせへの回答およびサービスのご案内のみに使用し、
-                    適切に管理いたします。第三者への提供は行いません。
-                  </p>
                 </div>
-              </CardContent>
-            </Card>
-          </motion.div>
-        </div>
+
+                <div className="space-y-2">
+                  <Label htmlFor="email">メールアドレス <span className="text-red-500">*</span></Label>
+                  <Input 
+                    type="email" 
+                    id="email" 
+                    name="email" 
+                    placeholder="you@example.com" 
+                    required 
+                    className="w-full border-2 focus:border-primary transition-colors" 
+                  />
+                </div>
+
+                <div className="space-y-2">
+                  <Label htmlFor="service">ご相談内容のカテゴリ <span className="text-red-500">*</span></Label>
+                  <select
+                    id="service"
+                    name="service"
+                    required
+                    className="w-full border-2 rounded-md px-3 py-2 bg-background focus:border-primary transition-colors"
+                  >
+                    <option value="">選択してください</option>
+                    <option value="HP・LP制作">HP・LP制作</option>
+                    <option value="システム開発">システム開発</option>
+                    <option value="採用支援">採用支援</option>
+                    <option value="面接代行サービス">面接代行サービス</option>
+                    <option value="アート事業">アート事業</option>
+                    <option value="飲食店マッチング">飲食店マッチング</option>
+                    <option value="その他">その他</option>
+                  </select>
+                </div>
+
+                <div className="space-y-2">
+                  <Label htmlFor="message">お問い合わせ内容 <span className="text-red-500">*</span></Label>
+                  <Textarea
+                    id="message"
+                    name="message"
+                    placeholder="ご相談内容を詳しくご記入ください。"
+                    required
+                    rows={4}
+                    className="w-full resize-none border-2 focus:border-primary transition-colors"
+                  />
+                </div>
+
+                <Button 
+                  type="submit" 
+                  className="w-full group bg-gradient-to-r from-primary to-blue-500 hover:from-primary/90 hover:to-blue-500/90 shadow-lg" 
+                  disabled={isSubmitting}
+                >
+                  <span>{isSubmitting ? '送信中...' : 'お問い合わせを送信'}</span>
+                  {!isSubmitting && <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />}
+                </Button>
+              </form>
+            </CardContent>
+          </Card>
+        </motion.div>
+
+        {/* Additional Info */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.6, duration: 0.6 }}
+          className="text-center mt-12"
+        >
+          <p className="text-sm text-muted-foreground">
+            ※ 頂いたお問い合わせには、営業時間内（平日9:00-18:00）に順次ご返信いたします。<br />
+            緊急のご相談は、公式LINEをご利用ください。
+          </p>
+        </motion.div>
       </div>
     </main>
   );

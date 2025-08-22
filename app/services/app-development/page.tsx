@@ -1,6 +1,6 @@
 // app/services/app-development/page.tsx
 "use client";
-
+import React from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
@@ -16,15 +16,18 @@ import {
   ArrowRight,
   CheckCircle2,
   Target,
+  Rocket,
+  ShieldCheck,
+  PlusCircle,
 } from "lucide-react";
 
 /* =========================
-   ページ本体（Navbar/上余白は layout.tsx に委譲）
+   ページ本体
    ========================= */
 export default function AppDevelopmentPage() {
   return (
     <main className="bg-[#f7f9fb]">
-      {/* ====== HERO ====== */}
+      {/* ====== HERO（画像は今の高さ/位置のまま） ====== */}
       <section className="relative w-full overflow-hidden">
         <div
           className="
@@ -35,7 +38,7 @@ export default function AppDevelopmentPage() {
             justify-start md:justify-between
           "
         >
-          {/* 左：テキスト ── SPだけ少し上げる／PCは固定 */}
+          {/* 左：テキスト（復旧） */}
           <motion.div
             className="
               order-2 md:order-1
@@ -88,7 +91,7 @@ export default function AppDevelopmentPage() {
             </div>
           </motion.div>
 
-          {/* 右：画像 ── SPの高さを下げて被り回避／PCは従来どおり */}
+          {/* 右：画像（object-position は center、クリップはそのまま） */}
           <motion.div
             className="
               order-1 md:order-2
@@ -107,7 +110,10 @@ export default function AppDevelopmentPage() {
               <img
                 src="/images/pages/app-dev-hero.png"
                 alt="アプリ開発サービス"
-                className="w-full h-full object-cover select-none pointer-events-none object-[74%_center] md:object-[78%_center]"
+                className="
+                  w-full h-full object-cover select-none pointer-events-none
+                  object-[74%_center] md:object-[78%_center]
+                "
                 draggable={false}
               />
             </div>
@@ -121,13 +127,16 @@ export default function AppDevelopmentPage() {
       {/* ====== 特徴 ====== */}
       <Features />
 
-      {/* ====== 提供範囲（アジャイル版） ====== */}
+      {/* ====== 提供範囲 ====== */}
       <Scope />
 
-      {/* ====== 進め方（アジャイル） ====== */}
+      {/* ====== 進め方（二段ジグザグ＋双方矢印） ====== */}
       <Process />
 
-      {/* ====== 事例 / お客様の声（ダミー） ====== */}
+      {/* ====== アジャイル詳説 ====== */}
+      <AgileDetails />
+
+      {/* ====== 事例 / お客様の声 ====== */}
       <Voices />
 
       {/* ====== FAQ ====== */}
@@ -185,12 +194,12 @@ function Problems() {
               <div className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-gray-900 text-white">
                 {it.icon}
               </div>
-                <h3 className="mt-3 md:mt-4 font-bold text-base md:text-lg text-gray-900 leading-snug">
-                  {it.title}
-                </h3>
-                <p className="mt-2 md:mt-3 text-[13.5px] md:text-[15px] leading-7 text-gray-600">
-                  {it.body}
-                </p>
+              <h3 className="mt-3 md:mt-4 font-bold text-base md:text-lg text-gray-900 leading-snug">
+                {it.title}
+              </h3>
+              <p className="mt-2 md:mt-3 text-[13.5px] md:text-[15px] leading-7 text-gray-600">
+                {it.body}
+              </p>
             </motion.div>
           ))}
         </div>
@@ -327,50 +336,198 @@ function Scope() {
 }
 
 /* =========================
-   進め方（アジャイル）
+   進め方（参考画像と同配置）
    ========================= */
-function Process() {
-  const steps = [
-    { title: "1. キックオフ", body: "目的/要件/KGI・KPIを確定。技術選定と体制を決定。" },
-    { title: "2. 設計/デザイン", body: "IA・画面設計・UI/UX・プロトタイプ作成とユーザーテスト。" },
-    { title: "3. 実装（スプリント）", body: "1〜2週で“動く価値”を積み上げ。デイリーで進捗/課題を共有。" },
-    { title: "4. レビュー/デモ", body: "成果物を確認しフィードバックを次スプリントへ反映。" },
-    { title: "5. リリース/計測", body: "ストア申請/配信、イベント/不具合監視・初期改善を実施。" },
-    { title: "6. 運用改善", body: "週次レポートで課題→打ち手を更新。ABテストも実施。" },
-  ];
-
-  return (
-    <section className="bg-[#fbfcfe] py-16 md:py-24">
-      <div className="max-w-7xl mx-auto px-6 md:px-10 lg:px-16">
-        <h2 className="text-xl sm:text-2xl md:text-4xl font-bold text-gray-900">ご契約から開発・運用までの流れ</h2>
-
-        <div className="mt-8 md:mt-10 grid md:grid-cols-3 gap-6">
-          {steps.map((s, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 12 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-10% 0px" }}
-              transition={{ duration: 0.35, delay: i * 0.05 }}
-              className="rounded-xl border border-gray-100 bg-white p-5 md:p-6 shadow-sm"
-            >
-              <div className="flex items-center gap-2 text-gray-900 font-semibold">
-                <span className="inline-flex items-center justify中心 w-7 h-7 rounded-full bg-gray-900 text-white text-sm">
-                  {i + 1}
-                </span>
-                {s.title}
+   function Process() {
+    const top = [
+      { label: "MVP定義",     icon: <Target className="h-6 w-6 md:h-7 md:w-7" />,      ring: "#C9A78E" },
+      { label: "初期リリース", icon: <Sparkles className="h-6 w-6 md:h-7 md:w-7" />,    ring: "#E4572E" },
+      { label: "テスト①",     icon: <ShieldCheck className="h-6 w-6 md:h-7 md:w-7" />, ring: "#6B5F2B" },
+      { label: "テスト②",     icon: <ShieldCheck className="h-6 w-6 md:h-7 md:w-7" />, ring: "#6B5F2B" },
+    ];
+    const bottom = [
+      { label: "設計/開発",   icon: <Code className="h-6 w-6 md:h-7 md:w-7" />,        ring: "#9CA3AF" },
+      { label: "機能追加①",   icon: <PlusCircle className="h-6 w-6 md:h-7 md:w-7" />,  ring: "#4B5563" },
+      { label: "追加機能②",   icon: <PlusCircle className="h-6 w-6 md:h-7 md:w-7" />,  ring: "#4B5563" },
+      { label: "本格リリース", icon: <Rocket className="h-6 w-6 md:h-7 md:w-7" />,      ring: "#E4572E" },
+    ];
+  
+    // カラム位置（%）とY座標
+    const xs = [8, 36, 64, 92];
+    const xFinal = Math.min(96, xs[3] + 6); // 本格リリースを少し右寄せ
+    const yBar = 160, yTop = 245, yBottom = 390, H = 440;
+  
+    return (
+      <section className="bg-[#fbfcfe] py-16 md:py-24">
+        <div className="max-w-7xl mx-auto px-6 md:px-10 lg:px-16">
+          <h2 className="text-xl sm:text-2xl md:text-4xl font-bold text-gray-900">
+            アジャイル開発で実現する
+          </h2>
+  
+          <div className="relative mt-8 hidden md:block">
+            <svg className="absolute inset-0 w-full" style={{ height: H }}>
+              <defs>
+                {/* 両端矢印（期間バー用） */}
+                <marker id="arrowBoth" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto">
+                  <polygon points="0 0, 10 4, 0 8" fill="#111827" />
+                </marker>
+              </defs>
+  
+              {/* 3ヶ月 */}
+              <g stroke="#111827" strokeWidth="2" markerStart="url(#arrowBoth)" markerEnd="url(#arrowBoth)">
+                <line x1={`${xs[0]}%`} y1={yBar} x2={`${xs[1]}%`} y2={yBar} />
+              </g>
+              <text x={`${(xs[0] + xs[1]) / 2}%`} y={yBar - 5} textAnchor="middle" fontSize="16" fontWeight="400" fill="#111827">
+                3ヶ月
+              </text>
+  
+              {/* 2週間 */}
+              <g stroke="#111827" strokeWidth="2" markerStart="url(#arrowBoth)" markerEnd="url(#arrowBoth)">
+                <line x1={`${xs[1]}%`} y1={yBar} x2={`${xs[2]}%`} y2={yBar} />
+              </g>
+              <text x={`${(xs[1] + xs[2]) / 2}%`} y={yBar - 5} textAnchor="middle" fontSize="16" fontWeight="400" fill="#111827">
+                2週間
+              </text>
+  
+              {/* 2週間 … */}
+              <g stroke="#111827" strokeWidth="2" markerStart="url(#arrowBoth)" markerEnd="url(#arrowBoth)">
+                <line x1={`${xs[2]}%`} y1={yBar} x2={`${xs[3]}%`} y2={yBar} />
+              </g>
+              <text x={`${(xs[2] + xs[3]) / 2}%`} y={yBar - 5} textAnchor="middle" fontSize="16" fontWeight="400" fill="#111827">
+                2週間 …
+              </text>
+  
+              {/* 縦の点線 */}
+              {[0,1,2,3].map(i => (
+                <line key={`v-${i}`} x1={`${xs[i]}%`} y1={yTop + 40} x2={`${xs[i]}%`} y2={yBottom - 40}
+                      stroke="#9CA3AF" strokeWidth="2" strokeDasharray="4 6" />
+              ))}
+  
+              {/* 斜め点線（設計→初期、機能①→テスト①、テスト②→本格） */}
+              <line x1={`${xs[0]}%`} y1={yBottom} x2={`${xs[1]}%`} y2={yTop}
+                    stroke="#9CA3AF" strokeWidth="2" strokeDasharray="4 6" />
+              <line x1={`${xs[1]}%`} y1={yBottom} x2={`${xs[2]}%`} y2={yTop}
+                    stroke="#9CA3AF" strokeWidth="2" strokeDasharray="4 6" />
+              <line x1={`${xs[3]}%`} y1={yTop} x2={`${xFinal}%`} y2={yBottom}
+                    stroke="#9CA3AF" strokeWidth="2" strokeDasharray="4 6" />
+  
+              {/* … ドット（追加機能②→本格リリースの途中） */}
+              {Array.from({ length: 4 }).map((_, k) => {
+                const t = 0.35 + 0.12 * k;
+                const cx = xs[2] + (xFinal - xs[2]) * t;
+                return <circle key={`dots-${k}`} cx={`${cx}%`} cy={yBottom + 18} r="3.6" fill="#111827" />;
+              })}
+            </svg>
+  
+            {/* ノード：上段 */}
+            <div style={{ height: H }} className="relative">
+              {top.map((n, i) => (
+                <div key={`top-${i}`} className="absolute" style={{ left: `calc(${xs[i]}% - 40px)`, top: yTop - 40 }}>
+                  <div className="h-20 w-20 rounded-full grid place-items-center shadow-[0_12px_22px_-10px_rgba(0,0,0,0.25)]"
+                       style={{ border: `10px solid ${n.ring}`, background: "white" }}>
+                    <div className="h-12 w-12 rounded-full bg-white grid place-items-center text-gray-900">{n.icon}</div>
+                  </div>
+                  <p className="mt-2 text-center text-sm font-semibold text-gray-800 whitespace-nowrap">{n.label}</p>
+                </div>
+              ))}
+  
+              {/* ノード：下段（最後のみ右寄せ） */}
+              {bottom.map((n, i) => {
+                const x = i === bottom.length - 1 ? xFinal : xs[i];
+                return (
+                  <div key={`bottom-${i}`} className="absolute" style={{ left: `calc(${x}% - 40px)`, top: yBottom - 40 }}>
+                    <div className="h-20 w-20 rounded-full grid place-items-center shadow-[0_12px_22px_-10px_rgba(0,0,0,0.25)]"
+                         style={{ border: `10px solid ${n.ring}`, background: "white" }}>
+                      <div className="h-12 w-12 rounded-full bg-white grid place-items-center text-gray-900">{n.icon}</div>
+                    </div>
+                    <p className="mt-2 text-center text-sm font-semibold text-gray-800 whitespace-nowrap">{n.label}</p>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+  
+          {/* SP：縦並び（簡易） */}
+          <div className="mt-8 grid gap-6 md:hidden">
+            {[0,1,2,3].map(i => (
+              <div key={`col-${i}`} className="grid grid-cols-1 gap-6">
+                <div className="flex items-center gap-4 rounded-xl border border-gray-200 bg-white p-4 shadow-sm">
+                  <div className="h-14 w-14 rounded-full grid place-items-center" style={{ border: `8px solid ${top[i].ring}`, background: "white" }}>
+                    <div className="h-9 w-9 rounded-full bg-white grid place-items-center text-gray-900">{top[i].icon}</div>
+                  </div>
+                  <div className="font-semibold text-gray-900">{top[i].label}</div>
+                </div>
+                <div className="flex items-center gap-4 rounded-xl border border-gray-200 bg-white p-4 shadow-sm">
+                  <div className="h-14 w-14 rounded-full grid place-items-center" style={{ border: `8px solid ${bottom[i].ring}`, background: "white" }}>
+                    <div className="h-9 w-9 rounded-full bg-white grid place-items-center text-gray-900">{bottom[i].icon}</div>
+                  </div>
+                  <div className="font-semibold text-gray-900">{bottom[i].label}</div>
+                </div>
               </div>
-              <p className="mt-3 text-[13.5px] md:text-sm text-gray-600 leading-7">{s.body}</p>
-            </motion.div>
-          ))}
+            ))}
+          </div>
         </div>
-      </div>
-    </section>
-  );
-}
+      </section>
+    );
+  }
+  
+  
+  
+/* =========================
+   アジャイル詳説（2列）
+   ========================= */
+   function AgileDetails() {
+    const blocks = [
+      {
+        title: "早期に「動くもの」を確認できる",
+        body:
+          "最初の2〜4週間でMVP（最小実装）を提示。画面遷移・主要フロー・API連携など、リスクの高い箇所から手を付けることで“不確実性”を前倒しで解消します。仕様書ではなく、実際のアプリで合意形成を進めます。",
+      },
+      {
+        title: "フィードバックを即座に反映",
+        body:
+          "各スプリントの終わりにデモ/レビューを実施。利用ログとユーザーインタビューを併用して優先度を更新し、次スプリントのBacklogへ即反映。意思決定を可視化することで“後戻り”を最小にします。",
+      },
+      {
+        title: "市場変化に迅速対応",
+        body:
+          "OS/SDK変更や競合機能に合わせ、短いリリースサイクルで追従。フラグ管理・段階Rolloutを仕組み化することで、影響範囲を抑えながら高速に実験/展開できます。",
+      },
+      {
+        title: "リスクを最小限に抑制",
+        body:
+          "CI/CD・自動テスト・クラッシュ/ANR監視を標準装備。セキュリティ要件やストア審査要件も設計段階から折り込み、障害や申請差し戻しの確率を下げます。",
+      },
+    ];
+  
+    return (
+      <section className="bg-white py-14 md:py-20">
+        <div className="max-w-7xl mx-auto px-6 md:px-10">
+          <h3 className="text-2xl md:text-3xl font-bold text-gray-900">
+            アジャイル開発の強みを、実務で活かす
+          </h3>
+  
+          {/* 二列グリッド（SPは1列、md以上で2列） */}
+          <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+            {blocks.map((b, i) => (
+              <div
+                key={i}
+                className="h-full rounded-xl border border-gray-200 bg-white/70 p-5 md:p-6 shadow-sm"
+              >
+                <div className="text-base md:text-lg font-semibold text-gray-900">
+                  {b.title}
+                </div>
+                <p className="mt-2 text-gray-700 leading-7">{b.body}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+    );
+  }  
 
 /* =========================
-   事例 / お客様の声（ダミー）
+   事例 / お客様の声
    ========================= */
 function Voices() {
   const cards = [

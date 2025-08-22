@@ -72,7 +72,7 @@ const services: Svc[] = [
   },
   {
     id: "artbloom",
-    titleEn: "ART\nBLOOM",
+    titleEn: "ARTBLOOM",
     titleJp: "アートのサブスク",
     description:
       "空間やブランドに合わせた作品を定期交換で提供。アーティストと企業をつなぎ価値を生み出します。",
@@ -81,10 +81,10 @@ const services: Svc[] = [
   },
   {
     id: "syokulab",
-    titleEn: "FOOD\nLAB",
-    titleJp: "飲食店マッチング「食ラボ」",
+    titleEn: "食ラボ",
+    titleJp: "飲食店支援アプリ「食ラボ」",
     description:
-      "店舗同士のコラボを後押しするプラットフォーム。新しい出会いと集客機会を作ります。",
+      "店舗同士支援行者と困った時に繋がれるプラットフォーム。新しい出会いと集客機会を作ります。",
     href: "/services/syokulab",
     illustration: "/images/services/syokulab-service.png",
   },
