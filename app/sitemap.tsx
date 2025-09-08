@@ -7,42 +7,42 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return [
     {
       url: `${baseUrl}/`,
-      changefreq: 'weekly',
+      changeFrequency: 'weekly',
       priority: 1.0,
     },
     {
       url: `${baseUrl}/services`,
-      changefreq: 'monthly',
+      changeFrequency: 'monthly',
       priority: 0.8,
     },
     {
       url: `${baseUrl}/services/hp-lp`,
-      changefreq: 'monthly',
+      changeFrequency: 'monthly',
       priority: 0.8,
     },
     {
       url: `${baseUrl}/services/system`,
-      changefreq: 'monthly',
+      changeFrequency: 'monthly',
       priority: 0.8,
     },
     {
       url: `${baseUrl}/services/recruitment`,
-      changefreq: 'monthly',
+      changeFrequency: 'monthly',
       priority: 0.8,
     },
     {
       url: `${baseUrl}/services/app-development`,
-      changefreq: 'monthly',
+      changeFrequency: 'monthly',
       priority: 0.8,
     },
     {
       url: `${baseUrl}/company`,
-      changefreq: 'monthly',
+      changeFrequency: 'monthly',
       priority: 0.7,
     },
     {
       url: `${baseUrl}/contact`,
-      changefreq: 'monthly',
+      changeFrequency: 'monthly',
       priority: 0.6,
     },
   ]
