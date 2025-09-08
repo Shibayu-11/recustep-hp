@@ -1,6 +1,7 @@
 // app/services/hp-lp/page.tsx
 "use client";
 
+
 import Navbar from "@/components/layout/Navbar";
 import { motion } from "framer-motion";
 import Link from "next/link";
@@ -9,18 +10,12 @@ import { Card, CardContent } from "@/components/ui/card";
 import { ArrowRight, Check, Layout, FileText, Search } from "lucide-react";
 import Image from "next/image";
 
-// ✅ SEO対策：metadata（Googleインデックス最適化）
-export const metadata = {
-  title: "関西特化型ホームページ制作｜株式会社リクステップ",
-  description:
-    "大阪・京都・兵庫など関西圏に強いホームページ制作。SEO/AEO/MEO対策を取り入れ、検索上位表示と地域集客を両立します。",
-};
 
 export default function HPLPPage() {
-  return (
-    <main className="min-h-screen bg-white">
-      {/* 固定ヘッダー */}
-      <Navbar />
+return (
+<main className="min-h-screen bg-white">
+{/* 固定ヘッダー */}
+<Navbar />
 
       {/* ===== Hero：モバイル小さめ / 上タブ分の余白維持 ===== */}
       <section className="relative pt-[88px] lg:pt-[104px] pb-10 sm:pb-12 md:pb-16 bg-gradient-to-b from-white to-slate-50">

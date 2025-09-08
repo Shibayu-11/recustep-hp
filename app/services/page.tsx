@@ -1,4 +1,3 @@
-// app/services/page.tsx
 "use client";
 
 import Link from "next/link";
@@ -55,7 +54,7 @@ const services = [
     href: "/services/syokulab",
     features: ["店舗マッチング", "コラボイベント支援", "集客支援", "実績分析"],
   },
-]; // ← as const を使わない
+];
 
 /* Hero画像の割り当て */
 const heroSrc: Record<string, string> = {
@@ -71,7 +70,6 @@ export default function ServicesPage() {
   return (
     <main className="relative min-h-screen overflow-hidden">
       <div className="absolute inset-0 bg-gray-50" />
-      {/* 上だけ詰める */}
       <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8 pt-10 md:pt-12 lg:pt-14 pb-20">
         <header className="mt-1 md:mt-2 mb-8">
           <h1 className="text-left text-4xl sm:text-5xl font-extrabold tracking-tight">SERVICE</h1>
@@ -135,7 +133,7 @@ export default function ServicesPage() {
   );
 }
 
-/* 2つずつに分割して行を作る */
+/* 2つずつに分割 */
 function chunk2<T>(arr: T[]): T[][] {
   const out: T[][] = [];
   for (let i = 0; i < arr.length; i += 2) out.push(arr.slice(i, i + 2));
