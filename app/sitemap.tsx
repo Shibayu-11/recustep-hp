@@ -1,38 +1,49 @@
-import { MetadataRoute } from "next";
+// app/sitemap.tsx
+import { MetadataRoute } from 'next'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://recustep.com";
+  const baseUrl = 'https://recustep.com'
 
   return [
     {
       url: `${baseUrl}/`,
-      changeFrequency: "weekly",
+      changefreq: 'weekly',
       priority: 1.0,
     },
     {
       url: `${baseUrl}/services`,
-      changeFrequency: "monthly",
+      changefreq: 'monthly',
       priority: 0.8,
     },
     {
       url: `${baseUrl}/services/hp-lp`,
-      changeFrequency: "monthly",
+      changefreq: 'monthly',
       priority: 0.8,
     },
     {
       url: `${baseUrl}/services/system`,
-      changeFrequency: "monthly",
+      changefreq: 'monthly',
       priority: 0.8,
     },
     {
       url: `${baseUrl}/services/recruitment`,
-      changeFrequency: "monthly",
+      changefreq: 'monthly',
       priority: 0.8,
     },
     {
       url: `${baseUrl}/services/app-development`,
-      changeFrequency: "monthly",
+      changefreq: 'monthly',
       priority: 0.8,
     },
-  ];
+    {
+      url: `${baseUrl}/company`,
+      changefreq: 'monthly',
+      priority: 0.7,
+    },
+    {
+      url: `${baseUrl}/contact`,
+      changefreq: 'monthly',
+      priority: 0.6,
+    },
+  ]
 }
