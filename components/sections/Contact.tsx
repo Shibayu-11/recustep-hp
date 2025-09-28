@@ -88,7 +88,7 @@ export default function Contact() {
             {
               icon: <Phone className="h-6 w-6" />,
               title: "お電話でのお問い合わせ",
-              content: "080-6354-0254",
+              content: "090-2382-1811",
               description: "平日 9:00-18:00",
               gradient: "from-green-500 to-emerald-500",
               bgGradient: "from-green-50 to-emerald-50 dark:from-green-950/20 dark:to-emerald-950/20"
@@ -150,7 +150,7 @@ export default function Contact() {
                     </div>
                     <div>
                       <h3 className="font-medium">メール</h3>
-                      <p className="text-muted-foreground">info@protectedustep.com</p>
+                      <p className="text-muted-foreground">info@recustep.com</p>
                     </div>
                   </div>
                 </CardContent>
@@ -164,25 +164,7 @@ export default function Contact() {
                     </div>
                     <div>
                       <h3 className="font-medium">電話</h3>
-                      <p className="text-muted-foreground">080-6354-0254</p>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-
-              <Card className="border-0 shadow-lg hover:shadow-xl transition-all duration-300">
-                <CardContent className="p-6">
-                  <div className="flex items-start gap-4">
-                    <div className="p-3 rounded-full bg-primary/10">
-                      <MapPin className="h-6 w-6 text-primary" />
-                    </div>
-                    <div>
-                      <h3 className="font-medium">所在地</h3>
-                      <p className="text-muted-foreground">
-                        〒594-0013
-                        <br />
-                        大阪府和泉市鶴山台1丁目12-27
-                      </p>
+                      <p className="text-muted-foreground">090-2382-1811</p>
                     </div>
                   </div>
                 </CardContent>
@@ -206,18 +188,45 @@ export default function Contact() {
                 </CardContent>
               </Card>
 
-              <Card className="border-0 shadow-lg bg-gradient-to-r from-primary/5 to-blue-500/5 border-primary/20">
+              <Card className="border-0 shadow-lg bg-gradient-to-r from-green-50 to-emerald-50 border-green-200">
                 <CardContent className="p-6">
                   <div className="flex items-start gap-4">
-                    <div className="p-3 rounded-full bg-primary/10">
-                      <CheckCircle className="h-6 w-6 text-primary" />
+                    <div className="p-3 rounded-full bg-green-500">
+                      <MessageCircle className="h-6 w-6 text-white" />
                     </div>
-                    <div>
-                      <h3 className="font-semibold mb-2">迅速な対応をお約束</h3>
-                      <p className="text-sm text-muted-foreground leading-relaxed">
-                        お問い合わせいただいた内容には、営業時間内であれば当日中、
-                        営業時間外の場合は翌営業日までにご返信いたします。
+                    <div className="flex-1">
+                      <h3 className="font-semibold mb-2">公式LINE</h3>
+                      <p className="text-sm text-muted-foreground leading-relaxed mb-4">
+                        LINEからもお気軽にお問い合わせいただけます。
+                        24時間受付、営業時間内にご返信いたします。
                       </p>
+                      
+                      <div className="flex items-center gap-4">
+                        {/* QRコード画像 */}
+                        <div className="bg-white p-3 rounded-lg border border-gray-200 shadow-sm">
+                          <img 
+                            src="/images/line-qr-code.png" 
+                            alt="LINE公式アカウント QRコード" 
+                            width={80} 
+                            height={80}
+                            className="block"
+                          />
+                        </div>
+                        
+                        <div>
+                          <Button 
+                            size="sm" 
+                            className="bg-green-500 hover:bg-green-600 text-white mb-2"
+                            onClick={() => window.open('https://lin.ee/aAuEqv2', '_blank')}
+                          >
+                            友だち追加
+                          </Button>
+                          <p className="text-xs text-gray-500">
+                            QRコードを読み取って<br />
+                            友だち追加
+                          </p>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </CardContent>

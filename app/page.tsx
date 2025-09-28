@@ -5,6 +5,7 @@ import Services from '@/components/sections/Services';
 import About from '@/components/sections/About';
 import Works from '@/components/sections/Works';
 import Contact from '@/components/sections/Contact';
+import FixedBottomFooter from '@/components/layout/FixedBottomFooter';
 
 export default function Home() {
   return (
@@ -23,6 +24,7 @@ export default function Home() {
           <Contact />
         </Suspense>
       </main>
+      <FixedBottomFooter />
     </>
   );
 }

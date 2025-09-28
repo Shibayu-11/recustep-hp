@@ -19,7 +19,7 @@ export default function SyokulabPage() {
           </p>
           
           <div className="inline-flex items-center px-6 py-3 bg-orange-100 text-orange-800 rounded-full text-lg font-medium mb-8">
-            🚀 9月初旬リリース予定
+            10月初旬リリース予定
           </div>
           
           <h2 className="text-3xl sm:text-4xl font-bold text-gray-800 mb-4">

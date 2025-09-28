@@ -284,15 +284,10 @@ export default function Works() {
                   まずはお気軽にご相談ください。
                 </p>
 
-                <div className="flex flex-col sm:flex-row gap-3 justify-center">
-                  <Button size="lg" className="group px-7 py-4 text-base sm:text-lg">
-                    <span>無料相談を始める</span>
-                    <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
-                  </Button>
-                  <Button size="lg" variant="outline" className="px-7 py-4 text-base sm:text-lg">
-                    ご利用例一覧を見る
-                  </Button>
-                </div>
+                <Button size="lg" className="group px-7 py-4 text-base sm:text-lg">
+                  <span>無料相談を始める</span>
+                  <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
+                </Button>
               </div>
             </CardContent>
           </Card>

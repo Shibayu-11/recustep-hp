@@ -53,11 +53,11 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: '大阪のホームページ制作ならリクステップ｜大阪市・堺市・南大阪対応',
-    description: '大阪全土対応のホームページ制作会社。大阪市・堺市・南大阪を中心に、HP・LP制作から採用サイト、システム開発まで一貫サポート。',
+    description: '大阪・南大阪のホームページ制作会社。HP・LP制作から採用サイト、システム開発まで一貫サポート。',
     images: ['/favicon/android-chrome-512x512.png']
   },
   
-  // 検索エンジン用設定
+  // その他メタタグ
   robots: {
     index: true,
     follow: true,
@@ -67,40 +67,13 @@ export const metadata: Metadata = {
       'max-video-preview': -1,
       'max-image-preview': 'large',
       'max-snippet': -1,
-    },
+    }
   },
   
-  // 大阪・南大阪特化キーワード
-  keywords: [
-    'ホームページ制作 大阪',
-    'ホームページ制作 南大阪',
-    'HP制作 大阪',
-    'HP制作 南大阪',
-    'Web制作 大阪',
-    'Web制作 南大阪',
-    'ランディングページ 大阪',
-    'ホームページ制作 大阪市',
-    'ホームページ制作 堺市',
-    'ホームページ制作 和泉市',
-    'ホームページ制作 松原市',
-    'ホームページ制作 羽曳野市',
-    'システム開発 大阪',
-    '採用サイト制作 大阪',
-    '採用支援 大阪',
-    'リクステップ',
-    '大阪 制作会社',
-    '南大阪 制作会社',
-    '大阪 Web制作',
-    '南大阪 Web制作'
-  ],
-  
-  // 言語設定
-  alternates: {
-    canonical: 'https://recustep.com'
-  },
-  
-  // その他の設定
-  category: 'technology'
+  // 検証
+  verification: {
+    google: 'your-google-verification-code', // Google Search Consoleの確認用
+  }
 }
 
 export default function RootLayout({
@@ -109,9 +82,9 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="ja" suppressHydrationWarning>
+    <html lang="ja">
       <head>
-        {/* ローカルSEO用構造化データ */}
+        {/* 構造化データ - 会社情報 */}
         <script 
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -119,9 +92,10 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "LocalBusiness",
               "name": "株式会社リクステップ",
-              "description": "大阪・南大阪のホームページ制作会社。HP・LP制作、システム開発、採用支援を一貫提供。",
+              "alternateName": "リクステップ",
+              "description": "大阪・南大阪を中心としたホームページ制作、システム開発、採用支援を行う会社",
               "url": "https://recustep.com",
-              "telephone": "090-2382-1811",
+              "telephone": "080-6354-0254",
               "email": "info@recustep.com",
               "address": {
                 "@type": "PostalAddress",
@@ -177,35 +151,27 @@ export default function RootLayout({
                 "name": "株式会社リクステップ",
                 "address": {
                   "@type": "PostalAddress",
-                  "addressLocality": "和泉市",
-                  "addressRegion": "大阪府"
+                  "addressLocality": "大阪市",
+                  "addressRegion": "大阪府",
+                  "addressCountry": "JP"
                 }
               },
-              "areaServed": "大阪府",
-              "serviceType": "ホームページ制作",
-              "offers": {
-                "@type": "Offer",
-                "priceCurrency": "JPY",
-                "price": "10000",
-                "description": "月額1,000円からのホームページ制作サービス"
-              }
+              "areaServed": [
+                "大阪府",
+                "大阪市",
+                "堺市",
+                "南大阪地域"
+              ],
+              "serviceType": [
+                "コーポレートサイト制作",
+                "ランディングページ制作",
+                "採用サイト制作",
+                "ECサイト制作",
+                "システム開発"
+              ]
             })
           }}
         />
-        
-        {/* 基本メタタグ */}
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="format-detection" content="telephone=no" />
-        
-        {/* 地理的メタタグ（大阪全域） */}
-        <meta name="geo.region" content="JP-27" />
-        <meta name="geo.placename" content="大阪府" />
-        {/* 具体的な座標は削除してエリア全体をカバー */}
-        
-        {/* パフォーマンス最適化 */}
-        <link rel="dns-prefetch" href="//fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
       </head>
       <body className={inter.className}>
         <ThemeProvider
@@ -214,13 +180,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <div className="flex flex-col min-h-screen">
-            <main className="flex-grow">
-              {children}
-            </main>
-            {/* Footer コンポーネントは後で追加 */}
-            {/* <Footer /> */}
-          </div>
+          {children}
         </ThemeProvider>
       </body>
     </html>
