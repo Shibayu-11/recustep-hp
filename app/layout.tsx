@@ -6,6 +6,7 @@ import { ThemeProvider } from '@/components/theme-provider'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://recustep.com'),
   title: '大阪のホームページ制作ならリクステップ｜HP・LP制作、システム開発、採用支援',
   description: '大阪・南大阪のホームページ制作会社リクステップ。大阪市・堺市・南大阪エリアを中心に、HP・LP制作から採用サイト、システム開発まで一貫サポート。問い合わせ数3倍UP実績多数。',
   
