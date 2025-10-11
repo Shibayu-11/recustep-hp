@@ -1,13 +1,14 @@
 // app/services/hp-lp/metadata.ts
 import { Metadata } from "next";
 
+const brandName = "株式会社リクステップ";
 const title = "関西で成果を出すホームページ制作サービス";
-const fullTitle = `${title}｜株式会社リクステップ`;
+const fullTitle = `${title}｜${brandName}`;
 const description =
   "大阪・京都・兵庫など関西圏の商圏に合わせたホームページ・LP制作。SEO/AEO/MEOとUI/UX改善で、問い合わせや予約につながるサイトを構築します。";
 
 export const metadata: Metadata = {
-  title: fullTitle,
+  title,
   description,
   keywords: [
     "ホームページ制作",
@@ -27,7 +28,7 @@ export const metadata: Metadata = {
     title: fullTitle,
     description,
     url: "https://recustep.com/services/hp-lp",
-    siteName: "株式会社リクステップ",
+    siteName: brandName,
     locale: "ja_JP",
     type: "website",
     images: [
