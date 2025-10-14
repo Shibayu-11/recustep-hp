@@ -6,7 +6,7 @@ const description =
   "飲食店同士のコラボを生み出すマッチングアプリ『食ラボ』。メニュー開発やイベント連携を支援し、地域飲食店の新しい出会いと集客を実現します。";
 
 export const metadata: Metadata = {
-  title: fullTitle,
+  title,
   description,
   keywords: [
     "飲食店アプリ",

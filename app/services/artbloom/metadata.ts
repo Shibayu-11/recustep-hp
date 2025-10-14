@@ -6,7 +6,7 @@ const description =
   "ArtBloomはオフィスや店舗にアートを届けるサブスクリプションサービス。空間に合わせた作品提案とアーティスト支援で、企業価値とブランド体験を高めます。";
 
 export const metadata: Metadata = {
-  title: fullTitle,
+  title,
   description,
   keywords: [
     "アートサブスク",

@@ -1,15 +1,10 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: "export",
+  output: 'export',
   eslint: { ignoreDuringBuilds: true },
   images: { unoptimized: true },
-  optimizeFonts: false,
-
-  // ★ 追加：ESMパッケージをNextでバンドル変換
-  transpilePackages: ["lucide-react"],
-
-  // 念のため（ESM外部依存を緩めに扱う）
-  experimental: { esmExternals: "loose" },
+  transpilePackages: ['lucide-react'], // 任意。不要なら削除OK
+  // ※ optimizeFonts / experimental.esmExternals は入れない
 };
 
 module.exports = nextConfig;

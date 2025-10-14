@@ -6,7 +6,7 @@ const description =
   "iOS・Androidのネイティブアプリ/ハイブリッドアプリ開発を企画から運用まで一貫支援。アジャイル開発とUI/UX改善でユーザー体験と事業成長を両立させます。";
 
 export const metadata: Metadata = {
-  title: fullTitle,
+  title,
   description,
   keywords: [
     "アプリ開発",
