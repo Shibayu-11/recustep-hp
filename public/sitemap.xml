@@ -1,5 +1,4 @@
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
+@@ -3,42 +3,52 @@
     <loc>https://recustep.com/</loc>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
@@ -22,6 +21,16 @@
   </url>
   <url>
     <loc>https://recustep.com/services/app-development</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://recustep.com/services/artbloom</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://recustep.com/services/syokulab</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
