@@ -8,7 +8,7 @@ const description =
   "大阪・京都・兵庫など関西圏の商圏に合わせたホームページ・LP制作。SEO/AEO/MEOとUI/UX改善で、問い合わせや予約につながるサイトを構築します。";
 
 export const metadata: Metadata = {
-  title,
+  title: fullTitle,
   description,
   keywords: [
     "ホームページ制作",

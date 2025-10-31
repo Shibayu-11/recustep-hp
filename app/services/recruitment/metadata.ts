@@ -6,7 +6,7 @@ const description =
   "新卒・中途・地方採用に強い伴走型の採用支援。採用戦略設計、母集団形成、選考設計、面接代行、定着支援までワンストップで支援します。";
 
 export const metadata: Metadata = {
-  title,
+  title: fullTitle,
   description,
   keywords: [
     "採用支援",

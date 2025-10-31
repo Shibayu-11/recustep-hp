@@ -7,7 +7,7 @@ const description =
   "基幹システムから業務アプリ開発まで、要件定義・設計・開発・運用をワンストップで支援。SaaS連携や内製化支援で業務効率化とDXを加速させます。";
 
 export const metadata: Metadata = {
-  title,
+  title: fullTitle,
   description,
   keywords: [
     "システム開発",
