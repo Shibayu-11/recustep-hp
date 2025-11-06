@@ -3,6 +3,7 @@ import type { Metadata, Viewport } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
 import { ThemeProvider } from '@/components/theme-provider';
+import Script from 'next/script';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -13,11 +14,11 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL('https://recustep.com'),
   title: {
-    default: '大阪のホームページ制作ならリクステップ｜HP・LP制作、システム開発、採用支援',
+    default: '【大阪】ホームページ制作からSEO対策まで対応｜株式会社リクステップ',
     template: '%s｜株式会社リクステップ',
   },
   description:
-    '大阪・南大阪のホームページ制作会社リクステップ。大阪市・堺市・南大阪エリアを中心に、HP・LP制作から採用サイト、システム開発まで一貫サポート。問い合わせ数3倍UP実績多数。',
+    '大阪でホームページ制作会社をお探しなら株式会社リクステップへ。短納期・24時間メール受け付け・SEO対策レポート付きのWeb制作。サブスクリプションプランや豊富な事例を兼ね備えいます。LINE連携対応、システム開発・アプリ制作・採用支援も一貫サポート。初回相談無料です。',
   icons: {
     icon: [
       { url: '/favicon/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
@@ -151,6 +152,31 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           // eslint-disable-next-line react/no-danger
           dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }}
         />
+        {/* ▼▼ GA4（gtag.js） ▼▼ */}
+        <Script
+          id="ga4-src"
+          strategy="afterInteractive"
+          src="https://www.googletagmanager.com/gtag/js?id=G-B14ETBJZC4"
+        />
+        <Script id="ga4-inline" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-B14ETBJZC4');
+          `}
+        </Script>
+
+        {/* ▼▼ Microsoft Clarity ▼▼ */}
+        <Script id="ms-clarity" strategy="afterInteractive">
+          {`
+            (function(c,l,a,r,i,t,y){
+              c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)}
+              t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+              y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+            })(window, document, "clarity", "script", "u0nyfyrhys");
+          `}
+        </Script>
       </head>
       <body className={inter.className} suppressHydrationWarning>
         <ThemeProvider
