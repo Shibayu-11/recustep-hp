@@ -60,3 +60,10 @@
     display: none;
   }
 }
+
+/* === 縦書きユーティリティ === */
+.vertical-rl {
+  writing-mode: vertical-rl;
+  text-orientation: upright; /* 日本語の縦組みに適した向き */
+  letter-spacing: 0.08em;
+}

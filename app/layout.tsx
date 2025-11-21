@@ -6,6 +6,8 @@ import { ThemeProvider } from '@/components/theme-provider';
 import Script from 'next/script';
 
 const inter = Inter({ subsets: ['latin'] });
+const googleSiteVerification =
+  process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION || process.env.GOOGLE_SITE_VERIFICATION;
 
 export const viewport: Viewport = {
   themeColor: '#ff6b35',
@@ -70,6 +72,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: 'https://recustep.com/',
   },
+  verification: googleSiteVerification ? { google: googleSiteVerification } : undefined,
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
