@@ -21,6 +21,16 @@
     <priority>0.9</priority>
   </url>
   <url>
+    <loc>https://recustep.com/services/recruitment</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://recustep.com/services/app-development</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
     <loc>https://recustep.com/services/artbloom</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
