@@ -3,6 +3,7 @@ import RecruitmentPage from "./page.client";
 export { metadata } from "./metadata";
 
 export default function RecruitmentRoutePage() {
+
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Service",
@@ -18,10 +19,12 @@ export default function RecruitmentRoutePage() {
         "addressCountry": "JP"
       }
     },
+
     "areaServed": {
       "@type": "Country",
       "name": "日本"
     },
+
     "serviceType": "採用支援",
     "description": "新卒・中途・地方採用に強い伴走型の採用支援。採用戦略設計、母集団形成、選考設計、面接代行、定着支援までワンストップで支援します。",
     "url": "https://recustep.com/services/recruitment",
@@ -60,7 +63,6 @@ export default function RecruitmentRoutePage() {
       ]
     }
   };
-
   return (
     <>
       <script

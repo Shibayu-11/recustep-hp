@@ -22,6 +22,7 @@ export default function SystemRoutePage() {
       "@type": "Country",
       "name": "日本"
     },
+
     "serviceType": "システム開発",
     "description": "基幹システムから業務アプリ開発まで、要件定義・設計・開発・運用をワンストップで支援。SaaS連携や内製化支援で業務効率化とDXを加速させます。",
     "url": "https://recustep.com/services/system",
@@ -50,6 +51,7 @@ export default function SystemRoutePage() {
             "name": "SaaS連携"
           }
         },
+
         {
           "@type": "Offer",
           "itemOffered": {
@@ -60,7 +62,6 @@ export default function SystemRoutePage() {
       ]
     }
   };
-
   return (
     <>
       <script
