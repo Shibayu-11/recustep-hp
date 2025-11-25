@@ -153,6 +153,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           // eslint-disable-next-line react/no-danger
           dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }}
         />
+
+        {/* Google Site Verification ▼▼ */}
+        <meta
+          name="google-site-verification"
+          content="SoX_uz5g0e1W18KLyDraN4FK4KYE5p3QlXmWjjDYfqs"
+        />
+
         {/* ▼▼ GA4（gtag.js） ▼▼ */}
         <Script
           id="ga4-src"
