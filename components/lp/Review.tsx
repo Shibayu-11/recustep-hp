@@ -13,25 +13,32 @@ type Voice = {
 
 const voices: Voice[] = [
   {
-    name: "T.S. さん",
-    school: "関西私立大",
-    grade: "3年",
+    name: "白上 さん",
+    school: "大阪商業大学",
+    grade: "2026年卒",
+    job: "第一志望 営業職 内定",
+    text: "自分自身で就職活動をしている時には何をやっていいかわからないことが多かったが、担当者が企業分析から面接のコツ、選考の進め方まで丁寧に教えてくれたので非常に進めやすかったです。企業紹介も押し付けがなく、こちらの希望に合わせて優しく提案していただき、前向きに就活を続けられました。",
+  },
+  {
+    name: "中野 さん",
+    school: "京都大学",
+    grade: "2026年卒",
+    job: "国内最大手 IT企業 エンジニア職 内定",
+    text: "ESを一緒に分解してもらい、自分でも気づけていなかった強みを言語化できました。エンジニア就活に必要な資格選び、学習計画、技術試験の対策まで伴走していただき、本番の面接でも事前に整理した内容を落ち着いて話せました。",
+  },
+  {
+    name: "植田 さん",
+    school: "大阪経済大学",
+    grade: "2026年卒",
     job: "第一志望メーカー 総合職 内定",
-    text: "就活の進め方が分からず不安でしたが、週1で進捗を整理してもらえたので『次にやること』がいつも明確でした。",
+    text: "就活の進め方が分からず不安でしたが、週1で進捗を整理してもらえたので『次に何をすべきか』が常に明確でした。不安が解消され、腰を据えて準備できました。",
   },
   {
-    name: "M.K. さん",
-    school: "地方国立大",
-    grade: "4年",
-    job: "IT企業 エンジニア職 内定",
-    text: "ESを一緒に分解してくれて、自分でも気付いていなかった強みが整理できました。面接で全く同じ質問が来て、落ち着いて話せました。",
-  },
-  {
-    name: "Y.N. さん",
-    school: "関関同立",
-    grade: "3年",
-    job: "人材ベンチャー 総合職 内定",
-    text: "『逆算スケジュール』を一緒に作ったおかげで、インターン・本選考の計画が立てやすく、部活との両立もできました。",
+    name: "北田 さん",
+    school: "摂南大学",
+    grade: "2026年卒",
+    job: "不動産ベンチャー 営業職 内定",
+    text: "『逆算スケジュール』を一緒に作成したことで選考の計画が立てやすく、インターンと授業・サークルの両立がスムーズにできました。ES作成や面接対策を効率よく行えるように支援してもらったのが、内定につながったと思います。",
   },
 ];
 
@@ -54,7 +61,7 @@ export function ReviewSection() {
             </div>
 
             {/* 右：水色カード（PCでは少し上にズラす） */}
-            <div className="mt-8 md:mt-0 md:-mt-10 w-full md:w-[40%]">
+            <div className="mt-8 md:-mt-10 w-full md:w-[40%]">
               <div className="rounded-3xl bg-[#E5EEF7] px-6 py-8 md:px-10 md:py-12 shadow-md">
                 <p className="text-xs font-semibold tracking-[0.3em] text-sky-900 mb-3">
                   REVIEW
@@ -63,10 +70,8 @@ export function ReviewSection() {
                   学生の正直 Q&amp;A
                 </h2>
                 <p className="text-sm md:text-base text-slate-700 leading-relaxed mb-4">
-                  「どんなサポートをしてもらえるのか」「他のエージェントと何が違うのか」。
-                  実際にサポートを受けた学生の声をピックアップして紹介します。
+                  「どんなサポートを受けられるのか」「他のエージェントと何が違うのか」。実際にサポートを利用した学生の声をピックアップして紹介します。
                 </p>
-                {/* 必要なら↓を残す / いらなければ消してOK */}
                 <button className="mt-2 text-sm font-medium text-sky-900 underline-offset-4 hover:underline">
                   Other Students &gt;
                 </button>
@@ -99,12 +104,8 @@ export function ReviewSection() {
                 <h3 className="text-sm font-semibold text-slate-900 mb-2">
                   {v.name}
                 </h3>
-                <p className="text-xs text-sky-800 font-medium mb-3">
-                  {v.job}
-                </p>
-                <p className="text-xs leading-relaxed text-slate-700">
-                  {v.text}
-                </p>
+                <p className="text-xs text-sky-800 font-medium mb-3">{v.job}</p>
+                <p className="text-xs leading-relaxed text-slate-700">{v.text}</p>
               </article>
             ))}
           </div>
