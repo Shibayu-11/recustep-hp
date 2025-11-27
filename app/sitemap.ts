@@ -51,6 +51,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...columnPaths.map((path) => buildEntry(path, 0.6, "weekly")),
     buildEntry("/company", 0.7, "monthly"),
     buildEntry("/contact", 0.6, "monthly"),
+    buildEntry("/lp", 0.9, "weekly"),
     buildEntry("/privacy", 0.3, "yearly"),
     buildEntry("/terms", 0.3, "yearly"),
   ];
