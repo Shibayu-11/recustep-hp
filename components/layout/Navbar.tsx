@@ -36,10 +36,8 @@ export default function Navbar({ solidOnLoad = false }: Props) {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const atHome = pathname === "/";
   const rawIsScrolled = scrollY > 20;
   const isScrolled = solidOnLoad ? true : rawIsScrolled;
-  const headerOpacity = Math.min(scrollY / 200, 0.98);
 
   // HOME 以外のタブだけアクティブ下線を出す
   const isActive = (href: string, isHomeTab = false) => {
@@ -106,18 +104,12 @@ export default function Navbar({ solidOnLoad = false }: Props) {
                   const isHomeTab = item.name === "HOME";
                   const active = isActive(item.href, isHomeTab);
 
-                  // HOMEの表示：HOME先頭では隠す（スクロールしたら出現）
-                  const homeVisibility =
-                    atHome && !isScrolled && isHomeTab
-                      ? "opacity-0 pointer-events-none -translate-y-1"
-                      : "opacity-100 translate-y-0";
-
                   return (
                     <Link
                       key={item.name}
                       href={item.href}
                       onClick={isHomeTab ? handleHomeClick : undefined}
-                      className={`relative group transition-all duration-300 ${isHomeTab ? homeVisibility : ""}`}
+                      className="relative group transition-all duration-300"
                     >
                       <span
                         className={`text-sm font-medium tracking-wide transition-all duration-300 group-hover:text-black ${
