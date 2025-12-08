@@ -70,7 +70,7 @@ export default function Navbar({ solidOnLoad = false }: Props) {
   return (
     <>
       <motion.header
-        className="fixed top-0 left-0 right-0 z-50 transition-all duration-500"
+        className="fixed top-0 left-0 right-0 z-40 transition-all duration-500"
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
@@ -79,7 +79,7 @@ export default function Navbar({ solidOnLoad = false }: Props) {
           className="transition-all duration-500 ease-out"
           style={{
             backgroundColor: isScrolled
-              ? `rgba(255, 255, 255, ${solidOnLoad ? 0.98 : headerOpacity})`
+              ? "rgba(255, 255, 255, 1)"
               : "transparent",
             backdropFilter: isScrolled ? "blur(20px)" : "none",
             WebkitBackdropFilter: isScrolled ? "blur(20px)" : "none",
@@ -190,7 +190,7 @@ export default function Navbar({ solidOnLoad = false }: Props) {
           <>
             <motion.div
               key="overlay"
-              className="fixed inset-0 z-40 bg-black/40 backdrop-blur-sm"
+              className="fixed inset-0 z-50 bg-black/40 backdrop-blur-sm"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
@@ -198,7 +198,7 @@ export default function Navbar({ solidOnLoad = false }: Props) {
             />
             <motion.nav
               key="drawer"
-              className="fixed top-0 right-0 bottom-0 z-50 w-[78%] max-w-[360px] bg-white shadow-xl p-6 pt-20"
+              className="fixed top-0 right-0 bottom-0 z-[60] w-[78%] max-w-[360px] bg-white shadow-xl p-6 pt-20"
               initial={{ x: "100%" }}
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
