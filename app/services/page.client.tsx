@@ -3,7 +3,6 @@
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
-import FixedBottomFooter from "@/components/layout/FixedBottomFooter";
 
 /* ====== サービス定義 ====== */
 const services = [
@@ -69,71 +68,89 @@ const heroSrc: Record<string, string> = {
 
 export default function ServicesPage() {
   return (
-    <>
-      <main className="relative min-h-screen overflow-hidden">
-        <div className="absolute inset-0 bg-gray-50" />
-        <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8 pt-10 md:pt-12 lg:pt-14 pb-20">
-          <header className="mt-1 md:mt-2 mb-8">
-            <h1 className="text-left text-4xl sm:text-5xl font-extrabold tracking-tight">SERVICE</h1>
-            <p className="mt-4 max-w-4xl text-left text-muted-foreground text-[15px] md:text-[17px] leading-8 md:leading-9">
-              リクステップは、デザインとテクノロジーを横断する少数精鋭のチームです。見た目の美しさだけでなく、情報設計と実装品質、公開後の運用までを一貫して担います。企画・要件定義からデザイン、Next.js を用いた開発、CMS 導入、解析設定、表示速度・SEO の最適化までワンストップで提供し、スピードと品質の両立を図ります。企業サイト、LP、採用サイト、業務システムや Web アプリまで、目的に合わせて最適な構成をご提案し、公開後の運用・改善まで伴走します。採用支援も他サービスと同様に、戦略設計から実務運用まで一貫対応します。
-            </p>
-          </header>
+    <main className="relative min-h-screen overflow-hidden">
+      <div className="absolute inset-0 bg-gray-50" />
+      <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8 pt-10 md:pt-12 lg:pt-14 pb-20">
+        <header className="mt-1 md:mt-2 mb-8">
+          <h1 className="text-left text-4xl sm:text-5xl font-extrabold tracking-tight">SERVICE</h1>
 
-          <section className="mt-6 md:mt-10">
-            <div className="grid gap-y-14 md:gap-y-16">
-              {chunk2(services).map((row, rIdx) => (
-                <div key={rIdx} className="grid md:grid-cols-2 gap-8 md:gap-10 items-start">
-                  {row.map((svc) => (
-                    <article key={svc.id} className="group">
-                      <Link href={svc.href} className="block rounded-2xl overflow-hidden">
-                        <div className="relative w-full aspect-[16/9]">
-                          <Image
-                            src={heroSrc[svc.id] ?? "/images/hero/hp.jpg"}
-                            alt={svc.title}
-                            fill
-                            className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
-                            sizes="(max-width: 1024px) 100vw, 50vw"
-                            priority={rIdx === 0}
-                          />
-                        </div>
-                      </Link>
+          <div className="mt-6 space-y-6">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight leading-relaxed text-gray-900">
+              デザインとテクノロジーを融合し、貴社の「本質的なビジネス成長」を牽引するワンストップ・パートナー
+            </h2>
 
-                      <h3 className="mt-5 text-2xl md:text-[28px] font-bold tracking-tight">
-                        <Link href={svc.href} className="hover:text-primary transition-colors">
-                          {svc.title}
-                        </Link>
-                      </h3>
-                      <p className="mt-3 text-muted-foreground leading-relaxed">{svc.description}</p>
-
-                      <ul className="mt-4 grid grid-cols-1 gap-2">
-                        {svc.features.map((f) => (
-                          <li key={f} className="flex items-start gap-2">
-                            <span className="mt-2 inline-block w-1.5 h-1.5 rounded-full bg-primary/80" />
-                            <span className="text-sm">{f}</span>
-                          </li>
-                        ))}
-                      </ul>
-
-                      <div className="mt-4">
-                        <Link href={svc.href} className="inline-flex items-center text-primary hover:opacity-90">
-                          <span>詳しく見る</span>
-                          <ArrowRight className="ml-2 h-4 w-4" />
-                        </Link>
-                      </div>
-                    </article>
-                  ))}
-                  {row.length === 1 && <div className="hidden md:block" />}
-                </div>
-              ))}
+            <div className="space-y-4 text-[15px] md:text-[16px] leading-8 text-gray-700">
+              <p>
+                株式会社リクステップは、デジタル変革（DX）が加速する時代において、企業が直面する課題をデザインとテクノロジーの力で解決し、持続的な成長を実現するための少数精鋭プロフェッショナルチームです。単に美しいWebサイトを作るだけでなく、ビジネスの戦略設計から情報設計、そして成果に直結する実装品質までを一気通貫で追求する、真のワンストップ・ソリューションを提供します。
+              </p>
+              <p>
+                私たちの核となる強みは、最先端の技術スタックと徹底したSEO最適化へのこだわりです。高速な表示速度と高いセキュリティを実現するNext.jsなどのモダンな技術を採用し、検索エンジンからの評価を高め、ユーザー体験（UI/UX）を最大化します。企画・要件定義から開発、公開後の解析設定、継続的な伴走型運用改善まで、すべてデータドリブンで実行し、貴社のデジタル資産を「生きた競争力」へと進化させます。
+              </p>
             </div>
-          </section>
 
-          <div className="h-16" />
-        </div>
-      </main>
-      <FixedBottomFooter />
-    </>
+            <div className="mt-8">
+              <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-3">
+                成果にコミットする包括的なサービス群
+              </h3>
+              <p className="text-[15px] md:text-[16px] leading-8 text-gray-700">
+                リクステップは、貴社のニーズに合わせ、事業成長に必要なデジタルソリューションを幅広く提供します。
+              </p>
+            </div>
+          </div>
+        </header>
+
+        <section className="mt-6 md:mt-10">
+          <div className="grid gap-y-14 md:gap-y-16">
+            {chunk2(services).map((row, rIdx) => (
+              <div key={rIdx} className="grid md:grid-cols-2 gap-8 md:gap-10 items-start">
+                {row.map((svc) => (
+                  <article key={svc.id} className="group">
+                    <Link href={svc.href} className="block rounded-2xl overflow-hidden">
+                      <div className="relative w-full aspect-[16/9]">
+                        <Image
+                          src={heroSrc[svc.id] ?? "/images/hero/hp.jpg"}
+                          alt={svc.title}
+                          fill
+                          className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                          sizes="(max-width: 1024px) 100vw, 50vw"
+                          priority={rIdx === 0}
+                        />
+                      </div>
+                    </Link>
+
+                    <h3 className="mt-5 text-2xl md:text-[28px] font-bold tracking-tight">
+                      <Link href={svc.href} className="hover:text-primary transition-colors">
+                        {svc.title}
+                      </Link>
+                    </h3>
+                    <p className="mt-3 text-muted-foreground leading-relaxed">{svc.description}</p>
+
+                    <ul className="mt-4 grid grid-cols-1 gap-2">
+                      {svc.features.map((f) => (
+                        <li key={f} className="flex items-start gap-2">
+                          <span className="mt-2 inline-block w-1.5 h-1.5 rounded-full bg-primary/80" />
+                          <span className="text-sm">{f}</span>
+                        </li>
+                      ))}
+                    </ul>
+
+                    <div className="mt-4">
+                      <Link href={svc.href} className="inline-flex items-center text-primary hover:opacity-90">
+                        <span>詳しく見る</span>
+                        <ArrowRight className="ml-2 h-4 w-4" />
+                      </Link>
+                    </div>
+                  </article>
+                ))}
+                {row.length === 1 && <div className="hidden md:block" />}
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <div className="h-16" />
+      </div>
+    </main>
   );
 }
 
