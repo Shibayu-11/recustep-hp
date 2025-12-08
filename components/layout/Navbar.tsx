@@ -1,7 +1,7 @@
 // components/layout/Navbar.tsx
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useState, useCallback } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
@@ -23,21 +23,12 @@ const navigationItems = [
   { name: "COMPANY", href: "/company" },
 ];
 
-type Props = { solidOnLoad?: boolean };
-
-export default function Navbar({ solidOnLoad = false }: Props) {
+export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [scrollY, setScrollY] = useState(0);
   const pathname = usePathname();
 
-  useEffect(() => {
-    const onScroll = () => setScrollY(window.scrollY);
-    window.addEventListener("scroll", onScroll);
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
-  const rawIsScrolled = scrollY > 20;
-  const isScrolled = solidOnLoad ? true : rawIsScrolled;
+  // 常に固定表示（視認性のため）
+  const isScrolled = true;
 
   // HOME 以外のタブだけアクティブ下線を出す
   const isActive = (href: string, isHomeTab = false) => {

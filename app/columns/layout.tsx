@@ -5,7 +5,7 @@ export default function ColumnsLayout({ children }: { children: ReactNode }) {
   return (
     <>
       {/* 黒文字＋白背景ナビ */}
-      <Navbar solidOnLoad />
+      <Navbar />
 
       {/* コンテンツ */}
       <div className="pt-16 lg:pt-20">{children}</div>

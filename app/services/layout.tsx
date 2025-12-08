@@ -5,8 +5,7 @@ import FixedBottomFooter from "@/components/layout/FixedBottomFooter";
 export default function RecruitmentLayout({ children }: { children: ReactNode }) {
   return (
     <>
-      {/* ロード直後から黒文字・白背景で見えるように */}
-      <Navbar solidOnLoad />
+      <Navbar />
 
       {/* ヘッダーの高さ分だけ下げる（16 / 20 = h-16 / h-20） */}
       <div className="pt-16 lg:pt-20">{children}</div>
