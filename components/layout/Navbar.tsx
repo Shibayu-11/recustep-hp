@@ -90,7 +90,7 @@ export default function Navbar() {
               </Link>
 
               {/* デスクトップナビ */}
-              <nav className="hidden lg:flex items-center space-x-8 xl:space-x-10 flex-1">
+              <nav className="hidden lg:flex items-center space-x-8 xl:space-x-10 ml-auto">
                 {navigationItems.map((item) => {
                   const isHomeTab = item.name === "HOME";
                   const active = isActive(item.href, isHomeTab);
@@ -137,7 +137,7 @@ export default function Navbar() {
               </nav>
 
               {/* CTA */}
-              <div className="hidden lg:flex items-center ml-auto">
+              <div className="hidden lg:flex items-center ml-6">
                 <Button
                   asChild
                   className={`rounded-full transition-all duration-300 px-8 py-2.5 text-sm font-medium border-2 ${

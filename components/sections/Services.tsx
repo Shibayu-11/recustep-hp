@@ -71,6 +71,15 @@ const services: Svc[] = [
     illustration: "/images/services/system-development.png",
   },
   {
+    id: "recuste",
+    titleEn: "RECUSTE",
+    titleJp: "就活生向けアプリ\n「リクステ」",
+    description:
+      "履歴書・ES作成、AI添削、資格学習、企業スカウト機能を搭載。専任CAが伴走し、内定獲得までを一貫支援します。",
+    href: "/services/recuste",
+    illustration: "/images/services/recuste-service.png",
+  },
+  {
     id: "artbloom",
     titleEn: "ARTBLOOM",
     titleJp: "アートのサブスク",
@@ -79,15 +88,6 @@ const services: Svc[] = [
     href: "/services/artbloom",
     illustration: "/images/services/artbloom-service.png",
   },
-  {
-    id: "syokulab",
-    titleEn: "食ラボ",
-    titleJp: "飲食店支援アプリ「食ラボ」",
-    description:
-      "店舗同士支援行者と困った時に繋がれるプラットフォーム。新しい出会いと集客機会を作ります。",
-    href: "/services/syokulab",
-    illustration: "/images/services/syokulab-service.png",
-  },
 ];
 
 /* =========================================================
@@ -95,29 +95,29 @@ const services: Svc[] = [
    ========================================================= */
    function MobileServiceCard({ s, priority = false }: { s: Svc; priority?: boolean }) {
     const isArt  = s.id === "artbloom";
-    const isFood = s.id === "syokulab";
-  
-    // 表示テキスト：ARTBLOOM / FOODLABO は 1 行固定
+    const isRecuste = s.id === "recuste";
+
+    // 表示テキスト：ARTBLOOM / RECUSTE は 1 行固定
     const titleText =
       isArt ? "ARTBLOOM"
-      : isFood ? "FOODLABO"
+      : isRecuste ? "RECUSTE"
       : s.titleEn;
-  
-    // ★ 指示反映：全カードでもう“1行分”さらに下げる
-    // 以前: hp/app/recruit/system = 3em, art/food = 4em
-    // 今回: hp/app/recruit/system = 4em, art/food = 5em
+
+    // ★ 指示反映：全カードでもう"1行分"さらに下げる
+    // 以前: hp/app/recruit/system = 3em, art/recuste = 4em
+    // 今回: hp/app/recruit/system = 4em, art/recuste = 5em
     const topById: Record<string, string> = {
       "hp-lp":            "mt-[4em]",
       "app-development":  "mt-[4em]",
       "recruitment":      "mt-[4em]",
       "system":           "mt-[4em]",
       "artbloom":         "mt-[5em]",
-      "syokulab":         "mt-[5em]",
+      "recuste":          "mt-[5em]",
     };
     const topClass = topById[s.id] ?? "mt-[4em]";
-  
+
     const leftShift = "ml-[-3.5ch]";
-    const whiteSpace = isArt || isFood ? "whitespace-nowrap" : "whitespace-pre-line";
+    const whiteSpace = isArt || isRecuste ? "whitespace-nowrap" : "whitespace-pre-line";
   
     return (
       <motion.article
@@ -269,8 +269,8 @@ const mobileOrder: string[] = [
   "app-development",  // アプリ開発
   "recruitment",      // 採用支援
   "system",           // システム開発
+  "recuste",          // リクステ
   "artbloom",         // アート
-  "syokulab",         // 食ラボ
 ];
 
 export default function Service() {
@@ -285,13 +285,30 @@ export default function Service() {
   return (
     <section id="services" className="relative bg-white py-16 md:py-24">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        {/* 見出し・リード文（据え置き） */}
-        <div className="mb-10 md:mb-14">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight">SERVICE</h2>
-          <p className="mt-3 text-[16px] leading-8 text-gray-700">
-            デザイン性と機能性を兼ね備えたサイト・アプリを制作。<br />
-            Web制作からシステム開発、採用支援までワンストップ対応。<br />
-            成果に直結する情報設計と運用支援が強みです。
+        {/* 見出し・リード文 */}
+        <div className="mb-4 md:mb-6 space-y-6">
+          <p className="text-xs tracking-[0.2em] text-slate-500">
+            SERVICE
+          </p>
+
+          <div>
+            <h2 className="text-[26px] md:text-[30px] lg:text-[32px] font-bold leading-snug text-slate-900">
+              デザインとテクノロジーを融合し、<br />
+              貴社の「本質的なビジネス成長」を<br className="md:hidden" />
+              牽引するワンストップ・パートナー
+            </h2>
+          </div>
+
+          <p className="text-sm md:text-[15px] leading-relaxed text-slate-700">
+            採用、生産性、業務設計、教育、ブランド。<br />
+            分野は違っても、向き合う本質は一つ。<br />
+            成長が続く仕組みを設計すること。
+          </p>
+
+          <p className="text-sm md:text-[15px] leading-relaxed text-slate-700">
+            私たちは、答えを外から与える会社ではありません。<br />
+            企業の中に入り、課題を言語化し、<br />
+            再現性のある成長構造として実装します。
           </p>
         </div>
 

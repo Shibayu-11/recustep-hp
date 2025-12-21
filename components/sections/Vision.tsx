@@ -6,7 +6,7 @@ import Image from "next/image";
 export default function Vision() {
   return (
     <section className="w-full bg-white py-24">
-      <div className="max-w-6xl mx-auto px-4 lg:px-8">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid items-start gap-12 md:grid-cols-2">
           {/* 左：テキスト */}
           <div className="space-y-6">

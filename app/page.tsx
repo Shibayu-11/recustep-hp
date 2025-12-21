@@ -2,7 +2,7 @@ import { Suspense } from "react";
 
 import Hero from "@/components/sections/Hero";
 import Services from "@/components/sections/Services";
-import About from "@/components/sections/About";
+import CEOMessage from "@/components/sections/CEOMessage";
 import Works from "@/components/sections/Works";
 import Columns from "@/components/sections/Columns";
 import Contact from "@/components/sections/Contact";
@@ -26,7 +26,7 @@ export default function Home() {
           <Hero />
           <Vision />
           <Services />
-          <About />
+          <CEOMessage />
           <Works />
           <Columns />
           <Contact />
