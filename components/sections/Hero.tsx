@@ -14,7 +14,7 @@ export default function Hero() {
     { src: im("system"),     title: "System" },           // 2
     { src: im("artbloom"),   title: "ArtBloom" },         // 3
     { src: im("marketing"),  title: "Marketing" },        // 4
-    { src: im("shokulab"),   title: "食ラボ" },            // 5 
+    { src: im("recuste"),   title: "就活せ向けアプリ「リクステ」" },            // 5 
     { src: im("human"),      title: "Human Resources" },  // 6
     { src: im("consult"),    title: "Consulting" },       // 7
   ];
