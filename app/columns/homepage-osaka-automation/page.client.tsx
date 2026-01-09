@@ -187,6 +187,34 @@ LINE連携による問い合わせ数改善の効果を正しく評価するた�
 
 </div>
 </section>
+
+
+
+<h2 className="mb-5 text-[20px] md:text-[24px] font-bold text-gray-800 pb-3 border-b-[3px] border-blue-500 relative leading-snug after:content-[''] after:absolute after:bottom-[-3px] after:left-0 after:w-[60px] after:md:w-[50px] after:h-[3px] after:bg-blue-800 mt-10">
+  成長のヒントが見つかる！「レポート」で成果を可視化して改善
+</h2>
+<section className="u-mb30 c-block">
+<p className="mt-4 sm:mt-5 text-[14px] sm:text-[15px] md:text-base text-gray-700 leading-7 sm:leading-8">
+ホームページを公開した後に大切となるのは、「狙い通りに集客できているか」を確かめることです。大阪の激戦区で勝ち抜くためには、感覚に頼るのではなく、データに基づいた改善が欠かせません。
+</p>
+
+<p className="mt-4 sm:mt-5 text-[14px] sm:text-[15px] md:text-base text-gray-700 leading-7 sm:leading-8">
+そこで活用したいのが、サイトの動きをまとめたレポートです。レポートを確認することで、以下のような「次の一手」が見えてきます。
+</p>
+
+<ul className="mt-4">
+  <li><strong>・効果測定</strong>：LINE登録や予約が、どのページから発生しているか特定する</li>
+  <li><strong>・改善点の発見</strong>：ユーザーが途中で離脱している「もったいない場所」を見つける</li>
+  <li><strong>・費用の最適化</strong>：反応が良い施策に絞ることで、無駄な広告費などを抑える</li>
+</ul>
+
+<p className="mt-4 sm:mt-5 text-[14px] sm:text-[15px] md:text-base text-gray-700 leading-7 sm:leading-8">
+「数字は苦手…」というオーナー様もご安心ください。難しいデータ分析ではなく、お客様の反応を「見える化」するだけで、お店の強みをさらに伸ばすヒントが次々と見つかります。定期的にサイトのチェックを行い、より愛されるお店づくりを目指しましょう。
+</p>
+
+</section>
+
+
 <h2 className="mb-5 text-[20px] md:text-[24px] font-bold text-gray-800 pb-3 border-b-[3px] border-blue-500 relative leading-snug after:content-[''] after:absolute after:bottom-[-3px] after:left-0 after:w-[60px] after:md:w-[50px] after:h-[3px] after:bg-blue-800 mt-10">
   【大阪】LINE連携に対応したホームページ作成のご依頼は、株式会社リクステップへ
 </h2>
