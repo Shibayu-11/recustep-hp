@@ -275,7 +275,7 @@ export default function RecustePage() {
         <div className="max-w-3xl mx-auto text-center">
           <div ref={ctaRef}>
             <div className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-blue-100 to-indigo-100 text-blue-800 rounded-full text-lg font-medium mb-8">
-              2025年春リリース予定
+              2026年2月下旬リリース予定
             </div>
 
             <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">

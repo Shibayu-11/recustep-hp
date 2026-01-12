@@ -46,6 +46,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     buildEntry("/services/app-development", 0.9, "weekly"),
     buildEntry("/services/artbloom", 0.7, "monthly"),
     buildEntry("/services/syokulab", 0.7, "monthly"),
+    buildEntry("/services/recuste", 0.7, "monthly"),
     buildEntry("/blog", 0.6, "weekly"),
     buildEntry("/columns", 0.6, "weekly"),
     ...columnPaths.map((path) => buildEntry(path, 0.6, "weekly")),

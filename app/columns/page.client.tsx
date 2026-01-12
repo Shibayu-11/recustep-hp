@@ -112,7 +112,7 @@ export default function columnsPage() {
         <div className="absolute inset-0 bg-gray-50" />
         <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8 pt-10 md:pt-12 lg:pt-14 pb-20">
           <header className="mt-1 md:mt-2 mb-8">
-            <h1 className="text-left text-4xl sm:text-5xl font-extrabold tracking-tight">COLUMN</h1>
+            <h1 className="text-left text-4xl sm:text-5xl font-extrabold tracking-tight">BLOG</h1>
   
           </header>
 
@@ -172,11 +172,10 @@ export default function columnsPage() {
 <div className="space-y-6">
 {[
 { icon: <Building2 className="h-6 w-6 text-primary" />, title: "会社名", content: "株式会社リクステップ" },
-{ icon: <MapPin className="h-6 w-6 text-primary" />, title: "所在地", content: "〒594-0013\n大阪府和泉市鶴山台1丁目12-27" },
+{ icon: <MapPin className="h-6 w-6 text-primary" />, title: "オフィス", content: "〒590-0957\n大阪府堺市堺区中之町西２-1-22　パルテ堺501号" },
 { icon: <Phone className="h-6 w-6 text-primary" />, title: "電話番号", content: "090-2382-1811" },
 { icon: <Mail className="h-6 w-6 text-primary" />, title: "メールアドレス", content: "info@recustep.com" },
-{ icon: <Clock className="h-6 w-6 text-primary" />, title: "営業時間", content: "平日 9:00-18:00" },
-{ icon: <Building2 className="h-6 w-6 text-primary" />, title: "オフィス", content: "〒530-0001\n大阪府大阪市北区梅田1-1-3 大阪駅前第3ビル29階1-1-1号室" },
+{ icon: <Clock className="h-6 w-6 text-primary" />, title: "営業時間", content: "平日 9:00-20:00" },
 ].map((item, i) => (
 <motion.div
 key={i}

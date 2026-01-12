@@ -65,11 +65,10 @@ export default function CompanyPage() {
             {[
               { icon: <Building2 className="h-6 w-6 text-primary" />, title: "会社名", content: "株式会社リクステップ" },
               { icon: <User className="h-6 w-6 text-primary" />, title: "代表取締役", content: "柴　悠介" },
-              { icon: <MapPin className="h-6 w-6 text-primary" />, title: "所在地", content: "〒594-0013\n大阪府和泉市鶴山台1丁目12-27" },
               { icon: <Phone className="h-6 w-6 text-primary" />, title: "電話番号", content: "090-2382-1811" },
               { icon: <Mail className="h-6 w-6 text-primary" />, title: "メールアドレス", content: "info@recustep.com" },
-              { icon: <Clock className="h-6 w-6 text-primary" />, title: "営業時間", content: "平日 9:00-18:00" },
-              { icon: <Building2 className="h-6 w-6 text-primary" />, title: "オフィス", content: "〒530-0001\n大阪府大阪市北区梅田1-1-3 大阪駅前第3ビル29階1-1-1号室" },
+              { icon: <Clock className="h-6 w-6 text-primary" />, title: "営業時間", content: "平日 9:00-20:00" },
+              { icon: <Building2 className="h-6 w-6 text-primary" />, title: "オフィス", content: "堺オフィス\n〒590-0957 大阪府堺市堺区中之町西2-1-22　パルテ堺501号" },
             ].map((item, i) => (
               <motion.div
                 key={i}
