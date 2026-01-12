@@ -163,6 +163,28 @@ webサイトが正常に表示されているかを24時間365日監視し、異
         </div>
 </div>
 </section>
+
+
+<h2 className="mb-5 text-[20px] md:text-[24px] font-bold text-gray-800 pb-3 border-b-[3px] border-blue-500 relative leading-snug after:content-[''] after:absolute after:bottom-[-3px] after:left-0 after:w-[60px] after:md:w-[50px] after:h-[3px] after:bg-blue-800 mt-10">
+  さらに納期を短縮！制作会社とのやり取りをスムーズにする準備
+</h2>
+<section className="u-mb30 c-block">
+<p className="mt-4 sm:mt-5 text-[14px] sm:text-[15px] md:text-base text-gray-700 leading-7 sm:leading-8">
+「1日も早く公開したい！」という「短納期」の希望を叶えるには、制作会社側の努力だけでなく、依頼側のちょっとした準備も大きな力になります。
+</p>
+<p className="mt-4 sm:mt-5 text-[14px] sm:text-[15px] md:text-base text-gray-700 leading-7 sm:leading-8">
+以下の3つを揃えておくだけで、制作がスムーズに進みます。
+</p>
+<ul className="mt-4">
+  <li><strong>・使いたい写真</strong>：外観、スタッフ、商品などの画像データ</li>
+  <li><strong>・伝えたい文章</strong>：「これだけは知ってほしい」という自社の強み</li>
+  <li><strong>・ロゴデータ</strong>：会社やお店のロゴ</li>
+</ul>
+<p className="mt-4 sm:mt-5 text-[14px] sm:text-[15px] md:text-base text-gray-700 leading-7 sm:leading-8">
+ホームページ制作会社にこれらを事前に渡しておくことで、やり取りの往復が減り、最短期間での納品に繋がります。用意したいサイトによっては、その他のデータが必要になる場合もあるので、相談時に詳細を確認しておきましょう。
+</p>
+</section>
+
 <h2 className="mb-5 text-[20px] md:text-[24px] font-bold text-gray-800 pb-3 border-b-[3px] border-blue-500 relative leading-snug after:content-[''] after:absolute after:bottom-[-3px] after:left-0 after:w-[60px] after:md:w-[50px] after:h-[3px] after:bg-blue-800 mt-10">
   運用まで任せられるweb制作会社を選ぶ基準
 </h2>

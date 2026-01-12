@@ -118,6 +118,34 @@ UI（ユーザーインターフェース）は、ユーザーが目にするデ
 
 </div>
 </section>
+
+
+<h2 className="mb-5 text-[20px] md:text-[24px] font-bold text-gray-800 pb-3 border-b-[3px] border-blue-500 relative leading-snug after:content-[''] after:absolute after:bottom-[-3px] after:left-0 after:w-[60px] after:md:w-[50px] after:h-[3px] after:bg-blue-800 mt-10">
+  大阪の制作事例をチェックする際に心がけたいこと
+</h2>
+<section className="u-mb30 c-block">
+<p className="mt-4 sm:mt-5 text-[14px] sm:text-[15px] md:text-base text-gray-700 leading-7 sm:leading-8">
+大阪でホームページ制作を検討する際、まず参考にしたいのが実際の制作事例です。多くのホームページ制作事例を確認することで、自社が目指すべきデザインの方向性や、集客に強い構成を具体的にイメージしやすくなります。
+</p>
+
+<p className="mt-4 sm:mt-5 text-[14px] sm:text-[15px] md:text-base text-gray-700 leading-7 sm:leading-8">
+事例を見る際は、単に「おしゃれだな」と感じるだけでなく、以下のポイントに注目してみましょう。
+</p>
+<ul className="mt-4">
+  <li><strong>・同業種の成功パターン</strong>：業界特有の「安心感」や「ワクワク感」が表現されているか</li>
+  <li><strong>・情報の見つけやすさ</strong>：初めて訪れた人が、迷わずスムーズに操作できるか</li>
+  <li><strong>・集客への工夫</strong>：問い合わせボタンや予約フォームが適切な位置にあるか</li>
+</ul>
+
+<p className="mt-4 sm:mt-5 text-[14px] sm:text-[15px] md:text-base text-gray-700 leading-7 sm:leading-8">
+自分たちが「いいな」と思える事例を見つけることは、納得のいくサイト作りの第一歩です。業種ごとの特性を活かしたデザインを取り入れ、ライバルに差をつける魅力的なホームページを目指しましょう。
+</p>
+
+</section>
+
+
+
+
 <h2 className="mb-5 text-[20px] md:text-[24px] font-bold text-gray-800 pb-3 border-b-[3px] border-blue-500 relative leading-snug after:content-[''] after:absolute after:bottom-[-3px] after:left-0 after:w-[60px] after:md:w-[50px] after:h-[3px] after:bg-blue-800 mt-10">
   【業種別】ホームページ制作の事例
 </h2>

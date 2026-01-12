@@ -150,6 +150,25 @@ draggable={false}
 
 </div>
 </section>
+
+<h2 className="mb-5 text-[20px] md:text-[24px] font-bold text-gray-800 pb-3 border-b-[3px] border-blue-500 relative leading-snug after:content-[''] after:absolute after:bottom-[-3px] after:left-0 after:w-[60px] after:md:w-[50px] after:h-[3px] after:bg-blue-800 mt-10">
+  理想のデザインを予算内で叶える！賢い「伝え方」のコツ
+</h2>
+<section className="u-mb30 c-block">
+<p className="mt-4 sm:mt-5 text-[14px] sm:text-[15px] md:text-base text-gray-700 leading-7 sm:leading-8">
+「かっこいいサイトにしたいけれど、予算が跳ね上がるのは困る」というのは、多くの方が抱える悩みです。実は、伝え方を工夫するだけで、コストを抑えつつ理想に近いデザインを実現できる場合があります。
+</p>
+<ul className="mt-4">
+  <li><strong>・優先順位を伝える</strong>：「ここはこだわりたい」「ここはシンプルでOK」とメリハリをつける</li>
+  <li><strong>・イメージを視覚的に</strong>：言葉だけでなく、好きな雰囲気の画像やサイトを見せる</li>
+</ul>
+<p className="mt-4 sm:mt-5 text-[14px] sm:text-[15px] md:text-base text-gray-700 leading-7 sm:leading-8">
+制作会社はプロですので、予算の範囲内で魅力を引き出す方法を一緒に考えてくれます。ホームページ制作を相談する際に、ぜひ「これだけは譲れないポイント」を1つ絞って伝えてみてください。
+</p>
+</section>
+
+
+
 <h2 className="mb-5 text-[20px] md:text-[24px] font-bold text-gray-800 pb-3 border-b-[3px] border-blue-500 relative leading-snug after:content-[''] after:absolute after:bottom-[-3px] after:left-0 after:w-[60px] after:md:w-[50px] after:h-[3px] after:bg-blue-800 mt-10">
   ホームページ制作の価格相場と費用例について
 </h2>

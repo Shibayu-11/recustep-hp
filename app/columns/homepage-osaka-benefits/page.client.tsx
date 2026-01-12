@@ -196,6 +196,31 @@ draggable={false}
 
 </div>
 </section>
+
+
+<h2 className="mb-5 text-[20px] md:text-[24px] font-bold text-gray-800 pb-3 border-b-[3px] border-blue-500 relative leading-snug after:content-[''] after:absolute after:bottom-[-3px] after:left-0 after:w-[60px] after:md:w-[50px] after:h-[3px] after:bg-blue-800 mt-10">
+後悔しない制作会社選び！チェックすべきポイント
+</h2>
+<section className="u-mb30 c-block">
+<p className="mt-4 sm:mt-5 text-[14px] sm:text-[15px] md:text-base text-gray-700 leading-7 sm:leading-8">
+大阪には多くの業者が存在するため、何を基準に選ぶべきか迷う方も多いでしょう。ホームページ制作を外注して成果を出すためには、ただ「安い」だけでなく、自社の要望に素早く応えてくれる「機動力」が重要です。
+</p>
+<p className="mt-4 sm:mt-5 text-[14px] sm:text-[15px] md:text-base text-gray-700 leading-7 sm:leading-8">
+比較検討する際は、以下の3つのポイントを意識してみてください。
+</p>
+<ul className="mt-4">
+  <li><strong>・費用の透明性</strong>：提示された金額に、どこまでの作業が含まれているか</li>
+  <li><strong>・制作実績</strong>：自分の業種に近い事例があり、集客の工夫が感じられるか</li>
+  <li><strong>・納期の速さ</strong>：ビジネスチャンスを逃さないよう、迅速に公開できる体制か</li>
+</ul>
+
+<p className="mt-4 sm:mt-5 text-[14px] sm:text-[15px] md:text-base text-gray-700 leading-7 sm:leading-8">
+特に「思い立ったらすぐ始めたい」というスピード感を重視する場合は、素早く対応できるパートナーを選ぶのが正解です。理想のサイトを形にするために、まずはこの3点に注目して相談してみましょう。
+</p>
+
+</section>
+
+
 <h2 className="mb-5 text-[20px] md:text-[24px] font-bold text-gray-800 pb-3 border-b-[3px] border-blue-500 relative leading-snug after:content-[''] after:absolute after:bottom-[-3px] after:left-0 after:w-[60px] after:md:w-[50px] after:h-[3px] after:bg-blue-800 mt-10">
   ホームページ作成を依頼する際に知っておきたいこと｜納期・SEO・保守サポート
 </h2>
