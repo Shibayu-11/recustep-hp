@@ -16,7 +16,7 @@ export default function Columns() {
     className="text-center mt-0"
 >
     <section id="columns"
-      className="relative pt-8 pb-8 overflow-hidden"
+      className="relative bg-white pt-8 pb-8 overflow-hidden"
     >
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <Card className="bg-background/50 backdrop-blur-sm border-0 shadow-lg">

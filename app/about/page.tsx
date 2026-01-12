@@ -9,14 +9,14 @@ export default function AboutPage() {
       <section className="w-full bg-white py-24">
         <div className="max-w-6xl mx-auto px-4 lg:px-8">
           <div className="grid items-start gap-12 md:grid-cols-2">
-            {/* 左：テキスト */}
+            {/* 左：VISION テキスト */}
             <div className="space-y-6">
-              <p className="text-xs tracking-[0.2em] text-slate-500">
-                VISION
+              <p className="text-[11px] font-semibold tracking-[0.18em] text-slate-400">
+                VISION — リクステップが見据える未来
               </p>
 
               {/* ★ ここを2行固定に変更 */}
-              <h2 className="text-[26px] md:text-[30px] lg:text-[32px] font-bold leading-snug text-slate-900">
+              <h2 className="text-[13px] md:text-[14px] font-semibold leading-relaxed text-slate-600">
                 <span className="block">
                   テクノロジー×実行力で、
                 </span>
@@ -25,7 +25,7 @@ export default function AboutPage() {
                 </span>
               </h2>
 
-              <div className="space-y-4 text-sm md:text-[15px] leading-relaxed text-slate-700">
+              <div className="space-y-4 text-[13px] md:text-[14px] leading-relaxed text-slate-600">
                 <p>
                   リクステップは、
                   <span className="font-semibold">
@@ -55,29 +55,8 @@ export default function AboutPage() {
                   ことで、日本に再び「成果の伸びる構造」を取り戻します。
                 </p>
 
-                <div className="pt-4 border-t border-slate-200 space-y-3">
-                  <p className="text-xs font-semibold tracking-[0.15em] text-slate-500">
-                    VALUE — リクステップが提供する価値
-                  </p>
-
-                  <p className="font-semibold">
-                    私たちが提供するのは制作物でも代行でもなく、
-                    「成果が出る状態を生む“構造そのもの”」です。
-                  </p>
-
-                  <ul className="mt-2 space-y-1.5 text-xs md:text-[13px] text-slate-700">
-                    <li>・HP/LP制作で企業の魅力を正しく言語化し、伝わる形にする</li>
-                    <li>・採用構造の再設計で、組織成長と個人成長を一致させる</li>
-                    <li>・業務と判断を自動化し、生産性を劇的に引き上げる</li>
-                    <li>・AIとデザインで、中小企業にも戦える「構造」を提供する</li>
-                  </ul>
-                </div>
-
                 <div>
-                  <p className="text-xs font-semibold tracking-[0.15em] text-slate-500">
-                    OUR VISION
-                  </p>
-                  <p>
+                  <p className="text-[13px] md:text-[14px] text-slate-600">
                     日本は本来もっと成長できる国です。その鍵は
                     <span className="font-semibold">「根性」ではなく「構造」</span>
                     にあります。リクステップは、
@@ -90,9 +69,8 @@ export default function AboutPage() {
               </div>
             </div>
 
-            {/* 右：画像2枚（縦並び） */}
-            <div className="space-y-8">
-              {/* 1枚目 */}
+            {/* 右：VISION 画像 */}
+            <div>
               <div
                 className="relative w-full aspect-[3/2] overflow-hidden"
                 style={{
@@ -108,8 +86,13 @@ export default function AboutPage() {
                   priority
                 />
               </div>
+            </div>
+          </div>
 
-              {/* 2枚目 */}
+          {/* VALUE セクション（画像左・テキスト右） */}
+          <div className="mt-12 md:mt-16 grid items-start gap-12 md:grid-cols-2">
+            {/* 左：VALUE 画像 */}
+            <div>
               <div
                 className="relative w-full aspect-[3/2] overflow-hidden"
                 style={{
@@ -119,12 +102,36 @@ export default function AboutPage() {
               >
                 <Image
                   src="/images/vision-sub.jpg"
-                  alt="Vision Image 2"
+                  alt="Value Image"
                   fill
                   className="object-cover"
                   priority
                 />
               </div>
+            </div>
+
+            {/* 右：VALUE テキスト */}
+            <div className="space-y-3 text-[13px] md:text-[14px] leading-relaxed text-slate-600">
+              <p className="text-[11px] font-semibold tracking-[0.18em] text-slate-400">
+                VALUE — リクステップが提供する価値
+              </p>
+
+              <p className="font-semibold text-[13px] md:text-[14px]">
+                私たちが提供するのは制作物でも代行でもなく、
+                「成果が出る状態を生む“構造そのもの”」です。
+              </p>
+
+              <ul className="mt-2 space-y-1.5 text-[13px] md:text-[14px] text-slate-600">
+                <li>・HP/LP制作で企業の魅力を正しく言語化し、伝わる形にする</li>
+                <li>・採用構造の再設計で、組織成長と個人成長を一致させる</li>
+                <li>・業務と判断を自動化し、生産性を劇的に引き上げる</li>
+                <li>・AIとデザインで、中小企業にも戦える「構造」を提供する</li>
+              </ul>
+
+              <p className="text-[13px] md:text-[14px] text-slate-600">
+                これらは単発の施策ではなく、現場に根づく「仕組み」として設計します。
+                経営と現場の両視点から再現性を高め、成果が続く状態をつくることが私たちの価値です。
+              </p>
             </div>
           </div>
         </div>
@@ -147,10 +154,10 @@ export default function AboutPage() {
         />
 
         <div className="relative text-center mb-12 md:mb-20 px-6">
-          <p className="text-[13px] tracking-[0.2em] font-semibold text-[#D46A3A] mb-3">
+          <p className="text-[11px] tracking-[0.18em] font-semibold text-[#D46A3A] mb-3">
             CEO MESSAGE
           </p>
-          <h2 className="text-3xl md:text-5xl font-bold text-slate-800 leading-tight">
+          <h2 className="text-xl md:text-2xl font-bold text-slate-800 leading-tight">
             テクノロジーと構造で社会を前へ
           </h2>
         </div>
@@ -168,7 +175,7 @@ export default function AboutPage() {
             </div>
           </div>
 
-          <div className="relative text-slate-700 leading-relaxed text-[15px] md:text-base space-y-5">
+          <div className="relative text-slate-600 leading-relaxed text-[13px] md:text-[14px] space-y-5">
             <p>
               リクステップは、テクノロジーと人間力を軸に、
               <span className="font-semibold">

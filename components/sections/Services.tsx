@@ -71,15 +71,6 @@ const services: Svc[] = [
     illustration: "/images/services/system-development.png",
   },
   {
-    id: "recuste",
-    titleEn: "RECUSTE",
-    titleJp: "就活生向けアプリ\n「リクステ」",
-    description:
-      "履歴書・ES作成、AI添削、資格学習、企業スカウト機能を搭載。専任CAが伴走し、内定獲得までを一貫支援します。",
-    href: "/services/recuste",
-    illustration: "/images/services/recuste-service.png",
-  },
-  {
     id: "artbloom",
     titleEn: "ARTBLOOM",
     titleJp: "アートのサブスク",
@@ -87,6 +78,15 @@ const services: Svc[] = [
       "空間やブランドに合わせた作品を定期交換で提供。アーティストと企業をつなぎ価値を生み出します。",
     href: "/services/artbloom",
     illustration: "/images/services/artbloom-service.png",
+  },
+  {
+    id: "recuste",
+    titleEn: "RECUSTE",
+    titleJp: "就活生向けアプリ\n「リクステ」",
+    description:
+      "履歴書・ES作成、AI添削、資格学習、企業スカウト機能を搭載。専任CAが伴走し、内定獲得までを一貫支援します。",
+    href: "/services/recuste",
+    illustration: "/images/services/recuste-service.png",
   },
 ];
 
@@ -197,8 +197,6 @@ const services: Svc[] = [
    PC 用カード（既存のまま・変更しない）
    ========================================================= */
 function DesktopServiceCard({ s, priority = false }: { s: Svc; priority?: boolean }) {
-  const fixedFontSize = 24;
-
   return (
     <motion.article
       initial={{ opacity: 0, y: 18 }}
@@ -231,10 +229,7 @@ function DesktopServiceCard({ s, priority = false }: { s: Svc; priority?: boolea
             <div className="px-6 sm:px-7 md:px-8 w-full">
               <div className="-ml-3 sm:-ml-4 md:-ml-5 lg:-ml-6">
                 <p className="text-[13px] md:text-sm text-gray-500 font-medium">{s.titleJp}</p>
-                <h3
-                  style={{ fontSize: fixedFontSize }}
-                  className="mt-1 md:mt-2 font-extrabold tracking-normal leading-[1.12] whitespace-pre-line break-normal text-black"
-                >
+                <h3 className="mt-1 md:mt-2 font-extrabold tracking-normal leading-[1.12] whitespace-pre-line break-normal text-black text-[24px]">
                   {s.titleEn}
                 </h3>
               </div>
@@ -269,8 +264,8 @@ const mobileOrder: string[] = [
   "app-development",  // アプリ開発
   "recruitment",      // 採用支援
   "system",           // システム開発
-  "recuste",          // リクステ
   "artbloom",         // アート
+  "recuste",          // リクステ
 ];
 
 export default function Service() {
@@ -287,25 +282,25 @@ export default function Service() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* 見出し・リード文 */}
         <div className="mb-4 md:mb-6 space-y-6">
-          <p className="text-xs tracking-[0.2em] text-slate-500">
+          <p className="text-[10px] tracking-[0.18em] text-slate-400">
             SERVICE
           </p>
 
           <div>
-            <h2 className="text-[26px] md:text-[30px] lg:text-[32px] font-bold leading-snug text-slate-900">
+            <h2 className="text-[22px] md:text-[24px] lg:text-[26px] font-semibold leading-snug text-slate-900">
               デザインとテクノロジーを融合し、<br />
               貴社の「本質的なビジネス成長」を<br className="md:hidden" />
               牽引するワンストップ・パートナー
             </h2>
           </div>
 
-          <p className="text-sm md:text-[15px] leading-relaxed text-slate-700">
+          <p className="text-[13px] md:text-[14px] leading-relaxed text-slate-600">
             採用、生産性、業務設計、教育、ブランド。<br />
             分野は違っても、向き合う本質は一つ。<br />
             成長が続く仕組みを設計すること。
           </p>
 
-          <p className="text-sm md:text-[15px] leading-relaxed text-slate-700">
+          <p className="text-[13px] md:text-[14px] leading-relaxed text-slate-600">
             私たちは、答えを外から与える会社ではありません。<br />
             企業の中に入り、課題を言語化し、<br />
             再現性のある成長構造として実装します。

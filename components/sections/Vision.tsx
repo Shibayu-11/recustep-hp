@@ -15,7 +15,7 @@ export default function Vision() {
             </p>
 
             <div>
-              <h2 className="text-[26px] md:text-[30px] lg:text-[32px] font-bold leading-snug text-slate-900">
+              <h2 className="text-[20px] md:text-[22px] lg:text-[24px] font-semibold leading-snug text-slate-900">
                 テクノロジー×実行力で、<br />
                 <span className="inline-block whitespace-normal md:whitespace-nowrap">
                   日本の成長をもう一度、加速させる。

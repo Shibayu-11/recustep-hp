@@ -74,10 +74,9 @@ export default function TermsPage() {
                       <div className="flex items-start gap-2">
                         <MapPin className="h-4 w-4 text-gray-400 mt-1" />
                         <div>
-                          <h3 className="font-semibold text-gray-900 mb-2">所在地</h3>
+                          <h3 className="font-semibold text-gray-900 mb-2">オフィス</h3>
                           <p className="text-gray-600">
-                            大阪府和泉市<br />
-                            （詳細住所はお問い合わせ時にお知らせいたします）
+                            〒590-0957 大阪府堺市堺区中之町西2-1-22　パルテ堺501号
                           </p>
                         </div>
                       </div>

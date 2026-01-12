@@ -112,8 +112,16 @@ export default function columnsPage() {
         <div className="absolute inset-0 bg-gray-50" />
         <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8 pt-10 md:pt-12 lg:pt-14 pb-20">
           <header className="mt-1 md:mt-2 mb-8">
-            <h1 className="text-left text-4xl sm:text-5xl font-extrabold tracking-tight">BLOG</h1>
-  
+            <h1 className="text-left text-[11px] tracking-[0.18em] text-slate-400">
+              BLOG
+            </h1>
+            <p className="mt-4 text-[13px] md:text-[14px] leading-7 text-gray-600">
+              制作・運用の現場で得た知見や、成果につながる施策をまとめています。
+              課題の整理から改善の打ち手まで、実務で使える視点をコンパクトに共有します。
+              デザイン、導線、コンテンツ、SEOなど幅広いテーマを扱い、目的に合わせたヒントを提供します。
+              はじめての担当者にも伝わる言葉で、要点を整理した読みやすい構成を意識しています。
+              日々の運用にすぐ使える内容を中心に、継続的に更新しています。
+            </p>
           </header>
 
           <section className="mt-6 md:mt-10">

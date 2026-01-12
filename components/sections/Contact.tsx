@@ -7,9 +7,7 @@ import Link from "next/link";
 
 export default function Contact() {
   return (
-    <section id="contact" className="relative py-24 overflow-hidden">
-      {/* Simple light gray background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-gray-50 to-blue-50/30" />
+    <section id="contact" className="relative bg-white py-24 overflow-hidden">
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="max-w-4xl mx-auto text-center">

@@ -21,10 +21,10 @@ export default function CEOMessage() {
       />
 
       <div className="relative text-center mb-12 md:mb-20 px-6">
-        <p className="text-[13px] tracking-[0.2em] font-semibold text-[#D46A3A] mb-3">
+        <p className="text-[11px] tracking-[0.18em] font-semibold text-[#D46A3A] mb-3">
           CEO MESSAGE
         </p>
-        <h2 className="text-3xl md:text-5xl font-bold text-slate-800 leading-tight">
+        <h2 className="text-xl md:text-2xl font-bold text-slate-800 leading-tight">
           テクノロジーと構造で社会を前へ
         </h2>
       </div>
@@ -42,7 +42,7 @@ export default function CEOMessage() {
           </div>
         </div>
 
-        <div className="relative text-slate-700 leading-relaxed text-[15px] md:text-base space-y-5">
+        <div className="relative text-slate-600 leading-relaxed text-[13px] md:text-[14px] space-y-5">
           <p>
             リクステップは、テクノロジーと人間力を軸に、
             <span className="font-semibold">

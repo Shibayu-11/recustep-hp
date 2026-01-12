@@ -54,10 +54,10 @@ export default function FixedBottomFooter() {
               </li>
               <li>
                 <Link 
-                  href="/services/syokulab" 
+                  href="/services/recuste" 
                   className="text-gray-300 hover:text-white transition-colors text-sm"
                 >
-                  飲食店支援アプリ「食ラボ」
+                  就活生向けアプリ「リクステ」
                 </Link>
               </li>
             </ul>
